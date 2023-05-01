@@ -88,8 +88,8 @@ export class StudentApiService {
    * @param {Student} student - The updated student information.
    * @return {Observable<Student>} An observable of the student with the updated information.
    */
-  public updateStudent(id: number, student: Student): Observable<CustomResponse> {
-    return this.http.put<CustomResponse>(`${this.url}/updatedStudent/${id}`, student);
+  public updateStudent(id: number, student: Student): Observable<any> {
+    return this.http.put<any>(`${this.url}/updatedStudent/${id}`, student);
   }
 
   /**
@@ -98,11 +98,7 @@ export class StudentApiService {
    * @return {Observable<Student>} An observable of the added student.
    */
   public addStudent(student: Student): Observable<CustomResponse> {
-    console.log(student);
- 
-    return this.http.post<CustomResponse>(`${this.url}/addNewStudent`, student, {
-      'responseType': 'json'
-    });
+    return this.http.post<CustomResponse>(`${this.url}/addNewStudent`, student);
   }
 
 }

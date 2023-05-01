@@ -14,7 +14,6 @@ import com.studentsystem.customResponse.CustomResponse;
 import com.studentsystem.customqueryresult.StudentPaymentsInfo;
 import com.studentsystem.service.PaymentService;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("student-management-api/v1/")
 public class PaymentController {

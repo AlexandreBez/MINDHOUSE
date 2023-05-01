@@ -14,7 +14,6 @@ import com.studentsystem.customResponse.CustomResponse;
 import com.studentsystem.customqueryresult.StudentGradesInfo;
 import com.studentsystem.service.GradeService;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("student-management-api/v1/")
 public class GradeController {

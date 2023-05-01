@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.studentsystem.model.entity.Course;
 import com.studentsystem.service.CourseService;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("student-management-api/v1/")
 public class CourseController {

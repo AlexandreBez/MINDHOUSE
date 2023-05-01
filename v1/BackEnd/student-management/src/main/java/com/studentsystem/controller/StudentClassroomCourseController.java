@@ -14,7 +14,6 @@ import com.studentsystem.customResponse.CustomResponse;
 import com.studentsystem.customqueryresult.StudentCourseInfo;
 import com.studentsystem.service.StudentClassroomCourseService;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("student-management-api/v1/")
 public class StudentClassroomCourseController {
