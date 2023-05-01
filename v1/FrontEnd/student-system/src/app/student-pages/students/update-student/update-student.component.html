@@ -1,0 +1,259 @@
+<!-- Background animation -->
+<div class="bubbles">
+  <span style="--i:11"></span>
+  <span style="--i:12"></span>
+  <span style="--i:24"></span>
+  <span style="--i:10"></span>
+  <span style="--i:14"></span>
+  <span style="--i:17"></span>
+  <span style="--i:23"></span>
+  <span style="--i:18"></span>
+  <span style="--i:16"></span>
+  <span style="--i:19"></span>
+  <span style="--i:20"></span>
+  <span style="--i:22"></span>
+  <span style="--i:19"></span>
+  <span style="--i:25"></span>
+  <span style="--i:18"></span>
+  <span style="--i:21"></span>
+  <span style="--i:19"></span>
+  <span style="--i:15"></span>
+  <span style="--i:13"></span>
+  <span style="--i:28"></span>
+  <span style="--i:26"></span>
+  <span style="--i:17"></span>
+  <span style="--i:13"></span>
+  <span style="--i:30"></span>
+  <span style="--i:14"></span>
+  <span style="--i:26"></span>
+  <span style="--i:10"></span>
+  <span style="--i:13"></span>
+  <span style="--i:27"></span>
+  <span style="--i:30"></span>
+  <span style="--i:13"></span>
+  <span style="--i:16"></span>
+  <span style="--i:23"></span>
+  <span style="--i:18"></span>
+  <span style="--i:20"></span>
+</div>
+
+<div class="container mb-5 table-container">
+  <div class="d-flex flex-column mt-5 align-items-center">
+    <div class="container">
+
+      <br>
+
+      <h3 class="custom-text">Updated Student</h3>
+
+      <hr class="custom-text">
+
+      <div *ngIf="errorMessage !== null" class="alert alert-danger" role="alert">
+        <i class="bi bi-exclamation-diamond"></i>
+        {{ errorMessage }}
+      </div>
+
+      <div *ngIf="successMessage !== null" class="alert alert-success" role="alert">
+        <i class="bi bi-check2-circle"></i>
+        {{ successMessage }}
+      </div>
+
+      <app-spinner *ngIf="isLoading" style="margin-left: 45%;"></app-spinner>
+
+      <form *ngIf="!isLoading" (ngSubmit)="onUpdatedStudent()" #updateForm="ngForm">
+
+        <div class="row custom-text">
+          
+          <div class="form-floating mb-3 col-4">
+            <input type="text" maxlength="100" class="form-control" id="name" placeholder="jhon doe" name="name"
+              #name="ngModel" [(ngModel)]="_name" required />
+            <label for="name">
+              <i class="bi bi-person-badge"></i>
+              Name*
+            </label>
+
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="name.errors?.['required']">Please enter with valid data</span>
+            </div>
+          </div>
+
+          <div class="form-floating mb-3 col-3">
+            <input type="text" maxlength="15" class="form-control" id="document" placeholder="document" [ngModel]="_document"
+              #document="ngModel" name="document" required />
+            <label for="document">
+              <i class="bi bi-person-vcard-fill"></i>
+              Document*
+            </label>
+
+            <div *ngIf="document.invalid && (document.dirty || document.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="document.errors?.['required']">Please enter with valid data</span>
+            </div>          
+          </div>
+
+          <div class="form-floating mb-3 col-2">
+            <input type="number" maxlength="2" max="99" min="0" class="form-control" id="age" placeholder="age" [(ngModel)]="_age" #age="ngModel"
+              name="age" required />
+            <label for="age">
+              <i class="bi bi-hourglass-split"></i>
+              Age*
+            </label>
+
+            <div *ngIf="age.invalid && (age.dirty || age.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="age.errors?.['required']">Please enter with valid data</span>
+              <span class="help-block" style="color: red" *ngIf="age.errors?.['max']">Field should have only 2 caracters</span>
+            </div>          
+          </div>
+
+          <div class="form-floating mb-3 col-3">
+            <input type="date" id="birthdate" class="form-control" placeholder="01/01/2000" #birthdate="ngModel" [(ngModel)]="_birthdate"
+              name="birthdate" required />
+            <label for="birthdate">
+              <i class="bi bi-calendar-range"></i>
+              Birthdate*
+            </label>
+
+            <div *ngIf="birthdate.invalid && (birthdate.dirty || birthdate.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="birthdate.errors?.['required']">Please enter with valid data</span>
+            </div>            
+          </div>
+
+        </div>
+
+        <div class="row custom-text">
+
+          <div class="form-floating mb-3 col-2">
+            <input type="text" maxlength="30" class="form-control" id="country" placeholder="country"
+              [(ngModel)]="_country" #country="ngModel" name="country" required />
+            <label for="country">
+              <i class="bi bi-flag"></i>
+              Country*
+            </label>
+            <div *ngIf="country.invalid && (country.dirty || country.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="country.errors?.['required']">Please enter with valid data</span>
+            </div>  
+          </div>
+
+          <div class="form-floating mb-3 col-2">
+            <input type="text" maxlength="20" class="form-control" id="state" placeholder="state" [(ngModel)]="_state" #state="ngModel"
+              name="state" required />
+            <label class="form-label" for="state">
+              <i class="bi bi-map"></i>
+              State*
+            </label>
+
+            <div *ngIf="state.invalid && (state.dirty || state.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="state.errors?.['required']">Please enter with valid data</span>
+            </div>          
+          </div>
+
+          <div class="form-floating mb-3 col-3">
+            <input type="text" maxlength="50" class="form-control" id="city" placeholder="city" [(ngModel)]="_city" #city="ngModel"
+              name="city" required />
+            <label for="city">
+              <i class="bi bi-geo-alt"></i>
+              City*
+            </label>
+            <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="city.errors?.['required']">Please enter with valid data</span>
+            </div> 
+          </div>
+
+          <div class="form-floating mb-3 col-3">
+            <input type="text" maxlength="100" class="form-control" id="adress" placeholder="adress" [(ngModel)]="_adress"
+              #adress="ngModel" name="adress" required />
+            <label for="adress">
+              <i class="bi bi-mailbox"></i>
+              Adress*
+            </label>
+            <div *ngIf="adress.invalid && (adress.dirty || adress.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="adress.errors?.['required']">Please enter with valid data</span>
+            </div>           
+          </div>
+
+          <div class="form-floating mb-3 col-2">
+            <input type="text" maxlength="50" class="form-control" id="zipcode" placeholder="zipcode" [(ngModel)]="_zipcode" #zipcode="ngModel"
+              name="zipcode" required />
+            <label for="zipcode">
+              <i class="bi bi-signpost-split"></i>
+              Zipcode*
+            </label>
+            <div *ngIf="zipcode.invalid && (zipcode.dirty || zipcode.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="zipcode.errors?.['required']">Please enter with valid data</span>
+            </div> 
+          </div>
+
+        </div>
+
+        <div class="row custom-text">
+
+          <div class="form-floating mb-3 col">
+            <input type="email" maxlength="50" class="form-control" id="email" placeholder="email" [(ngModel)]="_email"
+              #email="ngModel" name="email" email required/>
+            <label for="email">
+              <i class="bi bi-envelope-at"></i>
+              Email
+            </label>
+
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="email.errors?.['required']">Please enter with valid data</span>
+              <span class="help-block" style="color: red" *ngIf="email.errors?.['email']">Please enter with valid email</span>
+            </div>            
+          </div>
+
+          <div class="form-floating mb-3 col">
+            <input type="tel" maxlength="25" class="form-control" id="phone" placeholder="phone" [(ngModel)]="_phone"
+              #phone="ngModel" name="phone" required/>
+            <label for="phone">
+              <i class="bi bi-phone"></i>
+              Phone
+            </label>
+            <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="phone.errors?.['required']">Please enter with valid data</span>
+            </div> 
+          </div>
+
+          <div class="form-floating mb-3 col">
+            <input type="tel" maxlength="25" class="form-control" id="phone_2" placeholder="phone_2" [(ngModel)]="_phone_2"
+              #phone_2="ngModel" name="phone_2" />
+            <label for="phone_2">
+              <i class="bi bi-phone"></i>
+              Phone 2
+            </label>
+          </div>
+
+          <div class="form-floating mb-3 col-3">
+            <input type="date" id="registrationDate" class="form-control" placeholder="01/01/0101"
+              #registrationDate="ngModel" [(ngModel)]="_registrationDate" name="registrationDate" disabled/>
+            <label for="registrationDate">
+              <i class="bi bi-calendar-range"></i>
+              Registration Date*
+            </label>
+            <div *ngIf="registrationDate.invalid && (registrationDate.dirty || registrationDate.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="registrationDate.errors?.['required']">Please enter with valid data</span>
+            </div> 
+          </div>
+
+        </div>
+
+        <hr class="custom-text">
+
+        <div class="text-center">
+
+          <button type="submit" [disabled]="!updateForm.valid" class="btn btn-outline-primary me-2">
+            <i class="bi bi-person-fill-add"></i>
+            Updated Student
+          </button>
+
+          <button class="btn btn-outline-danger ms-2" (click)="onCancel()">
+            <i class="bi bi-x"></i>
+            Cancel
+          </button>
+
+        </div>
+
+      </form>
+
+      <br>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+package com.gatewayserver.config;
+
+import org.springframework.cloud.gateway.filter.factory.RequestRateLimiterGatewayFilterFactory;
+import org.springframework.cloud.gateway.route.RouteLocator;
+import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.gatewayserver.cors.CorsFilter;
+
+@Configuration
+public class GatewayConfig {
+
+    @Bean
+    CorsFilter corsFilter() {
+        return new CorsFilter();
+    }
+    
+    @Bean
+    RouteLocator myRoutes(RouteLocatorBuilder builder) {
+        return builder.routes()
+            .route("my_route", r -> r.path("/my_path")
+                .filters(f -> f.filter(corsFilter())
+                        .addResponseHeader("X-TestHeader", "test header")) // Use the CorsFilter bean and add a custom response header
+                .uri("http://my-service.com"))
+            .build();
+    }
+
+    
+}

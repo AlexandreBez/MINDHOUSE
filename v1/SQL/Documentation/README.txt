@@ -1,0 +1,1 @@
+java -jar schemaSpy_5.0.0.jar -t mysql -db STUDENT_SYSTEM -host localhost -port 3306 -u root -p root -dp C:\Users\Lucas\Desktop\Repositorys\Projetos\StudentManagementSystem\v1\SQL\Documentation\mysql-connector-java-8.0.11.jar -o C:\Users\Lucas\Desktop\Repositorys\Projetos\StudentManagementSystem\v1\SQL\Documentation\GeneratedDocument

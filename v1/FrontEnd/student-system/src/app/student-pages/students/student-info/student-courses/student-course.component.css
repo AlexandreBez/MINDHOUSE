@@ -1,0 +1,65 @@
+.custom-text{
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: white;
+}
+
+.custom-text::placeholder{
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: white;
+}
+
+.form-control{
+    background-color: #47464e;
+}
+
+.form-control:focus{
+    box-shadow: 
+    0 0 0 5px #007bff44,
+    0 0 5px #007bff,
+    0 0 100px #007bff;
+}
+
+.btn-outline-success:hover{
+    box-shadow: 
+    0 0 0 5px #28a74544,
+    0 0 10px #28a745,
+    0 0 100px #28a745;
+}
+
+.btn-outline-primary:hover{
+    box-shadow: 
+    0 0 0 5px #007bff44,
+    0 0 10px #007bff,
+    0 0 100px #007bff;
+}
+
+.btn-outline-danger:hover{
+    box-shadow: 
+    0 0 0 5px #dc354544,
+    0 0 10px #dc3545,
+    0 0 100px #dc3545;
+}
+
+.btn-outline-warning:hover{
+    box-shadow: 
+    0 0 0 5px #ffc10744,
+    0 0 10px #ffc107,
+    0 0 100px #ffc107;
+}
+
+.btn-outline-secondary:hover{
+    box-shadow: 
+    0 0 0 5px #6c757d44,
+    0 0 10px #6c757d,
+    0 0 100px #6c757d;
+}
+
+.table-hover-helper{
+    transition: 0.5s;
+}
+
+.table-hover-helper:hover{
+    color: #1e9bff;
+}

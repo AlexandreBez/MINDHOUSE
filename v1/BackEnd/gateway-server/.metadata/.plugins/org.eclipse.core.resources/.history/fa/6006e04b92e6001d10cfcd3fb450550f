@@ -1,0 +1,5 @@
+package com.gatewayserver.cors;
+
+public class CorsFilter {
+
+}

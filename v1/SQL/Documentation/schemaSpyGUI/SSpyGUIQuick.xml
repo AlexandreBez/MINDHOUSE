@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Saved parameters for SchemaSpyGUI. Load it with: Quick Load Parameters</comment>
+<entry key="dbTypeCBox">mysql</entry>
+<entry key="noRowsBox">false</entry>
+<entry key="cssPathTField"></entry>
+<entry key="propertiesTField"></entry>
+<entry key="fontNameTField"></entry>
+<entry key="charsetComBox"></entry>
+<entry key="colExRelCBox">false</entry>
+<entry key="railsCBox">false</entry>
+<entry key="pathOutputTField">C:\Users\Lucas\Desktop\Repositorys\Projetos\StudentManagementSystem\v1\SQL\Documentation\GeneratedDocument</entry>
+<entry key="propertiePathTField"></entry>
+<entry key="tNameRExTField"></entry>
+<entry key="aHTMLCBox">false</entry>
+<entry key="sSpyPathTField"></entry>
+<entry key="dbDriverPTField"></entry>
+<entry key="cNameRExTField"></entry>
+<entry key="noAdsCBox">false</entry>
+<entry key="tNameExRExTField"></entry>
+<entry key="showFinishCBox">true</entry>
+<entry key="dbPortTField"></entry>
+<entry key="allSchemasCBox">false</entry>
+<entry key="savePassCBox">false</entry>
+<entry key="dbHostTField"></entry>
+<entry key="dbPwdField"></entry>
+<entry key="metaFilePathTField"></entry>
+<entry key="lowQuCBox">false</entry>
+<entry key="noLogoCBox">false</entry>
+<entry key="schemaTField"></entry>
+<entry key="dbNameTField"></entry>
+<entry key="dincFKCBox">false</entry>
+<entry key="fontSizeTField"></entry>
+<entry key="noHTMLCBox">false</entry>
+<entry key="descTArea"></entry>
+<entry key="dbUserTField"></entry>
+<entry key="highQuCBox">true</entry>
+</properties>

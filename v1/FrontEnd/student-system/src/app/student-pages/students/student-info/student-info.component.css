@@ -1,0 +1,71 @@
+.bubbles{
+    position: relative;
+    display: flex;
+    z-index: -100;
+}
+
+.bubbles span{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: #4fc3dc;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 0 10px #4fc3dc44,
+        0 0 50px #4fc3dc,
+        0 0 100px #4fc3dc
+    ;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+
+.bubbles span:nth-child(even){
+    background-color: #3b2dff;
+    box-shadow: 
+        0 0 0 10px #3b2dff44,
+        0 0 50px #3b2dff,
+        0 0 100px #3b2dff
+    ;
+}
+
+@keyframes animate{
+    0%{
+        transform: translateY(70vh) scale(0);
+    }
+    100%{
+        transform: translateY(-5vh) scale(1);
+    }
+}
+
+.table-container{
+    background-color: #4444446e;
+}
+
+.custom-text{
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: white;
+}
+
+.animated-btn:hover{
+    letter-spacing: 0.15em;
+    background-color: #1e9bff;
+    color: #1e9bff;
+    transition: 0.5s;
+    box-shadow: 0 0 35px #1e9bff;
+}
+
+.animated-btn{
+    transition: 0.5s;
+    color: white;
+    text-transform: uppercase;
+}
+
+.btn-dark:hover{
+    box-shadow: 
+    0 0 0 10px #343a4044,
+    0 0 50px #343a40,
+    0 0 100px #343a40
+    ;
+}

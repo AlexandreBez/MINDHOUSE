@@ -1,0 +1,134 @@
+<!-- Delet Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-warning">
+        <h1 class="modal-title fs-5 custom-text" id="exampleModalLabel">Delete Course: {{ courseNameForDelete }}</h1>
+          <button type="button" (click)="StudentClassroomCourseId = null" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-circle text-white"></i>
+          </button>
+      </div>
+      <div class="modal-body custom-text bg-dark">
+        You really want to delete the course register?
+        <br>
+        Action can't be undone after student confirmation
+      </div>
+      <div class="modal-footer custom-text bg-dark">
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"
+        (click)="deleteStudentCourseById()">
+          <i class="bi bi-journal-x"></i>
+          Delete
+        </button>
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" (click)=" StudentClassroomCourseId = null">
+          <i class="bi bi-x-circle"></i>
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Info Modal -->
+<div class="modal fade" id="modal_info" tabindex="-1" aria-labelledby="exampleModalLabe2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark">
+      <app-spinner *ngIf="isloadingInfoModal" style="margin-left: 40%;margin-top: 10%;"></app-spinner>
+      <div *ngIf="!isloadingInfoModal" class="modal-header bg-dark custom-text">
+        <h1 class="modal-title fs-5" id="exampleModalLabe2">Teacher: {{ _teacher_name }}</h1>
+        <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="Close">
+          <i class="bi bi-x-circle text-white"></i>
+        </button>
+      </div>
+      <div class="alert alert-danger" *ngIf="loaderrorMessage !== null" role="alert">
+        <i class="bi bi-exclamation-diamond"></i>
+        {{loaderrorMessage}}
+      </div>
+      <div class="alert alert-success" *ngIf="loadSuccessMessage !== null" role="alert">
+        <i class="bi bi-exclamation-diamond"></i>
+        {{loadSuccessMessage}}
+      </div>
+      <div class="modal-body" *ngIf="!isloadingInfoModal">
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action bg-dark custom-text">Course: {{ _course_name }}</a>
+          <a class="list-group-item list-group-item-action bg-dark custom-text">Field: {{ _course_field }}</a>
+          <a class="list-group-item list-group-item-action bg-dark custom-text">Price: {{ _course_price | currency }}</a>
+          <a class="list-group-item list-group-item-action bg-dark custom-text">Modality: {{ _course_modality }}</a>
+          <a class="list-group-item list-group-item-action bg-dark custom-text">Period: {{ _classroom_period }}</a>
+          <a class="list-group-item list-group-item-action bg-dark custom-text">Start time: {{ _classroom_start_time }}</a>
+          <a class="list-group-item list-group-item-action bg-dark custom-text">End Time: {{ _classroom_end_time }}</a>
+          <a class="list-group-item list-group-item-action bg-dark custom-text">Start Date: {{ _classroom_start_date  | date:'MM/dd/yyyy' }}</a>
+          <a class="list-group-item list-group-item-action bg-dark custom-text">End Date: {{ _classroom_end_date  | date:'MM/dd/yyyy' }}</a>
+        </div>
+      </div>
+      <div class="modal-footer bg-dark" *ngIf="!isloadingInfoModal">
+        <button type="button" class="btn btn-outline-warning" (click)="sendEmailWithClassroomInfo()">
+          <i class="bi bi-arrow-left-short"></i>
+          <i class="bi bi-envelope-at"></i>
+          Send Course Info by Email
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-spinner *ngIf="isLoadingInformations" style="margin-left: 45%;"></app-spinner>
+<div class="container text-center" *ngIf="!isLoadingInformations">
+
+  <div class="alert alert-danger" id="errorMessage" *ngIf="errorMessage !== null" role="alert">
+    <i class="bi bi-exclamation-diamond"></i>
+    {{errorMessage}}
+  </div>
+
+  <div class="alert alert-success" id="successMessage" *ngIf="successMessage !== null" role="alert">
+    <i class="bi bi-exclamation-diamond"></i>
+    {{successMessage}}
+  </div>
+
+  <div class="input-group mb-2" style="width: 40%;margin-left: 30%;">
+    <input type="text" class="form-control custom-text" [(ngModel)]="dataForSearch" placeholder="Type the course name here....">
+    <button class="btn btn-outline-success" type="button" (click)="getStudentCoursesByCourseName()">
+      <i class="bi bi-search"></i>
+    </button>
+  </div>
+
+  <hr>
+
+  <div class="d-flex flex-column mt-5 custom-text" *ngIf="courses === null">
+    <h1>No records found...</h1>
+    <br>
+  </div>
+
+  <table *ngIf="courses !== null" class="table">
+    <thead class="table-dark custom-text">
+      <tr>
+        <th scope="col">Course</th>
+        <th scope="col">Field</th>
+        <th scope="col">Modality</th>
+        <th scope="col">Start date</th>
+        <th scope="col">End date</th>
+        <th scope="col">Cancel Course</th>
+      </tr>
+    </thead>
+    <tbody class="bg-dark custom-text">
+      <tr *ngFor="let course of courses" class="table-hover-helper">
+        <td>
+          <button type="button" class="btn btn-outline-primary custom-text" data-bs-toggle="modal" data-bs-target="#modal_info" (click)="getFullStudentClassroomCourseInfo(course.student_class_course_id)" (click)="StudentClassroomCourseId = course.student_class_course_id">
+            {{ course.course_name }}
+            <i class="bi bi-info-square"></i>
+          </button>
+        </td>
+        <td>{{ course.course_field }}</td>
+        <td>{{ course.course_modality }}</td>
+        <td>{{ course.classroom_start_date | date:'MM/dd/yyyy' }}</td>
+        <td>{{ course.classroom_end_date | date:'MM/dd/yyyy' }}</td>
+        <td>
+          <button class="btn btn-outline-danger" (click)="StudentClassroomCourseId = course.student_classroom_course_id"
+            (click)="courseNameForDelete = course.course_name" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            [disabled]="checkIfCourseCanBeCanceled(course.classroom_start_date)">
+            <i class="bi bi-x-circle"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="STUDENT_SYSTEM" type="MySQL - 8.0.30">
+   <tables>
+      <table name="actor_info" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" defaultValue="0" digits="0" id="0" name="actor_id" nullable="false" remarks="" size="5" type="SMALLINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="first_name" nullable="false" remarks="" size="45" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="last_name" nullable="false" remarks="" size="45" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="film_info" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table name="classroom" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="CLASSROOM_ID" nullable="false" remarks="" size="10" type="INT">
+            <child column="FK_CLASSROOM" foreignKey="grade_ibfk_2" implied="false" onDeleteCascade="false" table="grade"/>
+            <child column="FK_CLASSROOM" foreignKey="student_classroom_course_ibfk_2" implied="false" onDeleteCascade="false" table="student_classroom_course"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="FK_TEACHER" nullable="false" remarks="" size="10" type="INT">
+            <parent column="TEACHER_ID" foreignKey="classroom_ibfk_1" implied="false" onDeleteCascade="false" table="teacher"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="FK_COURSE" nullable="false" remarks="" size="10" type="INT">
+            <parent column="COURSE_ID" foreignKey="classroom_ibfk_2" implied="false" onDeleteCascade="false" table="course"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="CLASSROOM_PERIOD" nullable="false" remarks="" size="20" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="CLASSROOM_START_TIME" nullable="false" remarks="" size="10" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="CLASSROOM_END_TIME" nullable="false" remarks="" size="10" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="CLASSROOM_START_DATE" nullable="false" remarks="" size="10" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="CLASSROOM_END_DATE" nullable="true" remarks="" size="10" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="CLASSROOM_LIMIT" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="9" name="CLASSROOM_QTD_STUDENTS" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="10" name="CLASSROOM_CREATION_DATE" nullable="false" remarks="" size="10" type="VARCHAR"/>
+         <primaryKey column="CLASSROOM_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="CLASSROOM_ID"/>
+         </index>
+         <index name="FK_COURSE" unique="false">
+            <column ascending="true" name="FK_COURSE"/>
+         </index>
+         <index name="FK_TEACHER" unique="false">
+            <column ascending="true" name="FK_TEACHER"/>
+         </index>
+      </table>
+      <table name="course" numRows="2" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="COURSE_ID" nullable="false" remarks="" size="10" type="INT">
+            <child column="FK_COURSE" foreignKey="classroom_ibfk_2" implied="false" onDeleteCascade="false" table="classroom"/>
+            <child column="FK_COURSE" foreignKey="payment_ibfk_2" implied="false" onDeleteCascade="false" table="payment"/>
+            <child column="FK_COURSE" foreignKey="student_classroom_course_ibfk_3" implied="false" onDeleteCascade="false" table="student_classroom_course"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="COURSE_NAME" nullable="false" remarks="" size="60" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="COURSE_FIELD" nullable="false" remarks="" size="30" type="VARCHAR"/>
+         <column autoUpdated="false" digits="2" id="3" name="COURSE_PRICE" nullable="false" remarks="" size="6" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="4" name="COURSE_MODALITY" nullable="false" remarks="" size="15" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="COURSE_CREATION_DATE" nullable="false" remarks="" size="10" type="VARCHAR"/>
+         <primaryKey column="COURSE_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="COURSE_ID"/>
+         </index>
+      </table>
+      <table name="customer_list" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" defaultValue="0" digits="0" id="0" name="ID" nullable="false" remarks="" size="5" type="SMALLINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="true" remarks="" size="91" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="address" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="zip code" nullable="true" remarks="" size="10" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="phone" nullable="false" remarks="" size="20" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="city" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="country" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="7" name="notes" nullable="false" remarks="" size="6" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="SID" nullable="false" remarks="" size="3" type="TINYINT UNSIGNED"/>
+      </table>
+      <table name="film_list" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" defaultValue="0" digits="0" id="0" name="FID" nullable="true" remarks="" size="5" type="SMALLINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="title" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="description" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="category" nullable="false" remarks="" size="25" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="4.99" digits="2" id="4" name="price" nullable="true" remarks="" size="4" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="5" name="length" nullable="true" remarks="" size="5" type="SMALLINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="G" digits="0" id="6" name="rating" nullable="true" remarks="" size="5" type="ENUM"/>
+         <column autoUpdated="false" digits="0" id="7" name="actors" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table name="grade" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="GRADE_ID" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="FK_CLASSROOM" nullable="false" remarks="" size="10" type="INT">
+            <parent column="CLASSROOM_ID" foreignKey="grade_ibfk_2" implied="false" onDeleteCascade="false" table="classroom"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="FK_STUDENT" nullable="false" remarks="" size="10" type="INT">
+            <parent column="STUDENT_ID" foreignKey="grade_ibfk_1" implied="false" onDeleteCascade="false" table="student"/>
+         </column>
+         <column autoUpdated="false" digits="2" id="3" name="FIRST_NOTE" nullable="true" remarks="" size="4" type="DECIMAL"/>
+         <column autoUpdated="false" digits="2" id="4" name="SECOND_NOTE" nullable="true" remarks="" size="4" type="DECIMAL"/>
+         <column autoUpdated="false" digits="2" id="5" name="THIRD_NOTE" nullable="true" remarks="" size="4" type="DECIMAL"/>
+         <column autoUpdated="false" digits="2" id="6" name="ADDITIONAL_NOTE" nullable="true" remarks="" size="4" type="DECIMAL"/>
+         <column autoUpdated="false" digits="2" id="7" name="FINAL_NOTE" nullable="true" remarks="" size="4" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="8" name="STATUS" nullable="false" remarks="" size="15" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="GRADE_CREATION_DATE" nullable="false" remarks="" size="10" type="VARCHAR"/>
+         <primaryKey column="GRADE_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="GRADE_ID"/>
+         </index>
+         <index name="FK_CLASSROOM" unique="false">
+            <column ascending="true" name="FK_CLASSROOM"/>
+         </index>
+         <index name="FK_STUDENT" unique="false">
+            <column ascending="true" name="FK_STUDENT"/>
+         </index>
+      </table>
+      <table name="host_summary" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="host" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="statements" nullable="true" remarks="" size="64" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="statement_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="statement_avg_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="table_scans" nullable="true" remarks="" size="65" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="5" name="file_ios" nullable="true" remarks="" size="64" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="6" name="file_io_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="current_connections" nullable="true" remarks="" size="41" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="8" name="total_connections" nullable="true" remarks="" size="41" type="DECIMAL"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="9" name="unique_users" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="10" name="current_memory" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="11" name="total_memory_allocated" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="host_summary_by_file_io" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="host" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="ios" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="io_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="host_summary_by_file_io_type" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="host" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="event_name" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="max_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="host_summary_by_stages" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="host" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="event_name" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="avg_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="host_summary_by_statement_latency" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="host" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="max_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="lock_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="cpu_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="rows_sent" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="7" name="rows_examined" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="8" name="rows_affected" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="9" name="full_scans" nullable="true" remarks="" size="43" type="DECIMAL"/>
+      </table>
+      <table name="host_summary_by_statement_type" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="host" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="statement" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="max_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="lock_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="cpu_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="rows_sent" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="rows_examined" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="9" name="rows_affected" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="10" name="full_scans" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+      </table>
+      <table name="innodb_buffer_stats_by_schema" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="object_schema" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="1" name="allocated" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="data" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="pages" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="pages_hashed" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="pages_old" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="6" name="rows_cached" nullable="true" remarks="" size="45" type="DECIMAL"/>
+      </table>
+      <table name="innodb_buffer_stats_by_table" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="object_schema" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="1" name="object_name" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="2" name="allocated" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="data" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="pages" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="pages_hashed" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="6" name="pages_old" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="7" name="rows_cached" nullable="true" remarks="" size="45" type="DECIMAL"/>
+      </table>
+      <table name="innodb_lock_waits" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="wait_started" nullable="true" remarks="" size="26" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="1" name="wait_age" nullable="true" remarks="" size="16" type="TIME"/>
+         <column autoUpdated="false" digits="0" id="2" name="wait_age_secs" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="3" name="locked_table" nullable="true" remarks="" size="16777215" type="MEDIUMTEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="locked_table_schema" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="locked_table_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="locked_table_partition" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="locked_table_subpartition" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="locked_index" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="locked_type" nullable="false" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="10" name="waiting_trx_id" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="11" name="waiting_trx_started" nullable="false" remarks="" size="26" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="12" name="waiting_trx_age" nullable="true" remarks="" size="16" type="TIME"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="13" name="waiting_trx_rows_locked" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="14" name="waiting_trx_rows_modified" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="15" name="waiting_pid" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="16" name="waiting_query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="17" name="waiting_lock_id" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="18" name="waiting_lock_mode" nullable="false" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="19" name="blocking_trx_id" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="20" name="blocking_pid" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="21" name="blocking_query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="22" name="blocking_lock_id" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="23" name="blocking_lock_mode" nullable="false" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="24" name="blocking_trx_started" nullable="false" remarks="" size="26" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="25" name="blocking_trx_age" nullable="true" remarks="" size="16" type="TIME"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="26" name="blocking_trx_rows_locked" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="27" name="blocking_trx_rows_modified" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="28" name="sql_kill_blocking_query" nullable="false" remarks="" size="33" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="29" name="sql_kill_blocking_connection" nullable="false" remarks="" size="27" type="VARCHAR"/>
+      </table>
+      <table name="io_by_thread_by_latency" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="288" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="min_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="avg_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="max_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="thread_id" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="7" name="processlist_id" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+      </table>
+      <table name="io_global_by_file_by_bytes" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="file" nullable="true" remarks="" size="512" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="count_read" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_read" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="avg_read" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="count_write" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="total_written" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="avg_write" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="total" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0.00" digits="2" id="8" name="write_pct" nullable="false" remarks="" size="26" type="DECIMAL"/>
+      </table>
+      <table name="io_global_by_file_by_latency" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="file" nullable="true" remarks="" size="512" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="count_read" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="read_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="count_write" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="6" name="write_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="count_misc" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="misc_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="io_global_by_wait_by_bytes" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="event_name" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="min_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="avg_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="max_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="count_read" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="7" name="total_read" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="avg_read" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="count_write" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="10" name="total_written" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="11" name="avg_written" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="12" name="total_requested" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="io_global_by_wait_by_latency" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="event_name" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="avg_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="max_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="read_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="write_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="misc_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="count_read" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="9" name="total_read" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="10" name="avg_read" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="11" name="count_write" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="12" name="total_written" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="13" name="avg_written" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="latest_file_io" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="thread" nullable="true" remarks="" size="317" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="file" nullable="true" remarks="" size="512" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="operation" nullable="false" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="requested" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="memory_by_host_by_current_bytes" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="host" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="current_count_used" nullable="true" remarks="" size="41" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="current_allocated" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="current_avg_alloc" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="current_max_alloc" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="total_allocated" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="memory_by_thread_by_current_bytes" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="thread_id" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="user" nullable="true" remarks="" size="288" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="current_count_used" nullable="true" remarks="" size="41" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="3" name="current_allocated" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="current_avg_alloc" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="current_max_alloc" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="total_allocated" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="memory_by_user_by_current_bytes" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="current_count_used" nullable="true" remarks="" size="41" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="current_allocated" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="current_avg_alloc" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="current_max_alloc" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="total_allocated" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="memory_global_by_current_bytes" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="event_name" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="current_count" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="2" name="current_alloc" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="current_avg_alloc" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="high_count" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="5" name="high_alloc" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="high_avg_alloc" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="memory_global_total" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="total_allocated" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="metrics" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" defaultValue="" digits="0" id="0" name="Variable_name" nullable="false" remarks="" size="193" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="Variable_value" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="Type" nullable="false" remarks="" size="210" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="3" name="Enabled" nullable="false" remarks="" size="7" type="VARCHAR"/>
+      </table>
+      <table name="nicer_but_slower_film_list" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" defaultValue="0" digits="0" id="0" name="FID" nullable="true" remarks="" size="5" type="SMALLINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="title" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="description" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="category" nullable="false" remarks="" size="25" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="4.99" digits="2" id="4" name="price" nullable="true" remarks="" size="4" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="5" name="length" nullable="true" remarks="" size="5" type="SMALLINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="G" digits="0" id="6" name="rating" nullable="true" remarks="" size="5" type="ENUM"/>
+         <column autoUpdated="false" digits="0" id="7" name="actors" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table name="payment" numRows="2" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="payment_id" nullable="false" remarks="" size="5" type="SMALLINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="customer_id" nullable="false" remarks="" size="5" type="SMALLINT UNSIGNED">
+            <parent column="customer_id" foreignKey="fk_payment_customer" implied="false" onDeleteCascade="false" table="customer"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="FK_COURSE" nullable="false" remarks="" size="10" type="INT">
+            <parent column="COURSE_ID" foreignKey="payment_ibfk_2" implied="false" onDeleteCascade="false" table="course"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="FK_PROMOTION" nullable="true" remarks="" size="10" type="INT">
+            <parent column="PROMOTION_ID" foreignKey="payment_ibfk_3" implied="false" onDeleteCascade="false" table="promotion"/>
+         </column>
+         <column autoUpdated="false" digits="2" id="4" name="PAYMENT_TOTAL_AMOUNT" nullable="false" remarks="" size="6" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="5" name="PAYMENT_METHOD" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="6" name="last_update" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="7" name="PAYMENT_CREATION_DATE" nullable="false" remarks="" size="10" type="VARCHAR"/>
+         <primaryKey column="payment_id" sequenceNumberInPK="1"/>
+         <primaryKey column="payment_id" sequenceNumberInPK="2"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="payment_id"/>
+            <column ascending="true" name="payment_id"/>
+         </index>
+         <index name="FK_COURSE" unique="false">
+            <column ascending="true" name="FK_COURSE"/>
+         </index>
+         <index name="fk_payment_rental" unique="false">
+            <column ascending="true" name="rental_id"/>
+         </index>
+         <index name="FK_PROMOTION" unique="false">
+            <column ascending="true" name="FK_PROMOTION"/>
+         </index>
+         <index name="FK_STUDENT" unique="false">
+            <column ascending="true" name="FK_STUDENT"/>
+         </index>
+         <index name="idx_fk_customer_id" unique="false">
+            <column ascending="true" name="customer_id"/>
+         </index>
+         <index name="idx_fk_staff_id" unique="false">
+            <column ascending="true" name="staff_id"/>
+         </index>
+      </table>
+      <table name="processlist" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="thd_id" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="conn_id" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="HOST" nullable="false" remarks="" size="87" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="3" name="DB" nullable="true" remarks="" size="21" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="4" name="COMMAND" nullable="false" remarks="" size="5" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="5" name="TIME" nullable="false" remarks="" size="0" type="INT"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="6" name="STATE" nullable="true" remarks="" size="21" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="7" name="INFO" nullable="true" remarks="" size="21845" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="EXECUTION_ENGINE" nullable="true" remarks="" size="9" type="ENUM"/>
+         <column autoUpdated="false" digits="0" id="9" name="statement_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="2" id="10" name="progress" nullable="true" remarks="" size="26" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="11" name="lock_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="12" name="cpu_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="13" name="rows_examined" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="14" name="rows_sent" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="15" name="rows_affected" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="16" name="tmp_tables" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="17" name="tmp_disk_tables" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="18" name="full_scan" nullable="false" remarks="" size="3" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="19" name="last_statement" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="20" name="last_statement_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="21" name="current_memory" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="22" name="last_wait" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="23" name="last_wait_latency" nullable="true" remarks="" size="13" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="24" name="source" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="25" name="trx_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="26" name="trx_state" nullable="true" remarks="" size="11" type="ENUM"/>
+         <column autoUpdated="false" digits="0" id="27" name="trx_autocommit" nullable="true" remarks="" size="3" type="ENUM"/>
+         <column autoUpdated="false" digits="0" id="28" name="pid" nullable="true" remarks="" size="1024" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="29" name="program_name" nullable="true" remarks="" size="1024" type="VARCHAR"/>
+         <primaryKey column="ID" sequenceNumberInPK="1"/>
+      </table>
+      <table name="promotion" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="PROMOTION_ID" nullable="false" remarks="" size="10" type="INT">
+            <child column="FK_PROMOTION" foreignKey="payment_ibfk_3" implied="false" onDeleteCascade="false" table="payment"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="PROMOTION_NAME" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="2" id="2" name="PROMOTION_DESCOUNT_AMOUNT" nullable="false" remarks="" size="4" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="3" name="PROMOTION_DESCRIPTION" nullable="false" remarks="" size="250" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="PROMOTION_CREATION_DATE" nullable="false" remarks="" size="10" type="VARCHAR"/>
+         <primaryKey column="PROMOTION_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="PROMOTION_ID"/>
+         </index>
+      </table>
+      <table name="ps_check_lost_instrumentation" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="variable_name" nullable="false" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="variable_value" nullable="true" remarks="" size="1024" type="VARCHAR"/>
+      </table>
+      <table name="sales_by_film_category" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="category" nullable="false" remarks="" size="25" type="VARCHAR"/>
+         <column autoUpdated="false" digits="2" id="1" name="total_sales" nullable="true" remarks="" size="27" type="DECIMAL"/>
+      </table>
+      <table name="sales_by_store" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="store" nullable="true" remarks="" size="101" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="manager" nullable="true" remarks="" size="91" type="VARCHAR"/>
+         <column autoUpdated="false" digits="2" id="2" name="total_sales" nullable="true" remarks="" size="27" type="DECIMAL"/>
+      </table>
+      <table name="schema_auto_increment_columns" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="table_schema" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="table_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="column_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="data_type" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="column_type" nullable="false" remarks="" size="16777215" type="MEDIUMTEXT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="is_signed" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="6" name="is_unsigned" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="7" name="max_value" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="auto_increment" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="4" id="9" name="auto_increment_ratio" nullable="true" remarks="" size="25" type="DECIMAL UNSIGNED"/>
+      </table>
+      <table name="schema_index_statistics" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="table_schema" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="table_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="index_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="rows_selected" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="select_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="rows_inserted" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="6" name="insert_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="rows_updated" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="update_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="rows_deleted" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="10" name="delete_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="schema_object_overview" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="db" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="object_type" nullable="true" remarks="" size="19" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="2" name="count" nullable="false" remarks="" size="19" type="BIGINT"/>
+      </table>
+      <table name="schema_redundant_indexes" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="table_schema" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="table_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="redundant_index_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="redundant_index_columns" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="redundant_index_non_unique" nullable="true" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="5" name="dominant_index_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="dominant_index_columns" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="7" name="dominant_index_non_unique" nullable="true" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="8" name="subpart_exists" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="9" name="sql_drop_index" nullable="true" remarks="" size="223" type="VARCHAR"/>
+      </table>
+      <table name="schema_table_lock_waits" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="object_schema" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="object_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="waiting_thread_id" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="waiting_pid" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="waiting_account" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="waiting_lock_type" nullable="false" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="waiting_lock_duration" nullable="false" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="waiting_query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="8" name="waiting_query_secs" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="9" name="waiting_query_rows_affected" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="10" name="waiting_query_rows_examined" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="11" name="blocking_thread_id" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="12" name="blocking_pid" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="13" name="blocking_account" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="14" name="blocking_lock_type" nullable="false" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="15" name="blocking_lock_duration" nullable="false" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="16" name="sql_kill_blocking_query" nullable="true" remarks="" size="31" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="17" name="sql_kill_blocking_connection" nullable="true" remarks="" size="25" type="VARCHAR"/>
+      </table>
+      <table name="schema_table_statistics" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="table_schema" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="table_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="rows_fetched" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="fetch_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="rows_inserted" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="6" name="insert_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="rows_updated" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="update_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="rows_deleted" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="10" name="delete_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="11" name="io_read_requests" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="12" name="io_read" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="13" name="io_read_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="14" name="io_write_requests" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="15" name="io_write" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="16" name="io_write_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="17" name="io_misc_requests" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="18" name="io_misc_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="schema_table_statistics_with_buffer" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="table_schema" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="table_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="rows_fetched" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="fetch_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="rows_inserted" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="insert_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="rows_updated" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="7" name="update_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="rows_deleted" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="9" name="delete_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="10" name="io_read_requests" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="11" name="io_read" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="12" name="io_read_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="13" name="io_write_requests" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="14" name="io_write" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="15" name="io_write_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="16" name="io_misc_requests" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="17" name="io_misc_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="18" name="innodb_buffer_allocated" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="19" name="innodb_buffer_data" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="20" name="innodb_buffer_free" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="21" name="innodb_buffer_pages" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="22" name="innodb_buffer_pages_hashed" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="23" name="innodb_buffer_pages_old" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="24" name="innodb_buffer_rows_cached" nullable="true" remarks="" size="45" type="DECIMAL"/>
+      </table>
+      <table name="schema_tables_with_full_table_scans" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="object_schema" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="object_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="rows_full_scanned" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="schema_unused_indexes" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="object_schema" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="object_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="index_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+      </table>
+      <table name="session" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="thd_id" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="conn_id" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="user" nullable="true" remarks="" size="288" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="db" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="command" nullable="true" remarks="" size="16" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="state" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="time" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="7" name="current_statement" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="8" name="execution_engine" nullable="true" remarks="" size="9" type="ENUM"/>
+         <column autoUpdated="false" digits="0" id="9" name="statement_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="2" id="10" name="progress" nullable="true" remarks="" size="26" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="11" name="lock_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="12" name="cpu_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="13" name="rows_examined" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="14" name="rows_sent" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="15" name="rows_affected" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="16" name="tmp_tables" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="17" name="tmp_disk_tables" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="18" name="full_scan" nullable="false" remarks="" size="3" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="19" name="last_statement" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="20" name="last_statement_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="21" name="current_memory" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="22" name="last_wait" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="23" name="last_wait_latency" nullable="true" remarks="" size="13" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="24" name="source" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="25" name="trx_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="26" name="trx_state" nullable="true" remarks="" size="11" type="ENUM"/>
+         <column autoUpdated="false" digits="0" id="27" name="trx_autocommit" nullable="true" remarks="" size="3" type="ENUM"/>
+         <column autoUpdated="false" digits="0" id="28" name="pid" nullable="true" remarks="" size="1024" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="29" name="program_name" nullable="true" remarks="" size="1024" type="VARCHAR"/>
+      </table>
+      <table name="session_ssl_status" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="thread_id" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="ssl_version" nullable="true" remarks="" size="1024" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="ssl_cipher" nullable="true" remarks="" size="1024" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="ssl_sessions_reused" nullable="true" remarks="" size="1024" type="VARCHAR"/>
+      </table>
+      <table name="staff_list" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" defaultValue="0" digits="0" id="0" name="ID" nullable="false" remarks="" size="3" type="TINYINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="true" remarks="" size="91" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="address" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="zip code" nullable="true" remarks="" size="10" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="phone" nullable="false" remarks="" size="20" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="city" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="country" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="SID" nullable="false" remarks="" size="3" type="TINYINT UNSIGNED"/>
+      </table>
+      <table name="statement_analysis" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="1" name="db" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="full_scan" nullable="false" remarks="" size="1" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="exec_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="err_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="warn_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="6" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="max_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="avg_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="lock_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="10" name="cpu_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="11" name="rows_sent" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="12" name="rows_sent_avg" nullable="false" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="13" name="rows_examined" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="14" name="rows_examined_avg" nullable="false" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="15" name="rows_affected" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="16" name="rows_affected_avg" nullable="false" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="17" name="tmp_tables" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="18" name="tmp_disk_tables" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="19" name="rows_sorted" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="20" name="sort_merge_passes" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="21" name="digest" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="22" name="first_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="23" name="last_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+      </table>
+      <table name="statements_with_errors_or_warnings" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="1" name="db" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="exec_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="errors" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0.0000" digits="4" id="4" name="error_pct" nullable="false" remarks="" size="27" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="5" name="warnings" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0.0000" digits="4" id="6" name="warning_pct" nullable="false" remarks="" size="27" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="7" name="first_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="8" name="last_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="9" name="digest" nullable="true" remarks="" size="64" type="VARCHAR"/>
+      </table>
+      <table name="statements_with_full_table_scans" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="1" name="db" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="exec_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="no_index_used_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="no_good_index_used_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="6" name="no_index_used_pct" nullable="false" remarks="" size="24" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="7" name="rows_sent" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="rows_examined" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="9" name="rows_sent_avg" nullable="true" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="10" name="rows_examined_avg" nullable="true" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="11" name="first_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="12" name="last_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="13" name="digest" nullable="true" remarks="" size="64" type="VARCHAR"/>
+      </table>
+      <table name="statements_with_runtimes_in_95th_percentile" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="1" name="db" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="full_scan" nullable="false" remarks="" size="1" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="exec_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="err_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="warn_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="6" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="max_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="avg_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="rows_sent" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="10" name="rows_sent_avg" nullable="false" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="11" name="rows_examined" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="12" name="rows_examined_avg" nullable="false" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="13" name="first_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="14" name="last_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="15" name="digest" nullable="true" remarks="" size="64" type="VARCHAR"/>
+      </table>
+      <table name="statements_with_sorting" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="1" name="db" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="exec_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="sort_merge_passes" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="avg_sort_merges" nullable="false" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="6" name="sorts_using_scans" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="7" name="sort_using_range" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="rows_sorted" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="9" name="avg_rows_sorted" nullable="false" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="10" name="first_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="11" name="last_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="12" name="digest" nullable="true" remarks="" size="64" type="VARCHAR"/>
+      </table>
+      <table name="statements_with_temp_tables" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="1" name="db" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="exec_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="memory_tmp_tables" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="disk_tmp_tables" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="6" name="avg_tmp_tables_per_query" nullable="false" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="7" name="tmp_tables_to_disk_pct" nullable="false" remarks="" size="24" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="8" name="first_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="9" name="last_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="10" name="digest" nullable="true" remarks="" size="64" type="VARCHAR"/>
+      </table>
+      <table name="student" numRows="2" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="STUDENT_ID" nullable="false" remarks="" size="10" type="INT">
+            <child column="FK_STUDENT" foreignKey="grade_ibfk_1" implied="false" onDeleteCascade="false" table="grade"/>
+            <child column="FK_STUDENT" foreignKey="payment_ibfk_1" implied="false" onDeleteCascade="false" table="payment"/>
+            <child column="FK_STUDENT" foreignKey="student_classroom_course_ibfk_1" implied="false" onDeleteCascade="false" table="student_classroom_course"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="STUDENT_NAME" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="STUDENT_DOCUMENT" nullable="false" remarks="" size="15" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="STUDENT_AGE" nullable="false" remarks="" size="2" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="STUDENT_BIRTHDATE" nullable="false" remarks="" size="10" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="STUDENT_COUNTRY" nullable="false" remarks="" size="30" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="STUDENT_STATE" nullable="false" remarks="" size="20" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="STUDENT_CITY" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="STUDENT_ADRESS" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="STUDENT_ZIPCODE" nullable="false" remarks="" size="20" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="10" name="STUDENT_EMAIL" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="11" name="STUDENT_PHONE" nullable="true" remarks="" size="25" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="12" name="STUDENT_PHONE_2" nullable="true" remarks="" size="25" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="13" name="STUDENT_CONTRACT_TERMS" nullable="false" remarks="" size="1" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="14" name="STUDENT_CREATION_DATE" nullable="false" remarks="" size="10" type="VARCHAR"/>
+         <primaryKey column="STUDENT_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="STUDENT_ID"/>
+         </index>
+         <index name="STUDENT_DOCUMENT" unique="true">
+            <column ascending="true" name="STUDENT_DOCUMENT"/>
+         </index>
+         <index name="STUDENT_EMAIL" unique="true">
+            <column ascending="true" name="STUDENT_EMAIL"/>
+         </index>
+      </table>
+      <table name="student_classroom_course" numRows="2" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="STUDENT_CLASSROOM_COURSE_ID" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="FK_STUDENT" nullable="false" remarks="" size="10" type="INT">
+            <parent column="STUDENT_ID" foreignKey="student_classroom_course_ibfk_1" implied="false" onDeleteCascade="false" table="student"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="FK_CLASSROOM" nullable="false" remarks="" size="10" type="INT">
+            <parent column="CLASSROOM_ID" foreignKey="student_classroom_course_ibfk_2" implied="false" onDeleteCascade="false" table="classroom"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="FK_COURSE" nullable="false" remarks="" size="10" type="INT">
+            <parent column="COURSE_ID" foreignKey="student_classroom_course_ibfk_3" implied="false" onDeleteCascade="false" table="course"/>
+         </column>
+         <primaryKey column="STUDENT_CLASSROOM_COURSE_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="STUDENT_CLASSROOM_COURSE_ID"/>
+         </index>
+         <index name="FK_CLASSROOM" unique="false">
+            <column ascending="true" name="FK_CLASSROOM"/>
+         </index>
+         <index name="FK_COURSE" unique="false">
+            <column ascending="true" name="FK_COURSE"/>
+         </index>
+         <index name="FK_STUDENT" unique="false">
+            <column ascending="true" name="FK_STUDENT"/>
+         </index>
+      </table>
+      <table name="teacher" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="TEACHER_ID" nullable="false" remarks="" size="10" type="INT">
+            <child column="FK_TEACHER" foreignKey="classroom_ibfk_1" implied="false" onDeleteCascade="false" table="classroom"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="TEACHER_NAME" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="TEACHER_DOCUMENT" nullable="false" remarks="" size="30" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="TEACHER_AGE" nullable="false" remarks="" size="2" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="TEACHER_BIRTHDATE" nullable="false" remarks="" size="10" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="TEACHER_COUNTRY" nullable="false" remarks="" size="30" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="TEACHER_STATE" nullable="false" remarks="" size="20" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="TEACHER_CITY" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="TEACHER_ADRESS" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="TEACHER_ZIPCODE" nullable="false" remarks="" size="20" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="10" name="TEACHER_EMAIL" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="11" name="TEACHER_PHONE" nullable="false" remarks="" size="25" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="12" name="TEACHER_PHONE_2" nullable="true" remarks="" size="25" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="13" name="TEACHER_CREATION_DATE" nullable="false" remarks="" size="10" type="VARCHAR"/>
+         <primaryKey column="TEACHER_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="TEACHER_ID"/>
+         </index>
+         <index name="TEACHER_DOCUMENT" unique="true">
+            <column ascending="true" name="TEACHER_DOCUMENT"/>
+         </index>
+         <index name="TEACHER_EMAIL" unique="true">
+            <column ascending="true" name="TEACHER_EMAIL"/>
+         </index>
+      </table>
+      <table name="user_summary" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="statements" nullable="true" remarks="" size="64" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="statement_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="statement_avg_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="table_scans" nullable="true" remarks="" size="65" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="5" name="file_ios" nullable="true" remarks="" size="64" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="6" name="file_io_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="current_connections" nullable="true" remarks="" size="41" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="8" name="total_connections" nullable="true" remarks="" size="41" type="DECIMAL"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="9" name="unique_hosts" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="10" name="current_memory" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="11" name="total_memory_allocated" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="user_summary_by_file_io" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="ios" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="io_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="user_summary_by_file_io_type" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="event_name" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="max_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="user_summary_by_stages" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="event_name" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="avg_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="user_summary_by_statement_latency" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="max_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="lock_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="cpu_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="rows_sent" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="7" name="rows_examined" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="8" name="rows_affected" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="9" name="full_scans" nullable="true" remarks="" size="43" type="DECIMAL"/>
+      </table>
+      <table name="user_summary_by_statement_type" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="statement" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="max_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="lock_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="cpu_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="rows_sent" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="rows_examined" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="9" name="rows_affected" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="10" name="full_scans" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+      </table>
+      <table name="version" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" defaultValue="" digits="0" id="0" name="sys_version" nullable="false" remarks="" size="5" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="mysql_version" nullable="false" remarks="" size="6" type="VARCHAR"/>
+      </table>
+      <table name="wait_classes_global_by_avg_latency" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="event_class" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="min_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="avg_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="max_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="wait_classes_global_by_latency" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="event_class" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="min_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="avg_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="max_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="waits_by_host_by_latency" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="host" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="event" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="avg_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="max_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="waits_by_user_by_latency" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="event" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="avg_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="max_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+      <table name="waits_global_by_latency" numRows="0" remarks="VIEW" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="events" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="avg_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="max_latency" nullable="true" remarks="" size="11" type="VARCHAR"/>
+      </table>
+   </tables>
+</database>

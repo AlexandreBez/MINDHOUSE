@@ -1,0 +1,2272 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>&#x27;StudentManagementSystem&#x27;</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/postmark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">&#x27;StudentManagementSystem&#x27;</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  StudentCourseComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/student-pages/students/student-info/student-courses/student-course.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component to display and manage courses for a student.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-student-course</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./student-course.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./student-course.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#_classroom_end_date" >_classroom_end_date</a>
+                            </li>
+                            <li>
+                                <a href="#_classroom_end_time" >_classroom_end_time</a>
+                            </li>
+                            <li>
+                                <a href="#_classroom_period" >_classroom_period</a>
+                            </li>
+                            <li>
+                                <a href="#_classroom_start_date" >_classroom_start_date</a>
+                            </li>
+                            <li>
+                                <a href="#_classroom_start_time" >_classroom_start_time</a>
+                            </li>
+                            <li>
+                                <a href="#_course_field" >_course_field</a>
+                            </li>
+                            <li>
+                                <a href="#_course_modality" >_course_modality</a>
+                            </li>
+                            <li>
+                                <a href="#_course_name" >_course_name</a>
+                            </li>
+                            <li>
+                                <a href="#_course_price" >_course_price</a>
+                            </li>
+                            <li>
+                                <a href="#_teacher_name" >_teacher_name</a>
+                            </li>
+                            <li>
+                                <a href="#course_description" >course_description</a>
+                            </li>
+                            <li>
+                                <a href="#course_name" >course_name</a>
+                            </li>
+                            <li>
+                                <a href="#courseNameForDelete" >courseNameForDelete</a>
+                            </li>
+                            <li>
+                                <a href="#courses" >courses</a>
+                            </li>
+                            <li>
+                                <a href="#dataForSearch" >dataForSearch</a>
+                            </li>
+                            <li>
+                                <a href="#errorMessage" >errorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#idForSearch" >idForSearch</a>
+                            </li>
+                            <li>
+                                <a href="#isloadingInfoModal" >isloadingInfoModal</a>
+                            </li>
+                            <li>
+                                <a href="#isLoadingInformations" >isLoadingInformations</a>
+                            </li>
+                            <li>
+                                <a href="#loaderrorMessage" >loaderrorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#loadSuccessMessage" >loadSuccessMessage</a>
+                            </li>
+                            <li>
+                                <a href="#StudentClassroomCourseId" >StudentClassroomCourseId</a>
+                            </li>
+                            <li>
+                                <a href="#successMessage" >successMessage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#checkIfCourseCanBeCanceled" >checkIfCourseCanBeCanceled</a>
+                            </li>
+                            <li>
+                                <a href="#deleteStudentCourseById" >deleteStudentCourseById</a>
+                            </li>
+                            <li>
+                                <a href="#getFullStudentClassroomCourseInfo" >getFullStudentClassroomCourseInfo</a>
+                            </li>
+                            <li>
+                                <a href="#getStudentCoursesByCourseName" >getStudentCoursesByCourseName</a>
+                            </li>
+                            <li>
+                                <a href="#getStudentCoursesByStudentId" >getStudentCoursesByStudentId</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#sendEmailWithClassroomInfo" >sendEmailWithClassroomInfo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(studentClassroomCourseService: <a href="../injectables/StudentClassroomCourseApiService.html" target="_self">StudentClassroomCourseApiService</a>, studentService: <a href="../injectables/StudentApiService.html" target="_self">StudentApiService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="164" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:164</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>studentClassroomCourseService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/StudentClassroomCourseApiService.html" target="_self" >StudentClassroomCourseApiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Service used to retrieve student classroom course information</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>studentService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/StudentApiService.html" target="_self" >StudentApiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Service used to retrieve student information</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkIfCourseCanBeCanceled"></a>
+                    <span class="name">
+                        <span ><b>checkIfCourseCanBeCanceled</b></span>
+                        <a href="#checkIfCourseCanBeCanceled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkIfCourseCanBeCanceled(startDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="193"
+                            class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:193</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Checks if a course can be canceled.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>startDate</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>The start date of the course.</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>True if the current date is before the start date of the course, false otherwise.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteStudentCourseById"></a>
+                    <span class="name">
+                        <span ><b>deleteStudentCourseById</b></span>
+                        <a href="#deleteStudentCourseById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteStudentCourseById()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="304"
+                            class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:304</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Deletes a student course by ID.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFullStudentClassroomCourseInfo"></a>
+                    <span class="name">
+                        <span ><b>getFullStudentClassroomCourseInfo</b></span>
+                        <a href="#getFullStudentClassroomCourseInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFullStudentClassroomCourseInfo(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="373"
+                            class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:373</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Retrieves the full information about a classroom course by its ID and assigns the values to corresponding variables.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>The ID of the classroom course to retrieve information about.</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStudentCoursesByCourseName"></a>
+                    <span class="name">
+                        <span ><b>getStudentCoursesByCourseName</b></span>
+                        <a href="#getStudentCoursesByCourseName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getStudentCoursesByCourseName()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="261"
+                            class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:261</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Retrieves the student&#39;s courses by course name.
+If dataForSearch is null, empty, or undefined, the function calls getStudentCoursesByStudentId().
+Otherwise, it retrieves the courses by the specified course name.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStudentCoursesByStudentId"></a>
+                    <span class="name">
+                        <span ><b>getStudentCoursesByStudentId</b></span>
+                        <a href="#getStudentCoursesByStudentId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getStudentCoursesByStudentId()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="207"
+                            class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:207</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Retrieves the courses of a student with the given ID.</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="182"
+                            class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:182</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Initializes the component with the student&#39;s ID for searching and retrieves the student&#39;s courses.</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendEmailWithClassroomInfo"></a>
+                    <span class="name">
+                        <span ><b>sendEmailWithClassroomInfo</b></span>
+                        <a href="#sendEmailWithClassroomInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>sendEmailWithClassroomInfo()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="468"
+                            class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:468</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Sends an email with the student classroom course information.
+Sets loading states and success/error messages accordingly.</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_classroom_end_date"></a>
+                    <span class="name">
+                        <span ><b>_classroom_end_date</b></span>
+                        <a href="#_classroom_end_date"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:151</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>End date of the classroom.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_classroom_end_time"></a>
+                    <span class="name">
+                        <span ><b>_classroom_end_time</b></span>
+                        <a href="#_classroom_end_time"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:137</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>End time of the classroom.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_classroom_period"></a>
+                    <span class="name">
+                        <span ><b>_classroom_period</b></span>
+                        <a href="#_classroom_period"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:123</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Period of the classroom.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_classroom_start_date"></a>
+                    <span class="name">
+                        <span ><b>_classroom_start_date</b></span>
+                        <a href="#_classroom_start_date"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="144" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:144</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Start date of the classroom.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_classroom_start_time"></a>
+                    <span class="name">
+                        <span ><b>_classroom_start_time</b></span>
+                        <a href="#_classroom_start_time"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:130</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Start time of the classroom.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_course_field"></a>
+                    <span class="name">
+                        <span ><b>_course_field</b></span>
+                        <a href="#_course_field"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:102</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Field of the course.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_course_modality"></a>
+                    <span class="name">
+                        <span ><b>_course_modality</b></span>
+                        <a href="#_course_modality"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:116</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Modality of the course.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_course_name"></a>
+                    <span class="name">
+                        <span ><b>_course_name</b></span>
+                        <a href="#_course_name"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:95</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Name of the course.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_course_price"></a>
+                    <span class="name">
+                        <span ><b>_course_price</b></span>
+                        <a href="#_course_price"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:109</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Price of the course.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_teacher_name"></a>
+                    <span class="name">
+                        <span ><b>_teacher_name</b></span>
+                        <a href="#_teacher_name"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="158" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:158</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Name of the teacher.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="course_description"></a>
+                    <span class="name">
+                        <span ><b>course_description</b></span>
+                        <a href="#course_description"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Description of the course.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="course_name"></a>
+                    <span class="name">
+                        <span ><b>course_name</b></span>
+                        <a href="#course_name"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:70</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Name of the course.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="courseNameForDelete"></a>
+                    <span class="name">
+                        <span ><b>courseNameForDelete</b></span>
+                        <a href="#courseNameForDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Name of the course to be deleted.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="courses"></a>
+                    <span class="name">
+                        <span ><b>courses</b></span>
+                        <a href="#courses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Array of courses.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataForSearch"></a>
+                    <span class="name">
+                        <span ><b>dataForSearch</b></span>
+                        <a href="#dataForSearch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Data for searching a course.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorMessage"></a>
+                    <span class="name">
+                        <span ><b>errorMessage</b></span>
+                        <a href="#errorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Error message.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="idForSearch"></a>
+                    <span class="name">
+                        <span ><b>idForSearch</b></span>
+                        <a href="#idForSearch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="164" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:164</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>ID for searching a student information.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isloadingInfoModal"></a>
+                    <span class="name">
+                        <span ><b>isloadingInfoModal</b></span>
+                        <a href="#isloadingInfoModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag to indicate if course information modal is being loaded.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLoadingInformations"></a>
+                    <span class="name">
+                        <span ><b>isLoadingInformations</b></span>
+                        <a href="#isLoadingInformations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag to indicate if course information is being loaded.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loaderrorMessage"></a>
+                    <span class="name">
+                        <span ><b>loaderrorMessage</b></span>
+                        <a href="#loaderrorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Error message for loading course information.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadSuccessMessage"></a>
+                    <span class="name">
+                        <span ><b>loadSuccessMessage</b></span>
+                        <a href="#loadSuccessMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Success message for loading course information.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="StudentClassroomCourseId"></a>
+                    <span class="name">
+                        <span ><b>StudentClassroomCourseId</b></span>
+                        <a href="#StudentClassroomCourseId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>ID of the student classroom course.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="successMessage"></a>
+                    <span class="name">
+                        <span ><b>successMessage</b></span>
+                        <a href="#successMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/student-pages/students/student-info/student-courses/student-course.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Success message.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { map } from &#x27;rxjs&#x27;;
+import { StudentApiService } from &#x27;src/app/service/StudentApi.service&#x27;;
+import { StudentClassroomCourseApiService } from &#x27;src/app/service/StudentClassroomCourseApi.service&#x27;;
+import * as moment from &#x27;moment&#x27;;
+
+/**
+ * Component to display and manage courses for a student.
+ * @component
+ * @selector app-student-course
+ */
+@Component({
+  selector: &#x27;app-student-course&#x27;,
+  templateUrl: &#x27;./student-course.component.html&#x27;,
+  styleUrls: [&#x27;./student-course.component.css&#x27;],
+})
+export class StudentCourseComponent implements OnInit {
+  /**
+   * Flag to indicate if course information is being loaded.
+   * @type {boolean}
+   */
+  isLoadingInformations &#x3D; false;
+
+  /**
+   * Flag to indicate if course information modal is being loaded.
+   * @type {boolean}
+   */
+  isloadingInfoModal &#x3D; false;
+
+  /**
+   * Array of courses.
+   * @type {any}
+   */
+  courses: any &#x3D; null;
+
+  /**
+   * Error message.
+   * @type {any}
+   */
+  errorMessage: any &#x3D; null;
+
+  /**
+   * Success message.
+   * @type {any}
+   */
+  successMessage: any &#x3D; null;
+
+  /**
+   * Error message for loading course information.
+   * @type {any}
+   */
+  loaderrorMessage: any &#x3D; null;
+
+  /**
+   * Success message for loading course information.
+   * @type {any}
+   */
+  loadSuccessMessage: any &#x3D; null;
+
+  /**
+   * Description of the course.
+   * @type {any}
+   */
+  course_description: any &#x3D; null;
+
+  /**
+   * Name of the course.
+   * @type {any}
+   */
+  course_name: any &#x3D; null;
+
+  /**
+   * Data for searching a course.
+   * @type {string}
+   */
+  dataForSearch: string &#x3D; null;
+
+  /**
+   * ID of the student classroom course.
+   * @type {number}
+   */
+  StudentClassroomCourseId: number &#x3D; null;
+
+  /**
+   * Name of the course to be deleted.
+   * @type {string}
+   */
+  courseNameForDelete: string &#x3D; null;
+
+  /**
+   * Name of the course.
+   * @private
+   * @type {string}
+   */
+  _course_name: string;
+
+  /**
+   * Field of the course.
+   * @private
+   * @type {string}
+   */
+  _course_field: string;
+
+  /**
+   * Price of the course.
+   * @private
+   * @type {number}
+   */
+  _course_price: number;
+
+  /**
+   * Modality of the course.
+   * @private
+   * @type {string}
+   */
+  _course_modality: string;
+
+  /**
+   * Period of the classroom.
+   * @private
+   * @type {string}
+   */
+  _classroom_period: string;
+
+  /**
+   * Start time of the classroom.
+   * @private
+   * @type {string}
+   */
+  _classroom_start_time: string;
+
+  /**
+   * End time of the classroom.
+   * @private
+   * @type {string}
+   */
+  _classroom_end_time: string;
+
+  /**
+   * Start date of the classroom.
+   * @private
+   * @type {string}
+   */
+  _classroom_start_date: string;
+
+  /**
+   * End date of the classroom.
+   * @private
+   * @type {string}
+   */
+  _classroom_end_date: string;
+
+  /**
+   * Name of the teacher.
+   * @private
+   * @type {string}
+   */
+  _teacher_name: string;
+
+  /**
+   * ID for searching a student information.
+   * @type {number}
+   */
+  idForSearch &#x3D; null;
+
+  /**
+   * @param {StudentClassroomCourseApiService} studentClassroomCourseService - Service used to retrieve student classroom course information
+   * @param {StudentApiService} studentService - Service used to retrieve student information
+   */
+  constructor(
+    private studentClassroomCourseService: StudentClassroomCourseApiService,
+    private studentService: StudentApiService
+  ) {}
+
+  /**
+   * Initializes the component with the student&#x27;s ID for searching and retrieves the student&#x27;s courses.
+   *
+   * @memberof ComponentClassName
+   * @function ngOnInit
+   * @return {void}
+   */
+  ngOnInit(): void {
+    this.idForSearch &#x3D; this.studentService.idForGetStudentInfo;
+    this.getStudentCoursesByStudentId();
+  }
+
+  /**
+   * Checks if a course can be canceled.
+   *
+   * @param {string} startDate - The start date of the course.
+   * @returns {boolean} True if the current date is before the start date of the course, false otherwise.
+   */
+  checkIfCourseCanBeCanceled(startDate: string): boolean {
+    const currentDateMoment &#x3D; moment();
+    const startDateMoment &#x3D; moment(startDate);
+
+    return currentDateMoment.isBefore(startDateMoment);
+  }
+
+  /**
+   * Retrieves the courses of a student with the given ID.
+   *
+   * @function
+   * @memberof StudentCourseComponent
+   * @returns {void}
+   */
+  getStudentCoursesByStudentId(): void {
+    // Sets a loading flag to true
+    this.isLoadingInformations &#x3D; true;
+
+    // Calls the getStudentCoursesByStudentId() method of the StudentClassroomCourseApiService,
+    // passing in the ID of the student to retrieve the courses for
+    this.studentClassroomCourseService
+      .getStudentCoursesByStudentId(this.idForSearch)
+      .subscribe(
+        // Success callback function
+        (responseData) &#x3D;&gt; {
+          // Clears any error message
+          this.errorMessage &#x3D; null;
+          // Sets a timeout to simulate a delay in the response, and then sets the loading flag to false,
+          // assigns the response data to the courses property, and logs the response data to the console
+          setTimeout(() &#x3D;&gt; {
+            this.isLoadingInformations &#x3D; false;
+            this.courses &#x3D; responseData;
+            console.log(responseData);
+          }, 1500);
+        },
+        // Error callback function
+        (error) &#x3D;&gt; {
+          // Logs the error to the console
+          console.log(error);
+
+          // Handles the error based on its status code
+          if (error.status &#x3D;&#x3D;&#x3D; 404) {
+            // If the error is a 404 Not Found error, sets the courses property to null,
+            // sets the loading flag to false, logs the error to the console, and clears any error message
+            this.courses &#x3D; null;
+            this.isLoadingInformations &#x3D; false;
+            console.log(error);
+            return (this.errorMessage &#x3D; null);
+          } else {
+            // Otherwise, sets the courses property and course_description property to null,
+            // sets the loading flag to false, logs the error to the console, and sets the error message
+            // to a default message
+            this.courses &#x3D; null;
+            this.isLoadingInformations &#x3D; false;
+            this.course_description &#x3D; null;
+            console.log(error);
+            return (this.errorMessage &#x3D;
+              &#x27;Opss...Something is not working but we will fix soon. Please try again later&#x27;);
+          }
+        }
+      );
+  }
+
+  /**
+   * Retrieves the student&#x27;s courses by course name.
+   * If dataForSearch is null, empty, or undefined, the function calls getStudentCoursesByStudentId().
+   * Otherwise, it retrieves the courses by the specified course name.
+   */
+  getStudentCoursesByCourseName() {
+    if (!this.dataForSearch) {
+      // Call getStudentCoursesByStudentId() if dataForSearch is null, empty, or undefined
+      this.getStudentCoursesByStudentId();
+    } else {
+      // Otherwise, retrieve the courses by the specified course name
+      this.isLoadingInformations &#x3D; true;
+      this.studentClassroomCourseService
+        .getStudentCoursesByCourseName(this.idForSearch, this.dataForSearch)
+        .subscribe(
+          (responseData) &#x3D;&gt; {
+            // Handle successful response
+            this.errorMessage &#x3D; null;
+            setTimeout(() &#x3D;&gt; {
+              this.isLoadingInformations &#x3D; false;
+              this.courses &#x3D; responseData;
+              console.log(responseData);
+            }, 1500);
+          },
+          (error) &#x3D;&gt; {
+            // Handle error response
+            console.log(error);
+            if (error.status &#x3D;&#x3D;&#x3D; 404) {
+              this.courses &#x3D; null;
+              this.isLoadingInformations &#x3D; false;
+              console.log(error);
+              return (this.errorMessage &#x3D; null);
+            } else {
+              this.courses &#x3D; null;
+              this.isLoadingInformations &#x3D; false;
+              this.course_description &#x3D; null;
+              console.log(error);
+              return (this.errorMessage &#x3D;
+                &#x27;Opss...Something is not working but we will fix soon. Please try again later&#x27;);
+            }
+          }
+        );
+    }
+  }
+
+  /**
+   * Deletes a student course by ID.
+   */
+  deleteStudentCourseById() {
+    /**
+     * Indicates whether the component is currently loading information.
+     * @type {boolean}
+     */
+    this.isLoadingInformations &#x3D; true;
+
+    /**
+     * Error message displayed to the user.
+     * @type {string}
+     */
+    this.errorMessage &#x3D; null;
+
+    /**
+     * Success message displayed to the user.
+     * @type {string}
+     */
+    this.successMessage &#x3D; null;
+
+    this.studentClassroomCourseService
+      .deleteStudentCourse(this.StudentClassroomCourseId)
+      .subscribe(
+        /**
+         * Success callback for the HTTP request.
+         * @param {any} responseData - The response data returned by the HTTP request.
+         */
+        (responseData) &#x3D;&gt; {
+          this.successMessage &#x3D; &#x27;Course deleted with success...&#x27;;
+          console.log(responseData);
+          setTimeout(() &#x3D;&gt; {
+            this.successMessage &#x3D; null;
+            this.isLoadingInformations &#x3D; false;
+          }, 2000);
+          this.getStudentCoursesByStudentId();
+        },
+        /**
+         * Error callback for the HTTP request.
+         * @param {HttpErrorResponse} error - The error response returned by the HTTP request.
+         */
+        (error) &#x3D;&gt; {
+          switch (error.status) {
+            case 400:
+              this.isLoadingInformations &#x3D; false;
+              console.log(error);
+              this.errorMessage &#x3D; error.error.message;
+              break;
+            case 500:
+              this.isLoadingInformations &#x3D; false;
+              console.log(error);
+              this.errorMessage &#x3D;
+                &#x27;Opss...Something is not working but we will fix soon. Please try again later&#x27;;
+              break;
+            default:
+              this.isLoadingInformations &#x3D; false;
+              console.log(error);
+              this.errorMessage &#x3D;
+                &#x27;Opss...Something is not working but we will fix soon. Please try again later&#x27;;
+              break;
+          }
+        }
+      );
+    this.StudentClassroomCourseId &#x3D; null;
+  }
+
+  /**
+   * Retrieves the full information about a classroom course by its ID and assigns the values to corresponding variables.
+   *
+   * @param {number} id - The ID of the classroom course to retrieve information about.
+   */
+  getFullStudentClassroomCourseInfo(id) {
+    this.isloadingInfoModal &#x3D; true;
+    this.loaderrorMessage &#x3D; null;
+
+    this.studentClassroomCourseService
+      .getClassroomFullInfo(id)
+      .pipe(
+        map((responseData) &#x3D;&gt; {
+          return responseData.map((responseData) &#x3D;&gt; {
+            this._teacher_name &#x3D;
+              responseData.fk_classroom.fk_teacher.teacher_name;
+            this._course_name &#x3D; responseData.fk_course.course_name;
+            this._course_field &#x3D; responseData.fk_course.course_field;
+            this._course_price &#x3D; responseData.fk_course.course_price;
+            this._course_modality &#x3D; responseData.fk_course.course_modality;
+            this._classroom_period &#x3D; responseData.fk_classroom.classroom_period;
+            this._classroom_start_time &#x3D;
+              responseData.fk_classroom.classroom_start_time;
+            this._classroom_end_time &#x3D;
+              responseData.fk_classroom.classroom_end_time;
+            this._classroom_start_date &#x3D;
+              responseData.fk_classroom.classroom_start_date;
+            this._classroom_end_date &#x3D;
+              responseData.fk_classroom.classroom_end_date;
+
+            console.log(this._teacher_name);
+          });
+        })
+      )
+      .subscribe(
+        () &#x3D;&gt; {
+          this.loaderrorMessage &#x3D; null;
+
+          setTimeout(() &#x3D;&gt; {
+            this.isloadingInfoModal &#x3D; false;
+          }, 1500);
+        },
+        /**
+         * Handles the error returned from the classroom course service call.
+         * If the status is 404, sets all variables to &quot;Not Found&quot;.
+         * Otherwise, sets all variables to &quot;Not Found&quot; and displays an error message.
+         *
+         * @param {any} error - The error object returned from the classroom course service call.
+         * @returns {string|undefined} - If there is an error, returns an error message; otherwise, returns undefined.
+         */
+        (error) &#x3D;&gt; {
+          console.log(error);
+
+          if (error.status &#x3D;&#x3D;&#x3D; 404) {
+            this.isloadingInfoModal &#x3D; false;
+
+            this._teacher_name &#x3D; &#x27;Not Found&#x27;;
+            this._course_name &#x3D; &#x27;Not Found&#x27;;
+            this._course_field &#x3D; &#x27;Not Found&#x27;;
+            this._course_price &#x3D; 0;
+            this._course_modality &#x3D; &#x27;Not Found&#x27;;
+            this._classroom_period &#x3D; &#x27;Not Found&#x27;;
+            this._classroom_start_time &#x3D; &#x27;Not Found&#x27;;
+            this._classroom_end_time &#x3D; &#x27;Not Found&#x27;;
+            this._classroom_start_date &#x3D; &#x27;Not Found&#x27;;
+            this._classroom_end_date &#x3D; &#x27;Not Found&#x27;;
+
+            console.log(error);
+
+            return (this.loaderrorMessage &#x3D;
+              &#x27;Opss...Something is not working but we will fix soon. Please try again later&#x27;);
+          } else {
+            this.isloadingInfoModal &#x3D; false;
+
+            this._teacher_name &#x3D; &#x27;Not Found&#x27;;
+            this._course_name &#x3D; &#x27;Not Found&#x27;;
+            this._course_field &#x3D; &#x27;Not Found&#x27;;
+            this._course_price &#x3D; 0;
+            this._course_modality &#x3D; &#x27;Not Found&#x27;;
+            this._classroom_period &#x3D; &#x27;Not Found&#x27;;
+            this._classroom_start_time &#x3D; &#x27;Not Found&#x27;;
+            this._classroom_end_time &#x3D; &#x27;Not Found&#x27;;
+            this._classroom_start_date &#x3D; &#x27;Not Found&#x27;;
+            this._classroom_end_date &#x3D; &#x27;Not Found&#x27;;
+
+            console.log(error);
+
+            return (this.loaderrorMessage &#x3D;
+              &#x27;Opss...Something is not working but we will fix soon. Please try again later&#x27;);
+          }
+        }
+      );
+  }
+
+  /**
+   * Sends an email with the student classroom course information.
+   * Sets loading states and success/error messages accordingly.
+   *
+   * @return {void}
+   */
+  sendEmailWithClassroomInfo() {
+    // Set loading states to true and clear any previous messages
+    this.isloadingInfoModal &#x3D; true;
+    this.loadSuccessMessage &#x3D; null;
+    this.loaderrorMessage &#x3D; null;
+
+    // Call the service to send the email
+    this.studentClassroomCourseService
+      .sendEmaiWithClassroomInfo(this.StudentClassroomCourseId)
+      .subscribe(
+        () &#x3D;&gt; {
+          // On success, set loading state to false and display success message
+          this.isloadingInfoModal &#x3D; false;
+          setTimeout(() &#x3D;&gt; {
+            this.loadSuccessMessage &#x3D; &#x27;Email sent with success...&#x27;;
+            setTimeout(() &#x3D;&gt; {
+              this.loadSuccessMessage &#x3D; null;
+            }, 1500);
+          }, 2000);
+        },
+        (error) &#x3D;&gt; {
+          // On error, handle different types of errors
+          if (error.status &#x3D;&#x3D;&#x3D; 400) {
+            // If it&#x27;s a bad request error, set loading state to false and display error message
+            this.isloadingInfoModal &#x3D; false;
+            console.log(error);
+            this.loadSuccessMessage &#x3D; null;
+            return (this.loaderrorMessage &#x3D;
+              &#x27;Opss...Something is not working but we will fix soon. Please try again later&#x27;);
+          } else {
+            // If it&#x27;s any other type of error, set loading state to false and display error message
+            switch (error.error.status) {
+              case 500:
+                console.log(error);
+                this.loadSuccessMessage &#x3D; null;
+                break;
+              default:
+                console.log(error);
+                this.loadSuccessMessage &#x3D; null;
+                break;
+            }
+            this.isloadingInfoModal &#x3D; false;
+            return (this.loaderrorMessage &#x3D;
+              &#x27;Opss...Something is not working but we will fix soon. Please try again later&#x27;);
+          }
+        }
+      );
+  }
+  
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- Delet Modal --&gt;
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;exampleModal&quot; tabindex&#x3D;&quot;-1&quot; aria-labelledby&#x3D;&quot;exampleModalLabel&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+      &lt;div class&#x3D;&quot;modal-header bg-dark text-warning&quot;&gt;
+        &lt;h1 class&#x3D;&quot;modal-title fs-5&quot; id&#x3D;&quot;exampleModalLabel&quot;&gt;Delete Course: {{ courseNameForDelete }}&lt;/h1&gt;
+        &lt;button style&#x3D;&quot;background-color: orange;&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-close&quot; data-bs-dismiss&#x3D;&quot;modal&quot;
+          aria-label&#x3D;&quot;Close&quot; (click)&#x3D;&quot; StudentClassroomCourseId &#x3D; null&quot;&gt;&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+        You really want to delete the course register?
+        &lt;br&gt;
+        Action can&#x27;t be undone after student confirmation
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-dark&quot; data-bs-dismiss&#x3D;&quot;modal&quot; (click)&#x3D;&quot; StudentClassroomCourseId &#x3D; null&quot;&gt;Cancel&lt;/button&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-danger&quot; data-bs-dismiss&#x3D;&quot;modal&quot;
+          (click)&#x3D;&quot;deleteStudentCourseById()&quot;&gt;Delete&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Info Modal --&gt;
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;modal_info&quot; tabindex&#x3D;&quot;-1&quot; aria-labelledby&#x3D;&quot;exampleModalLabe2&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+      &lt;app-spinner *ngIf&#x3D;&quot;isloadingInfoModal&quot; style&#x3D;&quot;margin-left: 40%;&quot;&gt;&lt;/app-spinner&gt;
+      &lt;div *ngIf&#x3D;&quot;!isloadingInfoModal&quot; class&#x3D;&quot;modal-header bg-dark text-warning&quot;&gt;
+        &lt;h1 class&#x3D;&quot;modal-title fs-5&quot; id&#x3D;&quot;exampleModalLabe2&quot;&gt;Teacher: {{ _teacher_name }}&lt;/h1&gt;
+        &lt;button style&#x3D;&quot;background-color: orange;&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-close&quot; data-bs-dismiss&#x3D;&quot;modal&quot;
+          aria-label&#x3D;&quot;Close&quot;&gt;&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;alert alert-danger&quot; *ngIf&#x3D;&quot;loaderrorMessage !&#x3D;&#x3D; null&quot; role&#x3D;&quot;alert&quot;&gt;
+        &lt;i class&#x3D;&quot;bi bi-exclamation-diamond&quot;&gt;&lt;/i&gt;
+        {{loaderrorMessage}}
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;alert alert-success&quot; *ngIf&#x3D;&quot;loadSuccessMessage !&#x3D;&#x3D; null&quot; role&#x3D;&quot;alert&quot;&gt;
+        &lt;i class&#x3D;&quot;bi bi-exclamation-diamond&quot;&gt;&lt;/i&gt;
+        {{loadSuccessMessage}}
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-body&quot; *ngIf&#x3D;&quot;!isloadingInfoModal&quot;&gt;
+        &lt;div class&#x3D;&quot;list-group&quot;&gt;
+          &lt;a class&#x3D;&quot;list-group-item list-group-item-action list-group-item-dark&quot;&gt;Course: {{ _course_name }}&lt;/a&gt;
+          &lt;a class&#x3D;&quot;list-group-item list-group-item-action list-group-item-dark&quot;&gt;Field: {{ _course_field }}&lt;/a&gt;
+          &lt;a class&#x3D;&quot;list-group-item list-group-item-action list-group-item-dark&quot;&gt;Price: {{ _course_price | currency }}&lt;/a&gt;
+          &lt;a class&#x3D;&quot;list-group-item list-group-item-action list-group-item-dark&quot;&gt;Modality: {{ _course_modality }}&lt;/a&gt;
+          &lt;a class&#x3D;&quot;list-group-item list-group-item-action list-group-item-dark&quot;&gt;Period: {{ _classroom_period }}&lt;/a&gt;
+          &lt;a class&#x3D;&quot;list-group-item list-group-item-action list-group-item-dark&quot;&gt;Start time: {{ _classroom_start_time }}&lt;/a&gt;
+          &lt;a class&#x3D;&quot;list-group-item list-group-item-action list-group-item-dark&quot;&gt;End Time: {{ _classroom_end_time }}&lt;/a&gt;
+          &lt;a class&#x3D;&quot;list-group-item list-group-item-action list-group-item-dark&quot;&gt;Start Date: {{ _classroom_start_date  | date:&#x27;MM/dd/yyyy&#x27; }}&lt;/a&gt;
+          &lt;a class&#x3D;&quot;list-group-item list-group-item-action list-group-item-dark&quot;&gt;End Date: {{ _classroom_end_date  | date:&#x27;MM/dd/yyyy&#x27; }}&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-footer bg-dark&quot; *ngIf&#x3D;&quot;!isloadingInfoModal&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-warning&quot; (click)&#x3D;&quot;sendEmailWithClassroomInfo()&quot;&gt;
+          &lt;i class&#x3D;&quot;bi bi-arrow-left-short&quot;&gt;&lt;/i&gt;
+          &lt;i class&#x3D;&quot;bi bi-envelope-at&quot;&gt;&lt;/i&gt;
+          Send Informations by Email
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;app-spinner *ngIf&#x3D;&quot;isLoadingInformations&quot; style&#x3D;&quot;margin-left: 45%;&quot;&gt;&lt;/app-spinner&gt;
+&lt;div class&#x3D;&quot;container text-center&quot; *ngIf&#x3D;&quot;!isLoadingInformations&quot;&gt;
+
+  &lt;div class&#x3D;&quot;alert alert-danger&quot; *ngIf&#x3D;&quot;errorMessage !&#x3D;&#x3D; null&quot; role&#x3D;&quot;alert&quot;&gt;
+    &lt;i class&#x3D;&quot;bi bi-exclamation-diamond&quot;&gt;&lt;/i&gt;
+    {{errorMessage}}
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;alert alert-success&quot; *ngIf&#x3D;&quot;successMessage !&#x3D;&#x3D; null&quot; role&#x3D;&quot;alert&quot;&gt;
+    &lt;i class&#x3D;&quot;bi bi-exclamation-diamond&quot;&gt;&lt;/i&gt;
+    {{successMessage}}
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;input-group mb-2&quot; style&#x3D;&quot;width: 40%;margin-left: 30%;&quot;&gt;
+    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&quot;dataForSearch&quot; placeholder&#x3D;&quot;Type the course name here....&quot;&gt;
+    &lt;button class&#x3D;&quot;btn btn-outline-success&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;getStudentCoursesByCourseName()&quot;&gt;
+      &lt;i class&#x3D;&quot;bi bi-search&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;hr&gt;
+
+  &lt;div class&#x3D;&quot;d-flex flex-column mt-5&quot; *ngIf&#x3D;&quot;courses &#x3D;&#x3D;&#x3D; null&quot;&gt;
+    &lt;h1&gt;No records found...&lt;/h1&gt;
+    &lt;br&gt;
+  &lt;/div&gt;
+
+  &lt;table *ngIf&#x3D;&quot;courses !&#x3D;&#x3D; null&quot; class&#x3D;&quot;table table-hover&quot;&gt;
+    &lt;thead class&#x3D;&quot;table-dark&quot;&gt;
+      &lt;tr&gt;
+        &lt;th scope&#x3D;&quot;col&quot;&gt;Course&lt;/th&gt;
+        &lt;th scope&#x3D;&quot;col&quot;&gt;Field&lt;/th&gt;
+        &lt;th scope&#x3D;&quot;col&quot;&gt;Price&lt;/th&gt;
+        &lt;th scope&#x3D;&quot;col&quot;&gt;Modality&lt;/th&gt;
+        &lt;th scope&#x3D;&quot;col&quot;&gt;Start date&lt;/th&gt;
+        &lt;th scope&#x3D;&quot;col&quot;&gt;End date&lt;/th&gt;
+        &lt;th scope&#x3D;&quot;col&quot;&gt;Cancel Course&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr class&#x3D;&quot;bg-warning&quot; *ngFor&#x3D;&quot;let course of courses&quot;&gt;
+        &lt;td&gt;
+          &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-dark text-warning&quot; data-bs-toggle&#x3D;&quot;modal&quot; data-bs-target&#x3D;&quot;#modal_info&quot; (click)&#x3D;&quot;getFullStudentClassroomCourseInfo(course.student_class_course_id)&quot; (click)&#x3D;&quot;StudentClassroomCourseId &#x3D; course.student_class_course_id&quot;&gt;
+            {{ course.course_name }}
+            &lt;i class&#x3D;&quot;bi bi-info-square&quot;&gt;&lt;/i&gt;
+          &lt;/button&gt;
+        &lt;/td&gt;
+        &lt;td&gt;{{ course.course_field }}&lt;/td&gt;
+        &lt;td&gt;{{ course.course_price | currency }}&lt;/td&gt;
+        &lt;td&gt;{{ course.course_modality }}&lt;/td&gt;
+        &lt;td&gt;{{ course.classroom_start_date | date:&#x27;MM/dd/yyyy&#x27; }}&lt;/td&gt;
+        &lt;td&gt;{{ course.classroom_end_date | date:&#x27;MM/dd/yyyy&#x27; }}&lt;/td&gt;
+        &lt;td&gt;
+          &lt;button class&#x3D;&quot;btn btn-danger&quot; (click)&#x3D;&quot;StudentClassroomCourseId &#x3D; course.student_class_course_id&quot;
+            (click)&#x3D;&quot;courseNameForDelete &#x3D; course.course_name&quot; data-bs-toggle&#x3D;&quot;modal&quot; data-bs-target&#x3D;&quot;#exampleModal&quot;
+            [disabled]&#x3D;&quot;checkIfCourseCanBeCanceled(course.classroom_start_date)&quot;&gt;
+            &lt;i class&#x3D;&quot;bi bi-x-circle&quot;&gt;&lt;/i&gt;
+          &lt;/button&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./student-course.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- Delet Modal --><div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">  <div class="modal-dialog">    <div class="modal-content">      <div class="modal-header bg-dark text-warning">        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Course: {{ courseNameForDelete }}</h1>        <button style="background-color: orange;" type="button" class="btn-close" data-bs-dismiss="modal"          aria-label="Close" (click)=" StudentClassroomCourseId = null"></button>      </div>      <div class="modal-body">        You really want to delete the course register?        <br>        Action can\'t be undone after student confirmation      </div>      <div class="modal-footer">        <button type="button" class="btn btn-dark" data-bs-dismiss="modal" (click)=" StudentClassroomCourseId = null">Cancel</button>        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"          (click)="deleteStudentCourseById()">Delete</button>      </div>    </div>  </div></div><!-- Info Modal --><div class="modal fade" id="modal_info" tabindex="-1" aria-labelledby="exampleModalLabe2" aria-hidden="true">  <div class="modal-dialog">    <div class="modal-content">      <app-spinner *ngIf="isloadingInfoModal" style="margin-left: 40%;"></app-spinner>      <div *ngIf="!isloadingInfoModal" class="modal-header bg-dark text-warning">        <h1 class="modal-title fs-5" id="exampleModalLabe2">Teacher: {{ _teacher_name }}</h1>        <button style="background-color: orange;" type="button" class="btn-close" data-bs-dismiss="modal"          aria-label="Close"></button>      </div>      <div class="alert alert-danger" *ngIf="loaderrorMessage !== null" role="alert">        <i class="bi bi-exclamation-diamond"></i>        {{loaderrorMessage}}      </div>      <div class="alert alert-success" *ngIf="loadSuccessMessage !== null" role="alert">        <i class="bi bi-exclamation-diamond"></i>        {{loadSuccessMessage}}      </div>      <div class="modal-body" *ngIf="!isloadingInfoModal">        <div class="list-group">          <a class="list-group-item list-group-item-action list-group-item-dark">Course: {{ _course_name }}</a>          <a class="list-group-item list-group-item-action list-group-item-dark">Field: {{ _course_field }}</a>          <a class="list-group-item list-group-item-action list-group-item-dark">Price: {{ _course_price | currency }}</a>          <a class="list-group-item list-group-item-action list-group-item-dark">Modality: {{ _course_modality }}</a>          <a class="list-group-item list-group-item-action list-group-item-dark">Period: {{ _classroom_period }}</a>          <a class="list-group-item list-group-item-action list-group-item-dark">Start time: {{ _classroom_start_time }}</a>          <a class="list-group-item list-group-item-action list-group-item-dark">End Time: {{ _classroom_end_time }}</a>          <a class="list-group-item list-group-item-action list-group-item-dark">Start Date: {{ _classroom_start_date  | date:\'MM/dd/yyyy\' }}</a>          <a class="list-group-item list-group-item-action list-group-item-dark">End Date: {{ _classroom_end_date  | date:\'MM/dd/yyyy\' }}</a>        </div>      </div>      <div class="modal-footer bg-dark" *ngIf="!isloadingInfoModal">        <button type="button" class="btn btn-warning" (click)="sendEmailWithClassroomInfo()">          <i class="bi bi-arrow-left-short"></i>          <i class="bi bi-envelope-at"></i>          Send Informations by Email        </button>      </div>    </div>  </div></div><app-spinner *ngIf="isLoadingInformations" style="margin-left: 45%;"></app-spinner><div class="container text-center" *ngIf="!isLoadingInformations">  <div class="alert alert-danger" *ngIf="errorMessage !== null" role="alert">    <i class="bi bi-exclamation-diamond"></i>    {{errorMessage}}  </div>  <div class="alert alert-success" *ngIf="successMessage !== null" role="alert">    <i class="bi bi-exclamation-diamond"></i>    {{successMessage}}  </div>  <div class="input-group mb-2" style="width: 40%;margin-left: 30%;">    <input type="text" class="form-control" [(ngModel)]="dataForSearch" placeholder="Type the course name here....">    <button class="btn btn-outline-success" type="button" (click)="getStudentCoursesByCourseName()">      <i class="bi bi-search"></i>    </button>  </div>  <hr>  <div class="d-flex flex-column mt-5" *ngIf="courses === null">    <h1>No records found...</h1>    <br>  </div>  <table *ngIf="courses !== null" class="table table-hover">    <thead class="table-dark">      <tr>        <th scope="col">Course</th>        <th scope="col">Field</th>        <th scope="col">Price</th>        <th scope="col">Modality</th>        <th scope="col">Start date</th>        <th scope="col">End date</th>        <th scope="col">Cancel Course</th>      </tr>    </thead>    <tbody>      <tr class="bg-warning" *ngFor="let course of courses">        <td>          <button type="button" class="btn btn-dark text-warning" data-bs-toggle="modal" data-bs-target="#modal_info" (click)="getFullStudentClassroomCourseInfo(course.student_class_course_id)" (click)="StudentClassroomCourseId = course.student_class_course_id">            {{ course.course_name }}            <i class="bi bi-info-square"></i>          </button>        </td>        <td>{{ course.course_field }}</td>        <td>{{ course.course_price | currency }}</td>        <td>{{ course.course_modality }}</td>        <td>{{ course.classroom_start_date | date:\'MM/dd/yyyy\' }}</td>        <td>{{ course.classroom_end_date | date:\'MM/dd/yyyy\' }}</td>        <td>          <button class="btn btn-danger" (click)="StudentClassroomCourseId = course.student_class_course_id"            (click)="courseNameForDelete = course.course_name" data-bs-toggle="modal" data-bs-target="#exampleModal"            [disabled]="checkIfCourseCanBeCanceled(course.classroom_start_date)">            <i class="bi bi-x-circle"></i>          </button>        </td>      </tr>    </tbody>  </table></div></div>'
+    var COMPONENTS = [{'name': 'AddCourseComponent', 'selector': 'app-add-course'},{'name': 'AddStudentComponent', 'selector': 'app-add-student'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CoursesComponent', 'selector': 'app-courses'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StudentCourseComponent', 'selector': 'app-student-course'},{'name': 'StudentGradesComponent', 'selector': 'app-student-grades'},{'name': 'StudentInfoComponent', 'selector': 'app-student-info'},{'name': 'StudentPaymentsComponent', 'selector': 'app-student-payments'},{'name': 'StudentsComponent', 'selector': 'app-students'},{'name': 'UpdateCourseComponent', 'selector': 'app-update-course'},{'name': 'UpdateStudentComponent', 'selector': 'app-update-student'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'StudentCourseComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'StudentCourseComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

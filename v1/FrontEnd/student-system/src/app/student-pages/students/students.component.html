@@ -1,0 +1,238 @@
+<!-- Modal that shows the student information -->
+<div class="modal fade" id="student_information" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark">
+      <app-spinner style="margin-left: 42%; margin-top: 10%;" *ngIf="isLoadingInformations"></app-spinner>
+      <div class="modal-header bg-dark" *ngIf="!isLoadingInformations">
+        <h1 class="modal-title fs-5 custom-text" id="exampleModalLabel">{{ _name }}</h1>
+        <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="Close">
+          <i class="bi bi-x-circle text-white"></i>
+        </button>
+      </div>
+      <div class="modal-body bg-dark" *ngIf="!isLoadingInformations">
+        <ul class="list-group list-group-flush bg-dark">
+          <li class="list-group-item bg-dark custom-text">Document: {{ _document }}</li>
+          <li class="list-group-item bg-dark custom-text">Age: {{ _age }}</li>
+          <li class="list-group-item bg-dark custom-text">Birthdate: {{ _birthdate | date:'MM/dd/yyyy' }}</li>
+          <li class="list-group-item bg-dark custom-text">Country: {{ _country }}</li>
+          <li class="list-group-item bg-dark custom-text">State: {{ _state }}</li>
+          <li class="list-group-item bg-dark custom-text">City: {{ _city }}</li>
+          <li class="list-group-item bg-dark custom-text">Adress: {{ _adress }}</li>
+          <li class="list-group-item bg-dark custom-text">Zipcode: {{ _zipcode }}</li>
+          <li class="list-group-item bg-dark custom-text">Email: {{ _email }}</li>
+          <li class="list-group-item bg-dark custom-text">Phone: {{ _phone }}</li>
+          <li class="list-group-item bg-dark custom-text">Phone 2: {{ _phone_2 }}</li>
+          <li class="list-group-item bg-dark custom-text">Registration Date: {{ _creation_date | date:'MM/dd/yyyy' }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete confirmation modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-warning">
+        <h1 class="modal-title fs-5 fs-lg-4 custom-text" id="exampleModalLabel">Delete student</h1>
+        <button type="button" (click)="idForDelete = null" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="Close">
+          <i class="bi bi-x-circle text-white"></i>
+        </button>
+      </div>
+      <div class="modal-body fs-6 fs-lg-5 custom-text bg-dark">
+        You really want to delete the student register?
+        <br>
+        Action can't be undone after confirmation
+      </div>
+      <div class="modal-footer bg-dark">
+        <button type="button" id="confirmDelete" class="btn btn-outline-danger" data-bs-dismiss="modal"
+          (click)="deleteStudent(idForDelete)">
+          <i class="bi bi-person-x"></i>
+          Delete
+        </button>
+        <button type="button" id="cancelDelete" class="btn btn-outline-secondary" (click)="idForDelete = null"
+          data-bs-dismiss="modal">
+          <i class="bi bi-x-circle"></i>
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Background animation -->
+<div class="bubbles">
+  <span style="--i:11"></span>
+  <span style="--i:12"></span>
+  <span style="--i:24"></span>
+  <span style="--i:10"></span>
+  <span style="--i:14"></span>
+  <span style="--i:17"></span>
+  <span style="--i:23"></span>
+  <span style="--i:18"></span>
+  <span style="--i:16"></span>
+  <span style="--i:19"></span>
+  <span style="--i:20"></span>
+  <span style="--i:22"></span>
+  <span style="--i:19"></span>
+  <span style="--i:25"></span>
+  <span style="--i:18"></span>
+  <span style="--i:21"></span>
+  <span style="--i:19"></span>
+  <span style="--i:15"></span>
+  <span style="--i:13"></span>
+  <span style="--i:28"></span>
+  <span style="--i:26"></span>
+  <span style="--i:17"></span>
+  <span style="--i:13"></span>
+  <span style="--i:30"></span>
+  <span style="--i:14"></span>
+  <span style="--i:26"></span>
+  <span style="--i:10"></span>
+  <span style="--i:13"></span>
+  <span style="--i:27"></span>
+  <span style="--i:30"></span>
+  <span style="--i:13"></span>
+  <span style="--i:16"></span>
+  <span style="--i:23"></span>
+  <span style="--i:18"></span>
+  <span style="--i:20"></span>
+</div>
+
+<div class="container text-center table-container mt-5">
+  <div class="align-items-center">
+    <div class="container">
+
+      <br>
+
+      <h3 class="text-white custom-text">Search Student</h3>
+
+      <hr style="color: white;">
+
+      <div *ngIf="errorMessage !== null" id="errorMSG" class="alert alert-danger" role="alert">
+        <i class="bi bi-exclamation-diamond"></i>
+        {{errorMessage}}
+      </div>
+
+      <div *ngIf="successMessage !== null" id="successMSG" class="alert alert-success" role="alert">
+        <i class="bi bi-check2-circle"></i>
+        {{successMessage}}
+      </div>
+
+      <div class="input-group" style="width: 40%;margin-left: 30%;">
+
+        <button class="btn btn-dark dropdown-toggle" style="background-color: black;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-filter"></i>
+        </button>
+
+        <ul class="dropdown-menu" style="background-color: black;">
+
+          <li>
+            <a class="dropdown-item" type="button">
+              <div class="form-check">
+                <input class="form-check-input" value="name" [(ngModel)]="searchType" type="radio" name="SearchByName"
+                  id="SearchByName">
+                <label class="form-check-label custom-text" for="SearchByName">
+                  Name
+                </label>
+              </div>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li>
+            <a class="dropdown-item" type="button">
+              <div class="form-check">
+                <input class="form-check-input" value="document" [(ngModel)]="searchType" type="radio"
+                  name="SearchByDocument" id="SearchByDocument">
+                <label class="form-check-label custom-text" for="SearchByDocument">
+                  Document
+                </label>
+              </div>
+            </a>
+          </li>
+        </ul>
+
+        <input type="text" class="form-control custom-text" [(ngModel)]="dataforSearch" placeholder="Type here....">
+
+        <button class="btn btn-outline-success" (click)="searchStudent()" type="button">
+          <i class="bi bi-search"></i>
+        </button>
+
+      </div>
+    </div>
+
+    <hr>
+    
+    <div class="d-flex flex-column mt-5 custom-text" *ngIf="studentData === null">
+      <h1>No records found...</h1>
+      <br>
+    </div>
+    
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    
+    <div *ngIf="!isLoading">
+      <table class="table" *ngIf="studentData !== null">
+        <thead class="table-dark custom-text">
+          <tr>
+            <th scope="col">
+              Name
+            </th>
+            <th scope="col">
+              Document
+            </th>
+            <th scope="col">
+              Registration Date
+            </th>
+            <th scope="col">
+              Management
+            </th>
+            <th scope="col">
+              Update
+            </th>
+            <th scope="col">
+              Delete
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bg-dark custom-text">
+          <tr *ngFor="let student of studentData;index as i" class="table-hover-helper">
+            <th>
+              <a data-bs-toggle="modal" data-bs-target="#student_information" role="button"
+                style="text-decoration: underline;" (click)="getStudentById(student.student_id)">
+                {{student.student_name}}
+              </a>
+            </th>
+            <td>
+              {{student.student_document}}
+            </td>
+            <td>
+              {{student.student_creation_date | date:'MM/dd/yyyy' }}
+            </td>
+            <td>
+              <button class="btn btn-outline-primary" [id]="'manageBtn'+i" (click)="goToStudentManagement(student.student_id, student.student_name)">
+                <i class="bi bi-info-circle"></i>
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-outline-warning" [id]="'updateBtn'+i" (click)="updatedStudent(student.student_id)">
+                <i class="bi bi-person-gear"></i>
+              </button>
+            </td>
+            <td>
+              <button [id]="'deleteBtn'+i" class="btn btn-outline-danger" (click)="idForDelete = student.student_id"
+                data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="bi bi-person-x"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+    </div>
+
+  </div>
+</div>

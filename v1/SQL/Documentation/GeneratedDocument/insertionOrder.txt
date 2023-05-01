@@ -1,0 +1,8 @@
+course
+student
+promotion
+teacher
+classroom
+grade
+student_classroom_course
+payment

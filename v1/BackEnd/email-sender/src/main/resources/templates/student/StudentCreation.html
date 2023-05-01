@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+
+	<header th:replace="fragments/header :: header"></header>
+	<td class="esd-stripe" align="center">
+		<table class="es-content-body" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center"
+			style="border-top:6px solid transparent;border-bottom:10px solid transparent;">
+			<tbody>
+				<tr>
+					<td class="esd-structure es-p20t es-p20b es-p30r es-p30l" align="left" bgcolor="#867d7d"
+						style="background-color: #867d7d; background-image: url(https://mojpey.stripocdn.email/content/guids/CABINET_8737c97ebb697bb2712a396ee00922fecc68d7d63678b5e00b5db595d66f9a13/images/backgroundjpg.jpg); background-repeat: no-repeat; background-position: center top;"
+						background="https://mojpey.stripocdn.email/content/guids/CABINET_8737c97ebb697bb2712a396ee00922fecc68d7d63678b5e00b5db595d66f9a13/images/backgroundjpg.jpg">
+						<table width="100%" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<td class="esd-container-frame" width="540" valign="top" align="center">
+										<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#010101"
+											style="background-color: #010101;">
+											<tbody>
+												<tr>
+													<td align="center" class="esd-block-text es-p35" bgcolor="#e7dfdf">
+														<p style="line-height: 120%; color: #1d0100;"><b th:text="'Welcome '+ ${studentName}"></b></p>
+														<p style="line-height: 120%; color: #1d0100; text-align: left;">
+															<br><em><strong>We are glad to have you!!!</strong></em></p>
+														<p style="line-height: 120%; color: #1d0100; text-align: left;">
+															<em><strong>We hope to help you change your carrer and
+																	life<br><br>If you call to or Sales Area and buy a
+																	course tooday you can get $30 descount.</strong></em><br><br></p>
+														<p
+															style="line-height: 120%; color: #1d0100; text-align: center; font-size: 16px;">
+															<em><strong><span style="background-color:#ADD8E6;">All our
+																		knowledge begins with
+																		feelings.</span></strong></em></p>
+														<p style="line-height: 120%; color: #1d0100; text-align: left;">
+															<br></p>
+														<p style="line-height: 120%; color: #1d0100; text-align: left;">
+															<em><strong>If you have any questions, please contact our
+																	customer service by:<br>&nbsp; &nbsp; &nbsp; SAP
+																	Phone: +44 (22) 222222222<br>&nbsp; &nbsp; &nbsp;
+																	Email: StudentHomeSAP@outlook.com<br><br>&nbsp;
+																	&nbsp; DON'T REPLY THIS EMAIL</strong></em><br><br>
+														</p>
+													</td>
+												</tr>
+												<br>
+												<tr th:replace="fragments/footer :: footer1"></tr>
+												<br>
+												<tr th:replace="fragments/footer :: footer2"></tr>
+											</tbody>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</td>
+
+</body>
+
+</html>
