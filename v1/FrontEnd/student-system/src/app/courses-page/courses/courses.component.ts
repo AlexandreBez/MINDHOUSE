@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
-import { CourseApiService } from 'src/app/service/CoursesApi.service';
+import { CourseApiService } from 'src/app/api/CoursesApi.service';
 
 @Component({
   selector: 'app-courses',

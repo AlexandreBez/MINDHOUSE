@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PaymentApiService } from 'src/app/service/PaymentApi.service';
-import { StudentApiService } from 'src/app/service/StudentApi.service';
+import { PaymentApiService } from 'src/app/api/PaymentApi.service';
+import { StudentApiService } from 'src/app/api/StudentApi.service';
 
 @Component({
   selector: 'app-student-payments',

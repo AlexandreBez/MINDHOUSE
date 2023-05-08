@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GradeApiService } from 'src/app/service/GradeApi.service';
-import { StudentApiService } from 'src/app/service/StudentApi.service';
+import { GradeApiService } from 'src/app/api/GradeApi.service';
+import { StudentApiService } from 'src/app/api/StudentApi.service';
 
 /**
  * Component to display and manage grades for a student.

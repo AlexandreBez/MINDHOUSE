@@ -4,7 +4,7 @@ import { AddStudentComponent } from './add-student.component';
 import { SpinnerModule } from 'src/app/shared/spinner/spinner.module';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { StudentApiService } from 'src/app/service/StudentApi.service';
+import { StudentApiService } from 'src/app/api/StudentApi.service';
 import { HttpClientModule } from '@angular/common/http';
 
 /**

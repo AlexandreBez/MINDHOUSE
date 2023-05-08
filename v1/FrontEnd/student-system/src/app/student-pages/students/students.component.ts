@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
-import { StudentApiService } from 'src/app/service/StudentApi.service';
+import { StudentApiService } from 'src/app/api/StudentApi.service';
 
 @Component({
   selector: 'app-students',

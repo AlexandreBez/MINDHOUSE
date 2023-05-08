@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Student } from 'src/app/interface/Student';
-import { StudentApiService } from 'src/app/service/StudentApi.service';
+import { Student } from 'src/app/api/interface/Student';
+import { StudentApiService } from 'src/app/api/StudentApi.service';
 
 /**
  * Component responsible for adding new students.

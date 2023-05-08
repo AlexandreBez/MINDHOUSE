@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SpinnerModule } from 'src/app/shared/spinner/spinner.module';
 import { FormsModule } from '@angular/forms';
 import { UpdateCourseComponent } from './update-course/update-course.component';
-import { CourseApiService } from 'src/app/service/CoursesApi.service';
+import { CourseApiService } from 'src/app/api/CoursesApi.service';
 
 @NgModule({
   declarations: [

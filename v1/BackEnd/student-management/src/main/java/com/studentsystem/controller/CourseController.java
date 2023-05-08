@@ -3,6 +3,8 @@ package com.studentsystem.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.annotation.security.PermitAll;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,8 @@ import com.studentsystem.model.entity.Course;
 import com.studentsystem.service.CourseService;
 
 @RestController
+@PermitAll
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("student-management-api/v1/")
 public class CourseController {
 	

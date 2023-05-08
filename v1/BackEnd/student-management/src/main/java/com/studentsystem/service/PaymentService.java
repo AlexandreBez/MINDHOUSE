@@ -11,10 +11,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.studentsystem.customResponse.CustomResponse;
 import com.studentsystem.customqueryresult.StudentPaymentsInfo;
 import com.studentsystem.feingClients.EmailSenderFeingClients;
 import com.studentsystem.model.PaymentJPA;
+import com.studentsystem.objects.CustomResponse;
 
 import javax.transaction.Transactional;
 

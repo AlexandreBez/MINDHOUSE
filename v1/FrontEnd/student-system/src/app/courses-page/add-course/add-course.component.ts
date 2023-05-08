@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Course } from 'src/app/interface/Course';
-import { CourseApiService } from 'src/app/service/CoursesApi.service';
+import { Course } from 'src/app/api/interface/Course';
+import { CourseApiService } from 'src/app/api/CoursesApi.service';
 
 @Component({
   selector: 'app-add-course',

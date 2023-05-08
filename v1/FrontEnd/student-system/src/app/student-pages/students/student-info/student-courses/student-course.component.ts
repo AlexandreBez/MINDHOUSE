@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
-import { StudentApiService } from 'src/app/service/StudentApi.service';
-import { StudentClassroomCourseApiService } from 'src/app/service/StudentClassroomCourseApi.service';
+import { StudentApiService } from 'src/app/api/StudentApi.service';
+import { StudentClassroomCourseApiService } from 'src/app/api/StudentClassroomCourseApi.service';
 import * as moment from 'moment';
 
 /**

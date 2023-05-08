@@ -13,11 +13,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.studentsystem.customResponse.CustomResponse;
 import com.studentsystem.customqueryresult.StudentCourseInfo;
 import com.studentsystem.feingClients.EmailSenderFeingClients;
 import com.studentsystem.model.StudentClassroomCourseJPA;
 import com.studentsystem.model.entity.Student_Classroom_Course;
+import com.studentsystem.objects.CustomResponse;
 
 import javax.transaction.Transactional;
 
