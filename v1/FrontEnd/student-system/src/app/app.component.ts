@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AppService } from './app.service';
 
 /**
  * The root component of the Angular application.
@@ -15,9 +16,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  // Component logic goes here
-}
+export class AppComponent implements OnInit {
 
+  constructor(private appService: AppService) {}
+
+  ngOnInit() {
+    this.appService.checkTokenAndRelogin();
+  }
+}

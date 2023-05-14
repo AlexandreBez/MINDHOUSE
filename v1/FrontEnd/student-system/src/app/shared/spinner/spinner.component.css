@@ -1,90 +1,78 @@
-.lds-roller {
-  display: inline-block;
-  position: relative;
-  width: 120px;
-  height: 120px;
-}
-
-.lds-roller div {
-  animation: lds-roller 2s linear infinite;
-  transform-origin: 40px 40px;
-}
-
-.lds-roller div:after {
-  content: " ";
-  display: block;
+.loader {
   position: absolute;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: #1e9bff;
-  margin: -4px 0 0 -4px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 170px;
+  height: 170px;
+  border: 10px solid #262626;
 }
 
-.lds-roller div:nth-child(1) {
-  animation-delay: -0.036s;
-}
-.lds-roller div:nth-child(1):after {
-  top: 63px;
-  left: 63px;
-}
-.lds-roller div:nth-child(2) {
-  animation-delay: -0.072s;
-}
-.lds-roller div:nth-child(2):after {
-  top: 68px;
-  left: 56px;
-}
-.lds-roller div:nth-child(3) {
-  animation-delay: -0.108s;
-}
-.lds-roller div:nth-child(3):after {
-  top: 71px;
-  left: 48px;
-}
-.lds-roller div:nth-child(4) {
-  animation-delay: -0.144s;
-}
-.lds-roller div:nth-child(4):after {
-  top: 72px;
-  left: 40px;
-}
-.lds-roller div:nth-child(5) {
-  animation-delay: -0.18s;
-}
-.lds-roller div:nth-child(5):after {
-  top: 71px;
-  left: 32px;
-}
-.lds-roller div:nth-child(6) {
-  animation-delay: -0.216s;
-}
-.lds-roller div:nth-child(6):after {
-  top: 68px;
-  left: 24px;
-}
-.lds-roller div:nth-child(7) {
-  animation-delay: -0.256s;
-}
-.lds-roller div:nth-child(7):after {
-  top: 63px;
-  left: 17px;
-}
-.lds-roller div:nth-child(8) {
-  animation-delay: -0.288s;
-}
-.lds-roller div:nth-child(8):after {
-  top: 56px;
-  left: 12px;
+span:nth-child(3){
+  animation-delay: 0.8s;
 }
 
-@keyframes lds-roller {
-  0% {
-    transform: rotate(0deg);
-    filter: hue-rotate(0deg);
+span:nth-child(2),
+span:nth-child(6)
+{
+  animation-delay: 0.6s;
+}
+
+span:nth-child(1),
+span:nth-child(5),
+span:nth-child(9)
+{
+  animation-delay: 0.4s;
+}
+
+span:nth-child(4),
+span:nth-child(8)
+{
+  animation-delay: 0.2s;
+}
+
+span:nth-child(7){
+  animation-delay: 0s;
+}
+
+span{
+  width: 50px;
+  height: 50px;
+  background: #ff8700;
+  display: block;
+  float: left;
+  animation: animate 2s linear infinite;
+}
+
+@keyframes animate {
+  0%{
+    transform: scale(1);
   }
-  100% {
-    transform: rotate(360deg);
-    filter: hue-rotate(360deg);
+  30%{
+    transform: scale(0);
+    box-shadow: 
+        0 0 0 10px #26262644,
+        0 0 50px #262626,
+        0 0 100px #262626
+    ;
+  }
+  50%{
+    transform: scale(0);
+    box-shadow: 
+        0 0 0 10px #26262644,
+        0 0 50px #262626,
+        0 0 100px #262626
+    ;
+  }
+  75%{
+    transform: scale(1);
+    box-shadow: 
+        0 0 0 10px #26262644,
+        0 0 50px #262626,
+        0 0 100px #262626
+    ;
+  }
+  100%{
+    transform: scale(1);
   }
 }

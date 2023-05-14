@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HeaderModule } from './shared/header/header.module';
 import { RoutesModule } from './routes/routing.modules';
+import { AppService } from './app.service';
 
 /**
  * The main application module.
@@ -18,8 +18,8 @@ import { RoutesModule } from './routes/routing.modules';
  */
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, RoutesModule, HeaderModule],
-  providers: [],
+  imports: [BrowserModule, RoutesModule],
+  providers: [AppService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import com.usersserver.model.UserJPA;
 import com.usersserver.model.entity.Users;
 import com.usersserver.objects.CustomResponse;
+import com.usersserver.objects.LoginRequest;
 
 @Service
 public class UserService implements UserServiceHelper{
@@ -66,11 +67,16 @@ public class UserService implements UserServiceHelper{
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		
 		List<Users> user = userRepository.findByEmail(username);
 		
 		if (user.isEmpty()) throw new UsernameNotFoundException(username);
 		
-		return new User(user.get(0).getEmail(), user.get(0).getPassword(), true, true, true, true, new ArrayList<>());
+		LoginRequest loginRequest = new LoginRequest();
+		loginRequest.setUsername(user.get(0).getEmail());
+		loginRequest.setPassword(user.get(0).getPassword());
+		
+		return new User(loginRequest.getUsername(), loginRequest.getPassword(), true, true, true, true, new ArrayList<>());
 	}
 	
 	public Users getUserDetailsByEmail(String email) {

@@ -1,0 +1,45 @@
+.body-helper {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url("/assets/img/login/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.login-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 30px 30px;
+    background: #ffffff3a;
+    border-radius: 10px;
+}
+
+.btn-dark{
+    margin-left: 35%;
+}
+
+.btn-dark:hover{
+    background-color: #000000ff;
+    color: #ff8700;
+    box-shadow: 
+    0 0 0 5px #ff870044,
+    0 0 5px #ff8700,
+    0 0 100px #ff8700;
+}
+
+img{
+    margin-left: 35%;
+    margin-bottom: 2%;
+    border-radius: 10px;
+}
+
+.forget{
+    margin-left: 19%;
+    margin-bottom: 2%;
+    color: #ff8700;
+}

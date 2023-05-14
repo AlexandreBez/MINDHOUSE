@@ -9,17 +9,11 @@ import { NotFoundComponent } from './not-found.component';
  * @since 1.0.0
  */
 @NgModule({
-declarations: [
-NotFoundComponent
-],
-imports: [
-CommonModule,
-RouterModule.forChild([
-{ path: 'NotFound', component: NotFoundComponent },
-]),
-],
-exports: [
-NotFoundComponent
-]
+  declarations: [NotFoundComponent],
+  imports: [
+    CommonModule,
+    RouterModule.forChild([{ path: '404', component: NotFoundComponent }]),
+  ],
+  exports: [NotFoundComponent],
 })
-export class NotFoundModule { }
+export class NotFoundModule {}
