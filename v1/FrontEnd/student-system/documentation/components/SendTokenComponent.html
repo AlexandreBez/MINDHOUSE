@@ -1,0 +1,856 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>MINDHOUSE</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">MINDHOUSE</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  SendTokenComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/Pages/auth/send-token/send-token.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>SendTokenComponent for handling token generation functionality.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-send-token</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./send-token.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./send-token.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#emailForSendToken" >emailForSendToken</a>
+                            </li>
+                            <li>
+                                <a href="#errorMsg" >errorMsg</a>
+                            </li>
+                            <li>
+                                <a href="#isLoading" >isLoading</a>
+                            </li>
+                            <li>
+                                <a href="#successMsg" >successMsg</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancel" >cancel</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onSendToken" >onSendToken</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authApiService: <a href="../injectables/AuthAPIService.html" target="_self">AuthAPIService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/Pages/auth/send-token/send-token.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>The constructor for the SendTokenComponent class.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authApiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthAPIService.html" target="_self" >AuthAPIService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>The authentication instance.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>The router instance.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancel"></a>
+                    <span class="name">
+                        <span ><b>cancel</b></span>
+                        <a href="#cancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cancel()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">src/app/Pages/auth/send-token/send-token.component.ts:93</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cancels the token sending process and navigates to the login page.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/Pages/auth/send-token/send-token.component.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Initializes the component.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSendToken"></a>
+                    <span class="name">
+                        <span ><b>onSendToken</b></span>
+                        <a href="#onSendToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSendToken()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/Pages/auth/send-token/send-token.component.ts:63</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Handles the token process when the send token button is clicked.
+Retrieves the form data, sends a token geenration request, and handles the response.</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="emailForSendToken"></a>
+                    <span class="name">
+                        <span ><b>emailForSendToken</b></span>
+                        <a href="#emailForSendToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/Pages/auth/send-token/send-token.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Email used for sending the token.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorMsg"></a>
+                    <span class="name">
+                        <span ><b>errorMsg</b></span>
+                        <a href="#errorMsg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/Pages/auth/send-token/send-token.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Error message displayed when an error occurs.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLoading"></a>
+                    <span class="name">
+                        <span ><b>isLoading</b></span>
+                        <a href="#isLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/Pages/auth/send-token/send-token.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag indicating whether the login operation is in progress.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="successMsg"></a>
+                    <span class="name">
+                        <span ><b>successMsg</b></span>
+                        <a href="#successMsg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/Pages/auth/send-token/send-token.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Success message displayed when the token is sent successfully.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { AuthAPIService } from &#x27;../api/auth-api.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+/**
+ * SendTokenComponent for handling token generation functionality.
+ */
+@Component({
+  selector: &#x27;app-send-token&#x27;,
+  templateUrl: &#x27;./send-token.component.html&#x27;,
+  styleUrls: [&#x27;./send-token.component.css&#x27;],
+})
+export class SendTokenComponent implements OnInit {
+
+  /**
+   * Flag indicating whether the login operation is in progress.
+   * @type {boolean}
+   */
+  isLoading: boolean &#x3D; false;
+
+  /**
+   * Error message displayed when an error occurs.
+   * @type {string}
+   */
+  errorMsg &#x3D; null;
+
+  /**
+   * Success message displayed when the token is sent successfully.
+   * @type {string}
+   */
+  successMsg &#x3D; null;
+
+  /**
+   * Email used for sending the token.
+   * @type {string}
+   */
+  emailForSendToken &#x3D; null;
+
+  /**
+   * The constructor for the SendTokenComponent class.
+   *
+   * @constructor
+   * @param {AuthAPIService} authApiService - The authentication instance.
+   * @param {Router} router - The router instance.
+   */
+  constructor(private authApiService: AuthAPIService, private router: Router) {}
+
+  /**
+   * Initializes the component.
+   */
+  ngOnInit() {
+    localStorage.removeItem(&#x27;email&#x27;);
+    localStorage.removeItem(&#x27;tokenIsValid&#x27;);
+    localStorage.removeItem(&#x27;token&#x27;);
+  }
+
+  /**
+   * Handles the token process when the send token button is clicked.
+   * Retrieves the form data, sends a token geenration request, and handles the response.
+   *
+   * @returns {void}
+   */
+  onSendToken() {
+    this.isLoading &#x3D; true;
+    this.errorMsg &#x3D; null;
+    this.successMsg &#x3D; null;
+    this.authApiService.sendToken(this.emailForSendToken).subscribe(
+      (data) &#x3D;&gt; {
+        this.isLoading &#x3D; false;
+        this.successMsg &#x3D; data.message;
+
+        setTimeout(() &#x3D;&gt; {
+          this.successMsg &#x3D; null;
+          localStorage.setItem(&#x27;email&#x27;, this.emailForSendToken);
+          this.router.navigate([&#x27;ValidateToken&#x27;]);
+        }, 2000);
+      },
+      (error) &#x3D;&gt; {
+        console.log(error);
+        this.isLoading &#x3D; false;
+        if (error.status &#x3D;&#x3D; 404) {
+          this.errorMsg &#x3D; &#x27;Email not found...&#x27;;
+        } else {
+          this.errorMsg &#x3D; &#x27;Oops... something went wrong&#x27;;
+        }
+      }
+    );
+  }
+
+  /**
+   * Cancels the token sending process and navigates to the login page.
+   */
+  cancel() {
+    localStorage.removeItem(&#x27;email&#x27;);
+    localStorage.removeItem(&#x27;tokenIsValid&#x27;);
+    localStorage.removeItem(&#x27;token&#x27;);
+    this.router.navigate([&#x27;login&#x27;]);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">
+&lt;div class&#x3D;&quot;body-helper&quot;&gt;
+    &lt;app-spinner *ngIf&#x3D;&quot;isLoading&quot;&gt;&lt;/app-spinner&gt;
+    &lt;div class&#x3D;&quot;login-form&quot; *ngIf&#x3D;&quot;!isLoading&quot;&gt;
+
+        &lt;!-- Alerts --&gt;
+        &lt;div class&#x3D;&quot;alert alert-success&quot; *ngIf&#x3D;&quot;successMsg !&#x3D; null&quot; role&#x3D;&quot;alert&quot;&gt;
+            &lt;i class&#x3D;&quot;bi bi-check-circle&quot;&gt;&lt;/i&gt;
+            {{successMsg}}
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;alert alert-warning&quot; *ngIf&#x3D;&quot;errorMsg !&#x3D;null&quot; role&#x3D;&quot;alert&quot;&gt;
+            &lt;i class&#x3D;&quot;bi bi-exclamation-circle&quot;&gt;&lt;/i&gt;
+            {{errorMsg}}
+        &lt;/div&gt;
+
+        &lt;img src&#x3D;&quot;/assets/img/MINDHOUSE_TEXT.gif&quot; class&#x3D;&quot;ms-3 mb-1&quot; style&#x3D;&quot;border-radius: 20px;&quot; alt&#x3D;&quot;logo&quot; width&#x3D;&quot;300&quot;
+            height&#x3D;&quot;130&quot;&gt;
+
+        &lt;div&gt;
+
+            &lt;p class&#x3D;&quot;text-white&quot;&gt;Enter with the email on below box and click on send to receive the token.&lt;/p&gt;
+
+            &lt;div class&#x3D;&quot;form-floating mb-2&quot;&gt;
+                &lt;input type&#x3D;&quot;email&quot; maxlength&#x3D;&quot;50&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;username&quot; placeholder&#x3D;&quot;username&quot;
+                    #username&#x3D;&quot;ngModel&quot; name&#x3D;&quot;username&quot; [(ngModel)]&#x3D;&quot;emailForSendToken&quot; email required /&gt;
+                &lt;label for&#x3D;&quot;username&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-person&quot;&gt;&lt;/i&gt;
+                    Username
+                &lt;/label&gt;
+
+                &lt;div *ngIf&#x3D;&quot;username.invalid &amp;&amp; (username.dirty || username.touched)&quot; class&#x3D;&quot;alert&quot;&gt;
+                    &lt;span class&#x3D;&quot;help-block&quot; style&#x3D;&quot;color: red&quot;
+                        *ngIf&#x3D;&quot;username.errors?.[&#x27;required&#x27;] || username.errors?.[&#x27;email&#x27;]&quot;&gt;
+                        Please enter with valid email
+                    &lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;mb-3&quot; style&#x3D;&quot;width: 100%;&quot;&gt;
+                &lt;button class&#x3D;&quot;btn btn-dark&quot; style&#x3D;&quot;margin-left: 15%;&quot; (click)&#x3D;&quot;onSendToken()&quot;
+                    [disabled]&#x3D;&quot;username.invalid || username.errors?.[&#x27;required&#x27;] || username.errors?.[&#x27;email&#x27;]&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-envelope-at&quot;&gt;&lt;/i&gt;
+                    Send Token
+                &lt;/button&gt;
+                &lt;button class&#x3D;&quot;btn btn-dark&quot; style&#x3D;&quot;margin-left: 2%;&quot; (click)&#x3D;&quot;cancel()&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-x&quot;&gt;&lt;/i&gt;
+                    Cancel
+                &lt;/button&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./send-token.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.body-helper {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url(&quot;/assets/img/login/bg.jpg&quot;);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.login-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 30px 30px;
+    background: #ffffff3a;
+    border-radius: 10px;
+}
+
+.btn-dark:hover{
+    background-color: #000000ff;
+    color: #ff8700;
+    box-shadow: 
+    0 0 0 5px #ff870044,
+    0 0 5px #ff8700,
+    0 0 100px #ff8700;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="body-helper">    <app-spinner *ngIf="isLoading"></app-spinner>    <div class="login-form" *ngIf="!isLoading">        <!-- Alerts -->        <div class="alert alert-success" *ngIf="successMsg != null" role="alert">            <i class="bi bi-check-circle"></i>            {{successMsg}}        </div>        <div class="alert alert-warning" *ngIf="errorMsg !=null" role="alert">            <i class="bi bi-exclamation-circle"></i>            {{errorMsg}}        </div>        <img src="/assets/img/MINDHOUSE_TEXT.gif" class="ms-3 mb-1" style="border-radius: 20px;" alt="logo" width="300"            height="130">        <div>            <p class="text-white">Enter with the email on below box and click on send to receive the token.</p>            <div class="form-floating mb-2">                <input type="email" maxlength="50" class="form-control" id="username" placeholder="username"                    #username="ngModel" name="username" [(ngModel)]="emailForSendToken" email required />                <label for="username">                    <i class="bi bi-person"></i>                    Username                </label>                <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert">                    <span class="help-block" style="color: red"                        *ngIf="username.errors?.[\'required\'] || username.errors?.[\'email\']">                        Please enter with valid email                    </span>                </div>            </div>            <div class="mb-3" style="width: 100%;">                <button class="btn btn-dark" style="margin-left: 15%;" (click)="onSendToken()"                    [disabled]="username.invalid || username.errors?.[\'required\'] || username.errors?.[\'email\']">                    <i class="bi bi-envelope-at"></i>                    Send Token                </button>                <button class="btn btn-dark" style="margin-left: 2%;" (click)="cancel()">                    <i class="bi bi-x"></i>                    Cancel                </button>            </div>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ClockComponent', 'selector': 'app-clock'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SendTokenComponent', 'selector': 'app-send-token'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'ValidateTokenComponent', 'selector': 'app-validate-token'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SendTokenComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SendTokenComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

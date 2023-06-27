@@ -1,0 +1,82 @@
+.container {
+    background-color: rgba(255, 255, 255, 0.349);
+}
+
+.btn-outline-warning {
+    border: #ff8700 1px solid;
+    color: white;
+}
+
+.btn-outline-warning:hover {
+    background-color: #ff8700;
+    box-shadow: 0 0 0 5px #ff870044, 0 0 5px #ff8700, 0 0 100px #ff8700;
+}
+
+.btn-outline-dark {
+    color: white;
+}
+
+.btn-outline-dark:hover {
+    box-shadow: 0 0 0 5px #282a2c44, 0 0 5px #282a2c, 0 0 100px #282a2c;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #6c757d;
+}
+
+.empty-title {
+    border-left: #ff8700 solid 1px;
+    border-bottom: #ff8700 solid 1px;
+    border-left-width: 5px;
+    padding-left: 10px;
+    margin: 5% 5%;
+}
+
+.btn-outline-danger:hover {
+    box-shadow:
+        0 0 0 5px #dc354544,
+        0 0 5px #dc3545,
+        0 0 100px #dc3545;
+}
+
+.btn-outline-info:hover {
+    box-shadow:
+        0 0 0 5px #0dcaf044,
+        0 0 5px #0dcaf0,
+        0 0 100px #0dcaf0;
+}
+
+.btn-close {
+    background-color: #ff8700;
+}
+
+.btn-close:hover {
+    color: #ff8700;
+    box-shadow: 0 0 0 5px #ff870044, 0 0 5px #ff8700, 0 0 100px #ff8700;
+}
+
+.btn-secondary:hover {
+    box-shadow:
+        0 0 0 5px #6c757d44,
+        0 0 5px #6c757d,
+        0 0 100px #6c757d;
+}
+
+.btn-primary:hover {
+    box-shadow:
+        0 0 0 5px #007bff44,
+        0 0 5px #007bff,
+        0 0 100px #007bff;
+}
+
+.scrollable-page {
+    height: 500px;
+    overflow-y: scroll;
+    /* Enable vertical scrolling */
+}
+
+.fixed-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}

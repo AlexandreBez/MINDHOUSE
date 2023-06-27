@@ -1,0 +1,430 @@
+<!-- Create Modal -->
+<div class="modal fade" id="create-user-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="create-user-modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+          NEW USER
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="showPassword = false;addForm.reset()"></button>
+      </div>
+
+      <form (ngSubmit)="createUser()" #addForm="ngForm">
+
+        <div class="modal-body bg-dark text-white">
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="nameAddInput" placeholder="name@example.com" name="nameAddInput"
+              #nameAddInput="ngModel" ngModel required>
+            <label for="nameAddInput" style="color: black;">
+              <i class="bi bi-person-badge-fill"></i>
+              Name
+            </label>
+            <div *ngIf="nameAddInput.invalid && (nameAddInput.dirty || nameAddInput.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="nameAddInput.errors?.['required']">
+                Please enter with valid data
+              </span>
+            </div>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="emailAddInput" placeholder="email" name="emailAddInput"
+              #emailAddInput="ngModel" ngModel required email>
+            <label for="emailAddInput" style="color: black;">
+              <i class="bi bi-envelope-at"></i>
+              Email
+            </label>
+            <div *ngIf="emailAddInput.invalid && (emailAddInput.dirty || emailAddInput.touched)" class="alert">
+              <span class="help-block" style="color: red"
+                *ngIf="emailAddInput.errors?.['required'] || emailAddInput.errors?.['email']">
+                Please enter with valid data
+              </span>
+            </div>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" id="passwordAddInput"
+              placeholder="******" name="passwordAddInput" [(ngModel)]="password_input" required
+              #passwordAddInput="ngModel">
+            <label for="passwordAddInput" style="color: black;">
+              <i class="bi bi-key"></i>
+              Password
+            </label>
+            <div *ngIf="passwordAddInput.invalid && (passwordAddInput.dirty || passwordAddInput.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="passwordAddInput.errors?.['required']">
+                Please enter with valid data
+              </span>
+            </div>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" id="passwordConfirmAddInput"
+              placeholder="*******" name="passwordConfirmAddInput" [(ngModel)]="confirmPassword" required
+              #passwordConfirmAddInput="ngModel">
+            <label for="passwordConfirmAddInput" style="color: black;">
+              <i class="bi bi-key"></i>
+              Confirm Password
+            </label>
+
+            <span class="help-block alert" style="color: red"
+              *ngIf="passwordConfirmAddInput.invalid && (passwordConfirmAddInput.dirty || passwordConfirmAddInput.touched)">
+              Please enter valid data
+            </span>
+            <br>
+            <span class="help-block alert" style="color: red" *ngIf="password_input !== confirmPassword">
+              Passwords do not match
+            </span>
+          </div>
+
+          <div>
+            <label for="roleAddInput">
+              <i class="bi bi-boxes"></i>
+              Role
+            </label>
+            <select class="form-select" id="roleAddInput" style="color: black;" aria-label="Select a role"
+              aria-placeholder="Select a role..." name="roleAddInput" #roleAddInput="ngModel" ngModel required>
+              <option value="ADMIN">ADMIN</option>
+              <option value="SUPPORT">SUPPORT</option>
+              <option value="SUPPORT MANAGER">SUPPORT MANAGER</option>
+              <option value="SALES">SALES</option>
+              <option value="SALES MANAGER">SALES MANAGER</option>
+            </select>
+            <div *ngIf="roleAddInput.invalid && (roleAddInput.dirty || roleAddInput.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="roleAddInput.errors?.['required']">
+                Please enter with valid data
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer bg-dark text-white">
+
+          <button class="btn btn-light" type="button" (click)="changePwdVisibility()">
+            <i class="bi bi-eye" *ngIf="showPassword == true"></i>
+            <i class="bi bi-eye-slash" *ngIf="showPassword == false"></i>
+          </button>
+
+          <button type="submit" data-bs-dismiss="modal" class="btn btn-primary"
+            [disabled]="!addForm.valid || password_input !== confirmPassword">
+            <i class="bi bi-device-hdd"></i>
+            Save
+          </button>
+
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+            (click)="showPassword = false;addForm.reset()">
+            <i class="bi bi-x"></i>
+            Cancel
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- Update Modal -->
+<div class="modal fade" id="update-user-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="create-user-modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header bg-dark text-white">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+          UPDATE USER
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="showPassword = false;updateForm.reset()"></button>
+      </div>
+
+      <form (ngSubmit)="updateUser()" #updateForm="ngForm">
+
+        <div class="modal-body bg-dark text-white">
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="updateNameInput" placeholder="name@example.com"
+              name="updateNameInput" #updateNameInput="ngModel" [(ngModel)]="loadedName" required>
+            <label for="updateNameInput" style="color: black;">
+              <i class="bi bi-person-badge-fill"></i>
+              Name
+            </label>
+            <div *ngIf="updateNameInput.invalid && (updateNameInput.dirty || updateNameInput.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="updateNameInput.errors?.['required']">
+                Please enter with valid data
+              </span>
+            </div>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="updateEmailInput" placeholder="Password"
+              name="updateEmailInput" #updateEmailInput="ngModel" [(ngModel)]="loadedEmail" required email>
+            <label for="updateEmailInput" style="color: black;">
+              <i class="bi bi-envelope-at"></i>
+              Email
+            </label>
+            <div *ngIf="updateEmailInput.invalid && (updateEmailInput.dirty || updateEmailInput.touched)" class="alert">
+              <span class="help-block" style="color: red"
+                *ngIf="updateEmailInput.errors?.['required'] || updateEmailInput.errors?.['email']">
+                Please enter with valid data
+              </span>
+            </div>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" id="updatePasswordInput"
+              placeholder="name@example.com" name="password" [(ngModel)]="password_input" #password="ngModel">
+            <label for="updatePasswordInput" style="color: black;">
+              <i class="bi bi-key"></i>
+              Password
+            </label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" id="updatePasswordConfirmInput"
+              placeholder="name@example.com" name="confirmPassword" [(ngModel)]="confirmPassword">
+            <label for="updatePasswordConfirmInput" style="color: black;">
+              <i class="bi bi-key"></i>
+              Confirm Password
+            </label>
+            <span class="help-block alert" style="color: red" *ngIf="password_input !== confirmPassword">
+              Passwords do not match
+            </span>
+          </div>
+
+          <div>
+            <label for="updateRoleInput">
+              <i class="bi bi-boxes"></i>
+              Role
+            </label>
+            <select class="form-select" id="updateRoleInput" style="color: black;" aria-label="Select a role"
+              aria-placeholder="Select a role..." [(ngModel)]="loadedRole" name="updateRoleInput"
+              #updateRoleInput="ngModel" ngModel required>
+              <option value="ADMIN">ADMIN</option>
+              <option value="SUPPORT">SUPPORT</option>
+              <option value="SUPPORT MANAGER">SUPPORT MANAGER</option>
+              <option value="SALES">SALES</option>
+              <option value="SALES MANAGER">SALES MANAGER</option>
+            </select>
+            <div *ngIf="updateRoleInput.invalid && (updateRoleInput.dirty || updateRoleInput.touched)" class="alert">
+              <span class="help-block" style="color: red" *ngIf="updateRoleInput.errors?.['required']">
+                Please enter with valid data
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer bg-dark text-white">
+          <button type="button" class="btn btn-primary" type="submit" [disabled]="!updateForm.valid"
+            data-bs-dismiss="modal">
+            <i class="bi bi-person-fill-gear"></i>
+            Update
+          </button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+            (click)="showPassword = false;updateForm.reset()">
+            <i class="bi bi-x"></i>
+            Cancel
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="delete-user-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="change-password-modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header bg-dark text-white">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+          DELETE USER
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="idForActions = null"></button>
+      </div>
+
+      <div class="modal-body bg-dark text-white">
+        <h5>Warning!!!After click on delete action can't be undone</h5>
+      </div>
+
+      <div class="modal-footer bg-dark text-white">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteUser()">
+          <i class="bi bi-person-fill-x"></i>
+          Delete
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="idForActions = null">
+          <i class="bi bi-x"></i>
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Content Header -->
+  <nav class="navbar">
+    <div class="container-fluid">
+
+      <a class="navbar-brand">
+        <h3 class="text-white pt-3 ms-1">
+          USER LIST
+        </h3>
+      </a>
+
+    </div>
+  </nav>
+
+  <hr class="text-white">
+
+  <app-spinner *ngIf="isLoading"></app-spinner>
+  <div *ngIf="!isLoading">
+
+    <!-- Alerts -->
+    <div class="alert alert-success" *ngIf="successMsg != null" role="alert">
+      <i class="bi bi-check-circle"></i>
+      {{successMsg}}
+    </div>
+    <div class="alert alert-danger" *ngIf="errorMsg !=null" role="alert">
+      <i class="bi bi-exclamation-circle"></i>
+      {{errorMsg}}
+    </div>
+
+    <!-- Filter -->
+    <div class="d-flex flex-wrap justify-content-between mb-2">
+
+      <button class="btn btn-outline-warning mb-2" data-bs-target="#create-user-modal" data-bs-toggle="modal">
+        <i class="bi bi-person-plus-fill"></i>
+        Add User
+      </button>
+
+      <div class="d-flex flex-wrap align-items-center" style="margin-left: 0;">
+
+        <button class="btn btn-dark dropdown-toggle me-1" style="background-color: black;" type="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-filter"></i>
+        </button>
+
+        <ul class="dropdown-menu" style="background-color: black;">
+
+          <li>
+            <a class="dropdown-item text-white" type="button">
+              <div class="form-check">
+                <input class="form-check-input" value="name" [(ngModel)]="searchType" (click)="dataForSearch = ''"
+                  type="radio" name="SearchByName" id="SearchByName">
+                <label class="form-check-label custom-text" for="SearchByName" (click)="dataForSearch = ''">
+                  <i class="bi bi-person-badge-fill"></i>
+                  Name
+                </label>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item text-white" type="button">
+              <div class="form-check">
+                <input class="form-check-input" value="email" [(ngModel)]="searchType" (click)="dataForSearch = ''"
+                  type="radio" name="SearchByEmail" id="SearchByEmail">
+                <label class="form-check-label custom-text" (click)="dataForSearch = ''" for="SearchByEmail">
+                  <i class="bi bi-envelope-at"></i>
+                  Email
+                </label>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item text-white" type="button">
+              <div class="form-check">
+                <input class="form-check-input" value="role" [(ngModel)]="searchType" (click)="dataForSearch = 'ADMIN'"
+                  type="radio" name="SearchByRole" id="SearchByRole">
+                <label class="form-check-label custom-text" for="SearchByRole" (click)="dataForSearch = 'ADMIN'">
+                  <i class="bi bi-boxes"></i>
+                  Role
+                </label>
+              </div>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="flex-grow-1 flex-shrink-1 me-1" *ngIf="searchType == 'role'">
+          <select class="form-select" aria-label="Default select example" aria-placeholder="Select a role..."
+            [(ngModel)]="dataForSearch">
+            <option value="ADMIN">ADMIN</option>
+            <option value="SUPPORT">SUPPORT</option>
+            <option value="SUPPORT MANAGER">SUPPORT MANAGER</option>
+            <option value="SALES">SALES</option>
+            <option value="SALES MANAGER">SALES MANAGER</option>
+          </select>
+        </div>
+
+        <div class="flex-grow-1 flex-shrink-1 me-1" *ngIf="searchType !== 'role'">
+          <input class="form-control" type="search" [(ngModel)]="dataForSearch" placeholder="Type here..."
+            aria-label="Search">
+        </div>
+
+        <button class="btn btn-outline-warning" (click)="searchUserByFilter()">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <h3 class="text-white ms-5 empty-title" *ngIf="loadedData == null">No data found...</h3>
+
+    <div class="scrollable-page" *ngIf="loadedData != null">
+      <table class="table table-dark table-striped table-hover text-center">
+        <thead class="fixed-header">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of loadedData">
+            <th scope="row"> {{user.name}} </th>
+            <td> {{user.email}} </td>
+            <td> {{user.role}} </td>
+            <td>
+              <button class="btn btn-outline-info mb-2" data-bs-target="#update-user-modal" data-bs-toggle="modal"
+                (click)="selectUserById(user.user_id); idForActions = user.user_id">
+                <i class="bi bi-person-fill-gear"></i>
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-outline-danger mb-2" data-bs-target="#delete-user-modal" data-bs-toggle="modal"
+                (click)="idForActions = user.user_id">
+                <i class="bi bi-person-fill-x"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <br>
+
+</div>

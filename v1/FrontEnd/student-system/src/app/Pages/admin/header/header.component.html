@@ -1,0 +1,99 @@
+<nav class="navbar bg-dark fixed-top">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-start bg-dark text-white" style="width: 20%;" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <i class="bi bi-clock"></i>
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                    <app-clock></app-clock>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+
+                <ul class="navbar-nav justify-content-start flex-grow-1 pe-2">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="Home" routerLinkActive="nav-link-active">
+                            <i class="bi bi-house"></i>
+                            HOME
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="Users" routerLinkActive="nav-link-active">
+                            <i class="bi bi-people-fill"></i>
+                            USERS
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-person-workspace"></i>
+                            WORKSPACES
+                        </a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li>
+                                <a class="dropdown-item" routerLink="Users" routerLinkActive="nav-link-active">
+                                    <i class="bi bi-tools"></i>
+                                    SUPPORT
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" routerLink="Users" routerLinkActive="nav-link-active">
+                                    <i class="bi bi-shop-window"></i>
+                                    SALES
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" routerLink="Users" routerLinkActive="nav-link-active">
+                                    <i class="bi bi-binoculars"></i>
+                                    HUMAN RESOURCES
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" routerLink="Users" routerLinkActive="nav-link-active">
+                                    <i class="bi bi-graph-up"></i>
+                                    ESTRATEGIC
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:8080" target="_blank">
+                            <i class="bi bi-hdd-rack"></i>
+                            SERVERS
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:5601" target="_blank">
+                            <i class="bi bi-journals"></i>
+                            LOGS
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:15672" target="_blank">
+                            <i class="bi bi-arrow-left-right"></i>
+                            RABBITMQ
+                        </a>
+                    </li>
+
+                    <hr>
+
+                    <li class="nav-item">
+                        <a class="btn btn-logout" type="button" (click)="onLogout()">
+                            <i class="bi bi-door-closed"></i>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <a class="navbar-brand text-white">
+            ADMINISTRATION WORKSPACE
+            <img src="/assets/img/Logo.gif" alt="logo" width="90" height="90">
+        </a>
+    </div>
+</nav>

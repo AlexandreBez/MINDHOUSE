@@ -13,8 +13,8 @@ import com.studentsystem.customqueryresult.StudentCourseInfo;
 import com.studentsystem.customqueryresult.StudentGradesInfo;
 
 
-@FeignClient(name = "email-sender", path = "email-sender-api/v1/")
 @Component
+@FeignClient(name = "email-sender", path = "email-sender-api/v1/")
 public interface EmailSenderFeingClients {
 
     @GetMapping("EmailStudentSaved/{name}/{document}/{email}")

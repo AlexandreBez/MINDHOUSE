@@ -1,0 +1,43 @@
+<div class="body-helper">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <div class="login-form" *ngIf="!isLoading">
+
+        <!-- Alerts -->
+        <div class="alert alert-success" *ngIf="successMsg != null" role="alert">
+            <i class="bi bi-check-circle"></i>
+            {{successMsg}}
+        </div>
+        <div class="alert alert-warning" *ngIf="errorMsg !=null" role="alert">
+            <i class="bi bi-exclamation-circle"></i>
+            {{errorMsg}}
+        </div>
+
+        <div>
+
+            <p class="text-white">Enter with the token you received by email</p>
+
+            <div class="form-floating mb-2">
+                <input type="text" maxlength="6" class="form-control" id="token" placeholder="token" [(ngModel)]="tokenForCheck"/>
+                <label for="token">
+                    <i class="bi bi-fingerprint"></i>
+                    Token
+                </label>
+            </div>
+
+            <div class="mb-3" style="width: 100%;">
+                <button class="btn btn-dark" style="margin-left: 15%;" (click)="validateToken()">
+                    <i class="bi bi-fingerprint"></i>
+                    Validate
+                </button>
+                <button class="btn btn-dark" style="margin-left: 10%;" (click)="regenerateToken()">
+                    <i class="bi bi-arrow-clockwise"></i>
+                    Resend
+                </button>
+            </div>
+
+        </div>
+
+        <router-outlet></router-outlet>
+
+    </div>
+</div>

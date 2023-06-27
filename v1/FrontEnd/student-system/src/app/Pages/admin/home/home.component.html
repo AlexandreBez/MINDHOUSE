@@ -1,0 +1,33 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div class="container">
+
+    <h3 class="text-white pt-3 ms-3">
+        Welcome {{name}}
+    </h3>
+    
+    <hr>
+    <div class="row g-0 text-center pb-4"> 
+        <h5 class="text-white">
+            DASHBOARD
+        </h5>
+        <div class="alert alert-success" *ngIf="successMsg != null" role="alert">
+            <i class="bi bi-check-circle"></i>
+            {{successMsg}}
+        </div>
+        <div class="alert alert-danger" *ngIf="errorMsg !=null" role="alert">
+            <i class="bi bi-exclamation-circle"></i>
+            {{errorMsg}}
+        </div>
+        <hr>
+
+        <div class="col bg-dark">      
+            <canvas id="users-role-qtd-graphic"></canvas>
+        </div>
+        <button class="btn btn-primary me-1" (click)="onGenerateFileAndSend()" [disabled]="isLoading">
+            <i class="bi bi-envelope-at-fill"></i>
+            Send data to email
+        </button>
+    </div>
+
+
+</div>

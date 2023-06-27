@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>TEMPLATE</title>
+	<link rel="stylesheet" type="text/css" th:href="@{css/bootstrap.css}">
+	<script type="text/javascript" th:href="@{js/bootstrap.js}"></script>
+</head>
+
+<body>
+	
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+		<div class="row" style="background-color: black;">
+			<div class="col mx-auto">
+				<h3>
+					File generated with success...
+				</h3>
+			</div>
+		</div>
+	</div>
+	
+</body>
+
+</html>

@@ -1,17 +1,17 @@
 {
-  "name": "student-system",
+  "name": "mindhouse",
   "version": "1.0.0",
   "author": {
     "name": "Lucas Alexandre Bez Piancoski"
   },
-  "description": "Student Management System is a system to sell courses and manage students infos",
+  "description": "mindhouse is a system to sell courses and manage students infos",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "compodoc": "compodoc -p tsconfig.json -s -r --port 8081 --name 'StudentManagementSystem' -w --theme postmark --output C:/Users/Lucas/Desktop/Repositorys/Projetos/StudentManagementSystem/v1/FrontEnd/FrontEndDocumentation"
+    "documentation": "npx compodoc -p tsconfig.json -s -r --port 4300 --name MINDHOUSE -w --customLogo ./src/assets/img/Logo.gif"
   },
   "private": true,
   "dependencies": {
@@ -24,7 +24,8 @@
     "@angular/platform-browser-dynamic": "^15.1.0",
     "@angular/router": "^15.1.0",
     "bootstrap": "^5.3.0-alpha1",
-    "bootstrap-icons": "^1.10.3",
+    "bootstrap-icons": "^1.10.5",
+    "chart.js": "^4.3.0",
     "moment": "^2.29.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

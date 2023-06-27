@@ -1,0 +1,54 @@
+
+<div class="body-helper">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <div class="login-form" *ngIf="!isLoading">
+
+        <!-- Alerts -->
+        <div class="alert alert-success" *ngIf="successMsg != null" role="alert">
+            <i class="bi bi-check-circle"></i>
+            {{successMsg}}
+        </div>
+        <div class="alert alert-warning" *ngIf="errorMsg !=null" role="alert">
+            <i class="bi bi-exclamation-circle"></i>
+            {{errorMsg}}
+        </div>
+
+        <img src="/assets/img/MINDHOUSE_TEXT.gif" class="ms-3 mb-1" style="border-radius: 20px;" alt="logo" width="300"
+            height="130">
+
+        <div>
+
+            <p class="text-white">Enter with the email on below box and click on send to receive the token.</p>
+
+            <div class="form-floating mb-2">
+                <input type="email" maxlength="50" class="form-control" id="username" placeholder="username"
+                    #username="ngModel" name="username" [(ngModel)]="emailForSendToken" email required />
+                <label for="username">
+                    <i class="bi bi-person"></i>
+                    Username
+                </label>
+
+                <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert">
+                    <span class="help-block" style="color: red"
+                        *ngIf="username.errors?.['required'] || username.errors?.['email']">
+                        Please enter with valid email
+                    </span>
+                </div>
+            </div>
+
+            <div class="mb-3" style="width: 100%;">
+                <button class="btn btn-dark" style="margin-left: 15%;" (click)="onSendToken()"
+                    [disabled]="username.invalid || username.errors?.['required'] || username.errors?.['email']">
+                    <i class="bi bi-envelope-at"></i>
+                    Send Token
+                </button>
+                <button class="btn btn-dark" style="margin-left: 2%;" (click)="cancel()">
+                    <i class="bi bi-x"></i>
+                    Cancel
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</div>

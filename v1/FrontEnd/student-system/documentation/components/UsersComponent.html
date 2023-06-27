@@ -1,0 +1,2180 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>MINDHOUSE</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">MINDHOUSE</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  UsersComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/Pages/admin/users/users.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>UsersComponent for handling user login functionality.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-users</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./users.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./users.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addUserForm" >addUserForm</a>
+                            </li>
+                            <li>
+                                <a href="#confirmPassword" >confirmPassword</a>
+                            </li>
+                            <li>
+                                <a href="#dataForSearch" >dataForSearch</a>
+                            </li>
+                            <li>
+                                <a href="#errorMsg" >errorMsg</a>
+                            </li>
+                            <li>
+                                <a href="#idForActions" >idForActions</a>
+                            </li>
+                            <li>
+                                <a href="#isLoading" >isLoading</a>
+                            </li>
+                            <li>
+                                <a href="#loadedData" >loadedData</a>
+                            </li>
+                            <li>
+                                <a href="#loadedEmail" >loadedEmail</a>
+                            </li>
+                            <li>
+                                <a href="#loadedName" >loadedName</a>
+                            </li>
+                            <li>
+                                <a href="#loadedRole" >loadedRole</a>
+                            </li>
+                            <li>
+                                <a href="#password_input" >password_input</a>
+                            </li>
+                            <li>
+                                <a href="#searchType" >searchType</a>
+                            </li>
+                            <li>
+                                <a href="#showPassword" >showPassword</a>
+                            </li>
+                            <li>
+                                <a href="#successMsg" >successMsg</a>
+                            </li>
+                            <li>
+                                <a href="#updateUserForm" >updateUserForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changePwdVisibility" >changePwdVisibility</a>
+                            </li>
+                            <li>
+                                <a href="#createUser" >createUser</a>
+                            </li>
+                            <li>
+                                <a href="#deleteUser" >deleteUser</a>
+                            </li>
+                            <li>
+                                <a href="#getAllUsers" >getAllUsers</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#searchUserByFilter" >searchUserByFilter</a>
+                            </li>
+                            <li>
+                                <a href="#selectUserById" >selectUserById</a>
+                            </li>
+                            <li>
+                                <a href="#updateUser" >updateUser</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(userApiService: <a href="../injectables/UserApiService.html" target="_self">UserApiService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/Pages/admin/users/users.component.ts:78</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>The constructor for the UsersComponent class.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userApiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserApiService.html" target="_self" >UserApiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>The appService instance.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>The router instance.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changePwdVisibility"></a>
+                    <span class="name">
+                        <span ><b>changePwdVisibility</b></span>
+                        <a href="#changePwdVisibility"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changePwdVisibility()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">src/app/Pages/admin/users/users.component.ts:100</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Toggles the visibility of the password field.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createUser"></a>
+                    <span class="name">
+                        <span ><b>createUser</b></span>
+                        <a href="#createUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createUser()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="248"
+                            class="link-to-prism">src/app/Pages/admin/users/users.component.ts:248</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Creates a new user.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteUser"></a>
+                    <span class="name">
+                        <span ><b>deleteUser</b></span>
+                        <a href="#deleteUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteUser()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="299"
+                            class="link-to-prism">src/app/Pages/admin/users/users.component.ts:299</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Deletes a user.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllUsers"></a>
+                    <span class="name">
+                        <span ><b>getAllUsers</b></span>
+                        <a href="#getAllUsers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllUsers()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="131"
+                            class="link-to-prism">src/app/Pages/admin/users/users.component.ts:131</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Retrieves all users.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">src/app/Pages/admin/users/users.component.ts:92</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Initializes the component.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchUserByFilter"></a>
+                    <span class="name">
+                        <span ><b>searchUserByFilter</b></span>
+                        <a href="#searchUserByFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>searchUserByFilter()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="163"
+                            class="link-to-prism">src/app/Pages/admin/users/users.component.ts:163</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Searches for users based on a filter.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectUserById"></a>
+                    <span class="name">
+                        <span ><b>selectUserById</b></span>
+                        <a href="#selectUserById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectUserById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="109"
+                            class="link-to-prism">src/app/Pages/admin/users/users.component.ts:109</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Selects a user by their ID.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The ID of the user to select.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateUser"></a>
+                    <span class="name">
+                        <span ><b>updateUser</b></span>
+                        <a href="#updateUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateUser()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="202"
+                            class="link-to-prism">src/app/Pages/admin/users/users.component.ts:202</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Updates a user.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addUserForm"></a>
+                    <span class="name">
+                        <span ><b>addUserForm</b></span>
+                        <a href="#addUserForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/NgForm" target="_blank" >NgForm</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;addForm&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/Pages/admin/users/users.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Reference to the add user form.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmPassword"></a>
+                    <span class="name">
+                        <span ><b>confirmPassword</b></span>
+                        <a href="#confirmPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/Pages/admin/users/users.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>variable to handle the password equality.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataForSearch"></a>
+                    <span class="name">
+                        <span ><b>dataForSearch</b></span>
+                        <a href="#dataForSearch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/Pages/admin/users/users.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>variable to handle the value to be searched with the filter.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorMsg"></a>
+                    <span class="name">
+                        <span ><b>errorMsg</b></span>
+                        <a href="#errorMsg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/Pages/admin/users/users.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Error message displayed in case of action failure.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="idForActions"></a>
+                    <span class="name">
+                        <span ><b>idForActions</b></span>
+                        <a href="#idForActions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/Pages/admin/users/users.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>variable to handle and help in actions using the user ID.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLoading"></a>
+                    <span class="name">
+                        <span ><b>isLoading</b></span>
+                        <a href="#isLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/Pages/admin/users/users.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag indicating whether the login operation is in progress.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadedData"></a>
+                    <span class="name">
+                        <span ><b>loadedData</b></span>
+                        <a href="#loadedData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/Pages/admin/users/users.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>variable to handle and displayed a loaded users data.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadedEmail"></a>
+                    <span class="name">
+                        <span ><b>loadedEmail</b></span>
+                        <a href="#loadedEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/Pages/admin/users/users.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>variable to handle the user email.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadedName"></a>
+                    <span class="name">
+                        <span ><b>loadedName</b></span>
+                        <a href="#loadedName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/Pages/admin/users/users.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>variable to handle the user name.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadedRole"></a>
+                    <span class="name">
+                        <span ><b>loadedRole</b></span>
+                        <a href="#loadedRole"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/Pages/admin/users/users.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>variable to handle the user role.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="password_input"></a>
+                    <span class="name">
+                        <span ><b>password_input</b></span>
+                        <a href="#password_input"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/Pages/admin/users/users.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>variable to handle the user password.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchType"></a>
+                    <span class="name">
+                        <span ><b>searchType</b></span>
+                        <a href="#searchType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/Pages/admin/users/users.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>variable to handle the filter type of data.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showPassword"></a>
+                    <span class="name">
+                        <span ><b>showPassword</b></span>
+                        <a href="#showPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/Pages/admin/users/users.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag indicating whether the password will be visible.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="successMsg"></a>
+                    <span class="name">
+                        <span ><b>successMsg</b></span>
+                        <a href="#successMsg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/Pages/admin/users/users.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Success message displayed in case of action success.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateUserForm"></a>
+                    <span class="name">
+                        <span ><b>updateUserForm</b></span>
+                        <a href="#updateUserForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/NgForm" target="_blank" >NgForm</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;updateForm&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/Pages/admin/users/users.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Reference to the update form.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { SearchFilter } from &#x27;./api/interface/SearchFilter&#x27;;
+import { NgForm } from &#x27;@angular/forms&#x27;;
+import { User } from &#x27;./api/interface/User&#x27;;
+import { UserApiService } from &#x27;./api/user-api.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+/**
+ * UsersComponent for handling user login functionality.
+ */
+@Component({
+  selector: &#x27;app-users&#x27;,
+  templateUrl: &#x27;./users.component.html&#x27;,
+  styleUrls: [&#x27;./users.component.css&#x27;],
+})
+export class UsersComponent implements OnInit {
+
+  /**
+   * Flag indicating whether the login operation is in progress.
+   */
+  isLoading: boolean &#x3D; false;
+  /**
+   * variable to handle and displayed a loaded users data.
+   */
+  loadedData: any;
+  /**
+   * Error message displayed in case of action failure.
+   */
+  errorMsg: string &#x3D; null;
+  /**
+   * Success message displayed in case of action success.
+   */
+  successMsg: string &#x3D; null;
+  /**
+   * variable to handle and help in actions using the user ID.
+   */
+  idForActions: number;
+  /**
+   * variable to handle the filter type of data.
+   */
+  searchType: string &#x3D; null;
+  /**
+   * variable to handle the value to be searched with the filter.
+   */
+  dataForSearch: string &#x3D; null;
+  /**
+   * Reference to the update form.
+   */
+  @ViewChild(&#x27;updateForm&#x27;) updateUserForm: NgForm;
+  /**
+   * Flag indicating whether the password will be visible.
+   */
+  showPassword: boolean &#x3D; false;
+  /**
+   * variable to handle the user name.
+   */
+  loadedName: string;
+  /**
+   * variable to handle the user email.
+   */
+  loadedEmail: string;
+  /**
+   * variable to handle the user password.
+   */
+  password_input: string &#x3D; null;
+  /**
+   * variable to handle the password equality.
+   */
+  confirmPassword: string &#x3D; null;
+  /**
+   * variable to handle the user role.
+   */
+  loadedRole: string;
+
+  /**
+   * Reference to the add user form.
+   */
+  @ViewChild(&#x27;addForm&#x27;) addUserForm: NgForm;
+
+  /**
+   * The constructor for the UsersComponent class.
+   *
+   * @constructor
+   * @param {UserApiService} userApiService - The appService instance.
+   * @param {Router} router - The router instance.
+   */
+  constructor(private userApiService: UserApiService, private router: Router){}
+
+  /**
+   * Initializes the component.
+   */
+  ngOnInit() {
+    this.getAllUsers();
+    this.searchType &#x3D; &#x27;name&#x27;;
+  }
+
+  /**
+   * Toggles the visibility of the password field.
+   */
+  changePwdVisibility() {
+    this.showPassword &#x3D; !this.showPassword;
+    this.isLoading &#x3D; false;
+  }
+
+  /**
+   * Selects a user by their ID.
+   * @param id The ID of the user to select.
+   */
+  selectUserById(id: number) {
+    this.isLoading &#x3D; true;
+    this.userApiService.getUserById(id).subscribe(
+      (data) &#x3D;&gt; {
+        this.loadedName &#x3D; data.name;
+        this.loadedEmail &#x3D; data.email;
+        this.loadedRole &#x3D; data.role;
+        this.isLoading &#x3D; false;
+      },
+      (error) &#x3D;&gt; {
+        // Handle the error
+        this.loadedName &#x3D; &#x27;Error&#x27;;
+        this.loadedEmail &#x3D; &#x27;Error&#x27;;
+        console.log(error);
+        this.isLoading &#x3D; false;
+      }
+    );
+  }
+
+  /**
+   * Retrieves all users.
+   */
+  getAllUsers() {
+    this.isLoading &#x3D; true;
+    this.successMsg &#x3D; null;
+    this.errorMsg &#x3D; null;
+
+    this.userApiService.getAllUsers().subscribe(
+      (data) &#x3D;&gt; {
+        this.searchType &#x3D; &#x27;name&#x27;;
+        this.dataForSearch &#x3D; &#x27;&#x27;;
+
+        this.isLoading &#x3D; false;
+        this.loadedData &#x3D; data;
+      },
+      (error) &#x3D;&gt; {
+        this.searchType &#x3D; &#x27;name&#x27;;
+        this.dataForSearch &#x3D; &#x27;&#x27;;
+        this.isLoading &#x3D; false;
+        
+        if(error.status &#x3D;&#x3D; 404){
+          this.loadedData &#x3D; null;
+        }else{
+          this.isLoading &#x3D; false;
+          this.errorMsg &#x3D; &#x27;Oops... something went wrong&#x27;;
+        }
+        console.log(error);
+      }
+    );
+  }
+
+  /**
+   * Searches for users based on a filter.
+   */
+  searchUserByFilter() {
+    this.isLoading &#x3D; true;
+    this.successMsg &#x3D; null;
+    this.errorMsg &#x3D; null;
+
+    if (this.dataForSearch &#x3D;&#x3D; null || this.dataForSearch &#x3D;&#x3D; &#x27;&#x27;) {
+      this.getAllUsers();
+    }
+
+    const searchConfig: SearchFilter &#x3D; {
+      type: this.searchType,
+      data: this.dataForSearch.trim(),
+    };
+
+    this.userApiService.searchUserByFilter(searchConfig).subscribe(
+      (data) &#x3D;&gt; {
+        this.isLoading &#x3D; false;
+        this.loadedData &#x3D; data;
+      },
+      (error) &#x3D;&gt; {
+        this.isLoading &#x3D; false;
+        console.log(error);
+        switch (error.status) {
+          case 404:
+            return (this.loadedData &#x3D; null);
+          default:
+            this.loadedData &#x3D; null;
+            return (this.errorMsg &#x3D; &#x27;Oops... something went wrong&#x27;);
+        }
+      }
+    );
+
+    this.searchType &#x3D; &#x27;name&#x27;;
+    this.dataForSearch &#x3D; &#x27;&#x27;;
+  }
+
+  /**
+   * Updates a user.
+   */
+  updateUser() {
+    this.isLoading &#x3D; true;
+
+    let userData: User &#x3D; {
+      name: this.updateUserForm.value.updateNameInput.trim(),
+      email: this.updateUserForm.value.updateEmailInput.trim(),
+      password: this.password_input.trim(),
+      role: this.updateUserForm.value.updateRoleInput,
+    };
+
+    this.userApiService.updateUser(this.idForActions, userData).subscribe(
+      (data) &#x3D;&gt; {
+        console.log(data);
+        this.isLoading &#x3D; false;
+        
+        this.getAllUsers();
+        this.successMsg &#x3D; &#x27;User updated with success...&#x27;;
+        
+        setTimeout(() &#x3D;&gt; {
+          this.successMsg &#x3D; null;
+          if (this.idForActions.toString() &#x3D;&#x3D; localStorage.getItem(&#x27;id&#x27;)) {
+            localStorage.clear();
+            this.router.navigate([&#x27;login&#x27;]);
+          }
+          this.idForActions &#x3D; null;
+        }, 3000);
+      },
+      (error) &#x3D;&gt; {
+        console.log(error);
+        this.isLoading &#x3D; false;
+        this.idForActions &#x3D; null;
+
+        this.getAllUsers();
+        this.errorMsg &#x3D; &#x27;Oops... something went wrong&#x27;;
+
+        setTimeout(() &#x3D;&gt; {
+          this.errorMsg &#x3D; null;
+        }, 3000);
+      }
+    );
+    this.addUserForm.reset();
+  }
+
+  /**
+   * Creates a new user.
+   */
+  createUser(){
+    this.isLoading &#x3D; true;
+    this.successMsg &#x3D; null;
+    this.errorMsg &#x3D; null;
+    this.showPassword &#x3D; false;
+
+    if (this.password_input !&#x3D;&#x3D; this.confirmPassword) {
+      this.isLoading &#x3D; false;
+      this.errorMsg &#x3D; &quot;Passwords are not equal...&quot;;
+    }else{
+      const userData: User &#x3D; {
+        name: this.addUserForm.value.nameAddInput.trim(),
+        email: this.addUserForm.value.emailAddInput.trim(),
+        password: this.addUserForm.value.passwordAddInput.trim(),
+        role: this.addUserForm.value.roleAddInput
+      }
+  
+      this.userApiService.createNewUser(userData)
+      .subscribe(
+        data &#x3D;&gt; {
+          console.log(data);
+          this.isLoading &#x3D; false;
+  
+          this.getAllUsers();
+          this.successMsg &#x3D; data.message;
+  
+          setTimeout(() &#x3D;&gt; {
+            this.successMsg &#x3D; null;
+          }, 3000);
+        },
+        error &#x3D;&gt; {
+          console.log(error);
+          this.isLoading &#x3D; false;
+
+          if (error.error.status &#x3D;&#x3D; 400) {
+            this.errorMsg &#x3D; error.error.message;
+          }else{
+            this.errorMsg &#x3D; &quot;Oops... something went wrong&quot;;
+          }
+          setTimeout(() &#x3D;&gt; {
+            this.errorMsg &#x3D; null;
+          }, 3000);
+        }
+      )
+      this.addUserForm.reset();
+    }
+  }
+
+  /**
+   * Deletes a user.
+   */
+  deleteUser(){
+    this.isLoading &#x3D; true;
+    this.successMsg &#x3D; null;
+    this.errorMsg &#x3D; null;
+
+    this.userApiService.deleteUser(this.idForActions)
+    .subscribe(
+      data &#x3D;&gt; {
+        console.log(data);
+        this.isLoading &#x3D; false;
+
+        this.getAllUsers();
+        this.successMsg &#x3D; &quot;User created with success...&quot;;
+
+        setTimeout(() &#x3D;&gt; {
+          this.successMsg &#x3D; null;
+        }, 3000);
+      },
+      error &#x3D;&gt; {
+        console.log(error);
+        this.isLoading &#x3D; false;
+
+        this.errorMsg &#x3D; &quot;Oops... something went wrong&quot;;
+
+        setTimeout(() &#x3D;&gt; {
+          this.errorMsg &#x3D; null;
+        }, 3000);
+      }
+    )
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- Create Modal --&gt;
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;create-user-modal&quot; data-bs-backdrop&#x3D;&quot;static&quot; data-bs-keyboard&#x3D;&quot;false&quot; tabindex&#x3D;&quot;-1&quot;
+  aria-labelledby&#x3D;&quot;create-user-modal&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+      &lt;div class&#x3D;&quot;modal-header bg-dark text-white&quot;&gt;
+        &lt;h1 class&#x3D;&quot;modal-title fs-5&quot; id&#x3D;&quot;staticBackdropLabel&quot;&gt;
+          NEW USER
+        &lt;/h1&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-close&quot; data-bs-dismiss&#x3D;&quot;modal&quot; aria-label&#x3D;&quot;Close&quot;
+          (click)&#x3D;&quot;showPassword &#x3D; false;addForm.reset()&quot;&gt;&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;form (ngSubmit)&#x3D;&quot;createUser()&quot; #addForm&#x3D;&quot;ngForm&quot;&gt;
+
+        &lt;div class&#x3D;&quot;modal-body bg-dark text-white&quot;&gt;
+
+          &lt;div class&#x3D;&quot;form-floating mb-3&quot;&gt;
+            &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;nameAddInput&quot; placeholder&#x3D;&quot;name@example.com&quot; name&#x3D;&quot;nameAddInput&quot;
+              #nameAddInput&#x3D;&quot;ngModel&quot; ngModel required&gt;
+            &lt;label for&#x3D;&quot;nameAddInput&quot; style&#x3D;&quot;color: black;&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-person-badge-fill&quot;&gt;&lt;/i&gt;
+              Name
+            &lt;/label&gt;
+            &lt;div *ngIf&#x3D;&quot;nameAddInput.invalid &amp;&amp; (nameAddInput.dirty || nameAddInput.touched)&quot; class&#x3D;&quot;alert&quot;&gt;
+              &lt;span class&#x3D;&quot;help-block&quot; style&#x3D;&quot;color: red&quot; *ngIf&#x3D;&quot;nameAddInput.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Please enter with valid data
+              &lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;form-floating mb-3&quot;&gt;
+            &lt;input type&#x3D;&quot;email&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;emailAddInput&quot; placeholder&#x3D;&quot;email&quot; name&#x3D;&quot;emailAddInput&quot;
+              #emailAddInput&#x3D;&quot;ngModel&quot; ngModel required email&gt;
+            &lt;label for&#x3D;&quot;emailAddInput&quot; style&#x3D;&quot;color: black;&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-envelope-at&quot;&gt;&lt;/i&gt;
+              Email
+            &lt;/label&gt;
+            &lt;div *ngIf&#x3D;&quot;emailAddInput.invalid &amp;&amp; (emailAddInput.dirty || emailAddInput.touched)&quot; class&#x3D;&quot;alert&quot;&gt;
+              &lt;span class&#x3D;&quot;help-block&quot; style&#x3D;&quot;color: red&quot;
+                *ngIf&#x3D;&quot;emailAddInput.errors?.[&#x27;required&#x27;] || emailAddInput.errors?.[&#x27;email&#x27;]&quot;&gt;
+                Please enter with valid data
+              &lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;form-floating mb-3&quot;&gt;
+            &lt;input type&#x3D;&quot;{{ showPassword ? &#x27;text&#x27; : &#x27;password&#x27; }}&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;passwordAddInput&quot;
+              placeholder&#x3D;&quot;******&quot; name&#x3D;&quot;passwordAddInput&quot; [(ngModel)]&#x3D;&quot;password_input&quot; required
+              #passwordAddInput&#x3D;&quot;ngModel&quot;&gt;
+            &lt;label for&#x3D;&quot;passwordAddInput&quot; style&#x3D;&quot;color: black;&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-key&quot;&gt;&lt;/i&gt;
+              Password
+            &lt;/label&gt;
+            &lt;div *ngIf&#x3D;&quot;passwordAddInput.invalid &amp;&amp; (passwordAddInput.dirty || passwordAddInput.touched)&quot; class&#x3D;&quot;alert&quot;&gt;
+              &lt;span class&#x3D;&quot;help-block&quot; style&#x3D;&quot;color: red&quot; *ngIf&#x3D;&quot;passwordAddInput.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Please enter with valid data
+              &lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;form-floating mb-3&quot;&gt;
+            &lt;input type&#x3D;&quot;{{ showPassword ? &#x27;text&#x27; : &#x27;password&#x27; }}&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;passwordConfirmAddInput&quot;
+              placeholder&#x3D;&quot;*******&quot; name&#x3D;&quot;passwordConfirmAddInput&quot; [(ngModel)]&#x3D;&quot;confirmPassword&quot; required
+              #passwordConfirmAddInput&#x3D;&quot;ngModel&quot;&gt;
+            &lt;label for&#x3D;&quot;passwordConfirmAddInput&quot; style&#x3D;&quot;color: black;&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-key&quot;&gt;&lt;/i&gt;
+              Confirm Password
+            &lt;/label&gt;
+
+            &lt;span class&#x3D;&quot;help-block alert&quot; style&#x3D;&quot;color: red&quot;
+              *ngIf&#x3D;&quot;passwordConfirmAddInput.invalid &amp;&amp; (passwordConfirmAddInput.dirty || passwordConfirmAddInput.touched)&quot;&gt;
+              Please enter valid data
+            &lt;/span&gt;
+            &lt;br&gt;
+            &lt;span class&#x3D;&quot;help-block alert&quot; style&#x3D;&quot;color: red&quot; *ngIf&#x3D;&quot;password_input !&#x3D;&#x3D; confirmPassword&quot;&gt;
+              Passwords do not match
+            &lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div&gt;
+            &lt;label for&#x3D;&quot;roleAddInput&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-boxes&quot;&gt;&lt;/i&gt;
+              Role
+            &lt;/label&gt;
+            &lt;select class&#x3D;&quot;form-select&quot; id&#x3D;&quot;roleAddInput&quot; style&#x3D;&quot;color: black;&quot; aria-label&#x3D;&quot;Select a role&quot;
+              aria-placeholder&#x3D;&quot;Select a role...&quot; name&#x3D;&quot;roleAddInput&quot; #roleAddInput&#x3D;&quot;ngModel&quot; ngModel required&gt;
+              &lt;option value&#x3D;&quot;ADMIN&quot;&gt;ADMIN&lt;/option&gt;
+              &lt;option value&#x3D;&quot;SUPPORT&quot;&gt;SUPPORT&lt;/option&gt;
+              &lt;option value&#x3D;&quot;SUPPORT MANAGER&quot;&gt;SUPPORT MANAGER&lt;/option&gt;
+              &lt;option value&#x3D;&quot;SALES&quot;&gt;SALES&lt;/option&gt;
+              &lt;option value&#x3D;&quot;SALES MANAGER&quot;&gt;SALES MANAGER&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;div *ngIf&#x3D;&quot;roleAddInput.invalid &amp;&amp; (roleAddInput.dirty || roleAddInput.touched)&quot; class&#x3D;&quot;alert&quot;&gt;
+              &lt;span class&#x3D;&quot;help-block&quot; style&#x3D;&quot;color: red&quot; *ngIf&#x3D;&quot;roleAddInput.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Please enter with valid data
+              &lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;modal-footer bg-dark text-white&quot;&gt;
+
+          &lt;button class&#x3D;&quot;btn btn-light&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;changePwdVisibility()&quot;&gt;
+            &lt;i class&#x3D;&quot;bi bi-eye&quot; *ngIf&#x3D;&quot;showPassword &#x3D;&#x3D; true&quot;&gt;&lt;/i&gt;
+            &lt;i class&#x3D;&quot;bi bi-eye-slash&quot; *ngIf&#x3D;&quot;showPassword &#x3D;&#x3D; false&quot;&gt;&lt;/i&gt;
+          &lt;/button&gt;
+
+          &lt;button type&#x3D;&quot;submit&quot; data-bs-dismiss&#x3D;&quot;modal&quot; class&#x3D;&quot;btn btn-primary&quot;
+            [disabled]&#x3D;&quot;!addForm.valid || password_input !&#x3D;&#x3D; confirmPassword&quot;&gt;
+            &lt;i class&#x3D;&quot;bi bi-device-hdd&quot;&gt;&lt;/i&gt;
+            Save
+          &lt;/button&gt;
+
+          &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; data-bs-dismiss&#x3D;&quot;modal&quot;
+            (click)&#x3D;&quot;showPassword &#x3D; false;addForm.reset()&quot;&gt;
+            &lt;i class&#x3D;&quot;bi bi-x&quot;&gt;&lt;/i&gt;
+            Cancel
+          &lt;/button&gt;
+
+        &lt;/div&gt;
+
+      &lt;/form&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Update Modal --&gt;
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;update-user-modal&quot; data-bs-backdrop&#x3D;&quot;static&quot; data-bs-keyboard&#x3D;&quot;false&quot; tabindex&#x3D;&quot;-1&quot;
+  aria-labelledby&#x3D;&quot;create-user-modal&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+
+      &lt;div class&#x3D;&quot;modal-header bg-dark text-white&quot;&gt;
+        &lt;h1 class&#x3D;&quot;modal-title fs-5&quot; id&#x3D;&quot;staticBackdropLabel&quot;&gt;
+          UPDATE USER
+        &lt;/h1&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-close&quot; data-bs-dismiss&#x3D;&quot;modal&quot; aria-label&#x3D;&quot;Close&quot;
+          (click)&#x3D;&quot;showPassword &#x3D; false;updateForm.reset()&quot;&gt;&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;form (ngSubmit)&#x3D;&quot;updateUser()&quot; #updateForm&#x3D;&quot;ngForm&quot;&gt;
+
+        &lt;div class&#x3D;&quot;modal-body bg-dark text-white&quot;&gt;
+
+          &lt;div class&#x3D;&quot;form-floating mb-3&quot;&gt;
+            &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;updateNameInput&quot; placeholder&#x3D;&quot;name@example.com&quot;
+              name&#x3D;&quot;updateNameInput&quot; #updateNameInput&#x3D;&quot;ngModel&quot; [(ngModel)]&#x3D;&quot;loadedName&quot; required&gt;
+            &lt;label for&#x3D;&quot;updateNameInput&quot; style&#x3D;&quot;color: black;&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-person-badge-fill&quot;&gt;&lt;/i&gt;
+              Name
+            &lt;/label&gt;
+            &lt;div *ngIf&#x3D;&quot;updateNameInput.invalid &amp;&amp; (updateNameInput.dirty || updateNameInput.touched)&quot; class&#x3D;&quot;alert&quot;&gt;
+              &lt;span class&#x3D;&quot;help-block&quot; style&#x3D;&quot;color: red&quot; *ngIf&#x3D;&quot;updateNameInput.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Please enter with valid data
+              &lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;form-floating mb-3&quot;&gt;
+            &lt;input type&#x3D;&quot;email&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;updateEmailInput&quot; placeholder&#x3D;&quot;Password&quot;
+              name&#x3D;&quot;updateEmailInput&quot; #updateEmailInput&#x3D;&quot;ngModel&quot; [(ngModel)]&#x3D;&quot;loadedEmail&quot; required email&gt;
+            &lt;label for&#x3D;&quot;updateEmailInput&quot; style&#x3D;&quot;color: black;&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-envelope-at&quot;&gt;&lt;/i&gt;
+              Email
+            &lt;/label&gt;
+            &lt;div *ngIf&#x3D;&quot;updateEmailInput.invalid &amp;&amp; (updateEmailInput.dirty || updateEmailInput.touched)&quot; class&#x3D;&quot;alert&quot;&gt;
+              &lt;span class&#x3D;&quot;help-block&quot; style&#x3D;&quot;color: red&quot;
+                *ngIf&#x3D;&quot;updateEmailInput.errors?.[&#x27;required&#x27;] || updateEmailInput.errors?.[&#x27;email&#x27;]&quot;&gt;
+                Please enter with valid data
+              &lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;form-floating mb-3&quot;&gt;
+            &lt;input type&#x3D;&quot;{{ showPassword ? &#x27;text&#x27; : &#x27;password&#x27; }}&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;updatePasswordInput&quot;
+              placeholder&#x3D;&quot;name@example.com&quot; name&#x3D;&quot;password&quot; [(ngModel)]&#x3D;&quot;password_input&quot; #password&#x3D;&quot;ngModel&quot;&gt;
+            &lt;label for&#x3D;&quot;updatePasswordInput&quot; style&#x3D;&quot;color: black;&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-key&quot;&gt;&lt;/i&gt;
+              Password
+            &lt;/label&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;form-floating mb-3&quot;&gt;
+            &lt;input type&#x3D;&quot;{{ showPassword ? &#x27;text&#x27; : &#x27;password&#x27; }}&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;updatePasswordConfirmInput&quot;
+              placeholder&#x3D;&quot;name@example.com&quot; name&#x3D;&quot;confirmPassword&quot; [(ngModel)]&#x3D;&quot;confirmPassword&quot;&gt;
+            &lt;label for&#x3D;&quot;updatePasswordConfirmInput&quot; style&#x3D;&quot;color: black;&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-key&quot;&gt;&lt;/i&gt;
+              Confirm Password
+            &lt;/label&gt;
+            &lt;span class&#x3D;&quot;help-block alert&quot; style&#x3D;&quot;color: red&quot; *ngIf&#x3D;&quot;password_input !&#x3D;&#x3D; confirmPassword&quot;&gt;
+              Passwords do not match
+            &lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div&gt;
+            &lt;label for&#x3D;&quot;updateRoleInput&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-boxes&quot;&gt;&lt;/i&gt;
+              Role
+            &lt;/label&gt;
+            &lt;select class&#x3D;&quot;form-select&quot; id&#x3D;&quot;updateRoleInput&quot; style&#x3D;&quot;color: black;&quot; aria-label&#x3D;&quot;Select a role&quot;
+              aria-placeholder&#x3D;&quot;Select a role...&quot; [(ngModel)]&#x3D;&quot;loadedRole&quot; name&#x3D;&quot;updateRoleInput&quot;
+              #updateRoleInput&#x3D;&quot;ngModel&quot; ngModel required&gt;
+              &lt;option value&#x3D;&quot;ADMIN&quot;&gt;ADMIN&lt;/option&gt;
+              &lt;option value&#x3D;&quot;SUPPORT&quot;&gt;SUPPORT&lt;/option&gt;
+              &lt;option value&#x3D;&quot;SUPPORT MANAGER&quot;&gt;SUPPORT MANAGER&lt;/option&gt;
+              &lt;option value&#x3D;&quot;SALES&quot;&gt;SALES&lt;/option&gt;
+              &lt;option value&#x3D;&quot;SALES MANAGER&quot;&gt;SALES MANAGER&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;div *ngIf&#x3D;&quot;updateRoleInput.invalid &amp;&amp; (updateRoleInput.dirty || updateRoleInput.touched)&quot; class&#x3D;&quot;alert&quot;&gt;
+              &lt;span class&#x3D;&quot;help-block&quot; style&#x3D;&quot;color: red&quot; *ngIf&#x3D;&quot;updateRoleInput.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Please enter with valid data
+              &lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;modal-footer bg-dark text-white&quot;&gt;
+          &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary&quot; type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;!updateForm.valid&quot;
+            data-bs-dismiss&#x3D;&quot;modal&quot;&gt;
+            &lt;i class&#x3D;&quot;bi bi-person-fill-gear&quot;&gt;&lt;/i&gt;
+            Update
+          &lt;/button&gt;
+          &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; data-bs-dismiss&#x3D;&quot;modal&quot;
+            (click)&#x3D;&quot;showPassword &#x3D; false;updateForm.reset()&quot;&gt;
+            &lt;i class&#x3D;&quot;bi bi-x&quot;&gt;&lt;/i&gt;
+            Cancel
+          &lt;/button&gt;
+        &lt;/div&gt;
+
+      &lt;/form&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Delete Modal --&gt;
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;delete-user-modal&quot; data-bs-backdrop&#x3D;&quot;static&quot; data-bs-keyboard&#x3D;&quot;false&quot; tabindex&#x3D;&quot;-1&quot;
+  aria-labelledby&#x3D;&quot;change-password-modal&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+
+      &lt;div class&#x3D;&quot;modal-header bg-dark text-white&quot;&gt;
+        &lt;h1 class&#x3D;&quot;modal-title fs-5&quot; id&#x3D;&quot;staticBackdropLabel&quot;&gt;
+          DELETE USER
+        &lt;/h1&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-close&quot; data-bs-dismiss&#x3D;&quot;modal&quot; aria-label&#x3D;&quot;Close&quot;
+          (click)&#x3D;&quot;idForActions &#x3D; null&quot;&gt;&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;modal-body bg-dark text-white&quot;&gt;
+        &lt;h5&gt;Warning!!!After click on delete action can&#x27;t be undone&lt;/h5&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;modal-footer bg-dark text-white&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-danger&quot; data-bs-dismiss&#x3D;&quot;modal&quot; (click)&#x3D;&quot;deleteUser()&quot;&gt;
+          &lt;i class&#x3D;&quot;bi bi-person-fill-x&quot;&gt;&lt;/i&gt;
+          Delete
+        &lt;/button&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; data-bs-dismiss&#x3D;&quot;modal&quot; (click)&#x3D;&quot;idForActions &#x3D; null&quot;&gt;
+          &lt;i class&#x3D;&quot;bi bi-x&quot;&gt;&lt;/i&gt;
+          Cancel
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;container&quot;&gt;
+
+  &lt;!-- Content Header --&gt;
+  &lt;nav class&#x3D;&quot;navbar&quot;&gt;
+    &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+
+      &lt;a class&#x3D;&quot;navbar-brand&quot;&gt;
+        &lt;h3 class&#x3D;&quot;text-white pt-3 ms-1&quot;&gt;
+          USER LIST
+        &lt;/h3&gt;
+      &lt;/a&gt;
+
+    &lt;/div&gt;
+  &lt;/nav&gt;
+
+  &lt;hr class&#x3D;&quot;text-white&quot;&gt;
+
+  &lt;app-spinner *ngIf&#x3D;&quot;isLoading&quot;&gt;&lt;/app-spinner&gt;
+  &lt;div *ngIf&#x3D;&quot;!isLoading&quot;&gt;
+
+    &lt;!-- Alerts --&gt;
+    &lt;div class&#x3D;&quot;alert alert-success&quot; *ngIf&#x3D;&quot;successMsg !&#x3D; null&quot; role&#x3D;&quot;alert&quot;&gt;
+      &lt;i class&#x3D;&quot;bi bi-check-circle&quot;&gt;&lt;/i&gt;
+      {{successMsg}}
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;alert alert-danger&quot; *ngIf&#x3D;&quot;errorMsg !&#x3D;null&quot; role&#x3D;&quot;alert&quot;&gt;
+      &lt;i class&#x3D;&quot;bi bi-exclamation-circle&quot;&gt;&lt;/i&gt;
+      {{errorMsg}}
+    &lt;/div&gt;
+
+    &lt;!-- Filter --&gt;
+    &lt;div class&#x3D;&quot;d-flex flex-wrap justify-content-between mb-2&quot;&gt;
+
+      &lt;button class&#x3D;&quot;btn btn-outline-warning mb-2&quot; data-bs-target&#x3D;&quot;#create-user-modal&quot; data-bs-toggle&#x3D;&quot;modal&quot;&gt;
+        &lt;i class&#x3D;&quot;bi bi-person-plus-fill&quot;&gt;&lt;/i&gt;
+        Add User
+      &lt;/button&gt;
+
+      &lt;div class&#x3D;&quot;d-flex flex-wrap align-items-center&quot; style&#x3D;&quot;margin-left: 0;&quot;&gt;
+
+        &lt;button class&#x3D;&quot;btn btn-dark dropdown-toggle me-1&quot; style&#x3D;&quot;background-color: black;&quot; type&#x3D;&quot;button&quot;
+          data-bs-toggle&#x3D;&quot;dropdown&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+          &lt;i class&#x3D;&quot;bi bi-filter&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+
+        &lt;ul class&#x3D;&quot;dropdown-menu&quot; style&#x3D;&quot;background-color: black;&quot;&gt;
+
+          &lt;li&gt;
+            &lt;a class&#x3D;&quot;dropdown-item text-white&quot; type&#x3D;&quot;button&quot;&gt;
+              &lt;div class&#x3D;&quot;form-check&quot;&gt;
+                &lt;input class&#x3D;&quot;form-check-input&quot; value&#x3D;&quot;name&quot; [(ngModel)]&#x3D;&quot;searchType&quot; (click)&#x3D;&quot;dataForSearch &#x3D; &#x27;&#x27;&quot;
+                  type&#x3D;&quot;radio&quot; name&#x3D;&quot;SearchByName&quot; id&#x3D;&quot;SearchByName&quot;&gt;
+                &lt;label class&#x3D;&quot;form-check-label custom-text&quot; for&#x3D;&quot;SearchByName&quot; (click)&#x3D;&quot;dataForSearch &#x3D; &#x27;&#x27;&quot;&gt;
+                  &lt;i class&#x3D;&quot;bi bi-person-badge-fill&quot;&gt;&lt;/i&gt;
+                  Name
+                &lt;/label&gt;
+              &lt;/div&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+
+          &lt;li&gt;
+            &lt;hr class&#x3D;&quot;dropdown-divider&quot;&gt;
+          &lt;/li&gt;
+
+          &lt;li&gt;
+            &lt;a class&#x3D;&quot;dropdown-item text-white&quot; type&#x3D;&quot;button&quot;&gt;
+              &lt;div class&#x3D;&quot;form-check&quot;&gt;
+                &lt;input class&#x3D;&quot;form-check-input&quot; value&#x3D;&quot;email&quot; [(ngModel)]&#x3D;&quot;searchType&quot; (click)&#x3D;&quot;dataForSearch &#x3D; &#x27;&#x27;&quot;
+                  type&#x3D;&quot;radio&quot; name&#x3D;&quot;SearchByEmail&quot; id&#x3D;&quot;SearchByEmail&quot;&gt;
+                &lt;label class&#x3D;&quot;form-check-label custom-text&quot; (click)&#x3D;&quot;dataForSearch &#x3D; &#x27;&#x27;&quot; for&#x3D;&quot;SearchByEmail&quot;&gt;
+                  &lt;i class&#x3D;&quot;bi bi-envelope-at&quot;&gt;&lt;/i&gt;
+                  Email
+                &lt;/label&gt;
+              &lt;/div&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+
+          &lt;li&gt;
+            &lt;hr class&#x3D;&quot;dropdown-divider&quot;&gt;
+          &lt;/li&gt;
+
+          &lt;li&gt;
+            &lt;a class&#x3D;&quot;dropdown-item text-white&quot; type&#x3D;&quot;button&quot;&gt;
+              &lt;div class&#x3D;&quot;form-check&quot;&gt;
+                &lt;input class&#x3D;&quot;form-check-input&quot; value&#x3D;&quot;role&quot; [(ngModel)]&#x3D;&quot;searchType&quot; (click)&#x3D;&quot;dataForSearch &#x3D; &#x27;ADMIN&#x27;&quot;
+                  type&#x3D;&quot;radio&quot; name&#x3D;&quot;SearchByRole&quot; id&#x3D;&quot;SearchByRole&quot;&gt;
+                &lt;label class&#x3D;&quot;form-check-label custom-text&quot; for&#x3D;&quot;SearchByRole&quot; (click)&#x3D;&quot;dataForSearch &#x3D; &#x27;ADMIN&#x27;&quot;&gt;
+                  &lt;i class&#x3D;&quot;bi bi-boxes&quot;&gt;&lt;/i&gt;
+                  Role
+                &lt;/label&gt;
+              &lt;/div&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+
+        &lt;/ul&gt;
+
+        &lt;div class&#x3D;&quot;flex-grow-1 flex-shrink-1 me-1&quot; *ngIf&#x3D;&quot;searchType &#x3D;&#x3D; &#x27;role&#x27;&quot;&gt;
+          &lt;select class&#x3D;&quot;form-select&quot; aria-label&#x3D;&quot;Default select example&quot; aria-placeholder&#x3D;&quot;Select a role...&quot;
+            [(ngModel)]&#x3D;&quot;dataForSearch&quot;&gt;
+            &lt;option value&#x3D;&quot;ADMIN&quot;&gt;ADMIN&lt;/option&gt;
+            &lt;option value&#x3D;&quot;SUPPORT&quot;&gt;SUPPORT&lt;/option&gt;
+            &lt;option value&#x3D;&quot;SUPPORT MANAGER&quot;&gt;SUPPORT MANAGER&lt;/option&gt;
+            &lt;option value&#x3D;&quot;SALES&quot;&gt;SALES&lt;/option&gt;
+            &lt;option value&#x3D;&quot;SALES MANAGER&quot;&gt;SALES MANAGER&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;flex-grow-1 flex-shrink-1 me-1&quot; *ngIf&#x3D;&quot;searchType !&#x3D;&#x3D; &#x27;role&#x27;&quot;&gt;
+          &lt;input class&#x3D;&quot;form-control&quot; type&#x3D;&quot;search&quot; [(ngModel)]&#x3D;&quot;dataForSearch&quot; placeholder&#x3D;&quot;Type here...&quot;
+            aria-label&#x3D;&quot;Search&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;button class&#x3D;&quot;btn btn-outline-warning&quot; (click)&#x3D;&quot;searchUserByFilter()&quot;&gt;
+          &lt;i class&#x3D;&quot;bi bi-search&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Content --&gt;
+    &lt;h3 class&#x3D;&quot;text-white ms-5 empty-title&quot; *ngIf&#x3D;&quot;loadedData &#x3D;&#x3D; null&quot;&gt;No data found...&lt;/h3&gt;
+
+    &lt;div class&#x3D;&quot;scrollable-page&quot; *ngIf&#x3D;&quot;loadedData !&#x3D; null&quot;&gt;
+      &lt;table class&#x3D;&quot;table table-dark table-striped table-hover text-center&quot;&gt;
+        &lt;thead class&#x3D;&quot;fixed-header&quot;&gt;
+          &lt;tr&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Name&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Email&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Role&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Update&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Delete&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr *ngFor&#x3D;&quot;let user of loadedData&quot;&gt;
+            &lt;th scope&#x3D;&quot;row&quot;&gt; {{user.name}} &lt;/th&gt;
+            &lt;td&gt; {{user.email}} &lt;/td&gt;
+            &lt;td&gt; {{user.role}} &lt;/td&gt;
+            &lt;td&gt;
+              &lt;button class&#x3D;&quot;btn btn-outline-info mb-2&quot; data-bs-target&#x3D;&quot;#update-user-modal&quot; data-bs-toggle&#x3D;&quot;modal&quot;
+                (click)&#x3D;&quot;selectUserById(user.user_id); idForActions &#x3D; user.user_id&quot;&gt;
+                &lt;i class&#x3D;&quot;bi bi-person-fill-gear&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;button class&#x3D;&quot;btn btn-outline-danger mb-2&quot; data-bs-target&#x3D;&quot;#delete-user-modal&quot; data-bs-toggle&#x3D;&quot;modal&quot;
+                (click)&#x3D;&quot;idForActions &#x3D; user.user_id&quot;&gt;
+                &lt;i class&#x3D;&quot;bi bi-person-fill-x&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;br&gt;
+
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./users.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.container {
+    background-color: rgba(255, 255, 255, 0.349);
+}
+
+.btn-outline-warning {
+    border: #ff8700 1px solid;
+    color: white;
+}
+
+.btn-outline-warning:hover {
+    background-color: #ff8700;
+    box-shadow: 0 0 0 5px #ff870044, 0 0 5px #ff8700, 0 0 100px #ff8700;
+}
+
+.btn-outline-dark {
+    color: white;
+}
+
+.btn-outline-dark:hover {
+    box-shadow: 0 0 0 5px #282a2c44, 0 0 5px #282a2c, 0 0 100px #282a2c;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #6c757d;
+}
+
+.empty-title {
+    border-left: #ff8700 solid 1px;
+    border-bottom: #ff8700 solid 1px;
+    border-left-width: 5px;
+    padding-left: 10px;
+    margin: 5% 5%;
+}
+
+.btn-outline-danger:hover {
+    box-shadow:
+        0 0 0 5px #dc354544,
+        0 0 5px #dc3545,
+        0 0 100px #dc3545;
+}
+
+.btn-outline-info:hover {
+    box-shadow:
+        0 0 0 5px #0dcaf044,
+        0 0 5px #0dcaf0,
+        0 0 100px #0dcaf0;
+}
+
+.btn-close {
+    background-color: #ff8700;
+}
+
+.btn-close:hover {
+    color: #ff8700;
+    box-shadow: 0 0 0 5px #ff870044, 0 0 5px #ff8700, 0 0 100px #ff8700;
+}
+
+.btn-secondary:hover {
+    box-shadow:
+        0 0 0 5px #6c757d44,
+        0 0 5px #6c757d,
+        0 0 100px #6c757d;
+}
+
+.btn-primary:hover {
+    box-shadow:
+        0 0 0 5px #007bff44,
+        0 0 5px #007bff,
+        0 0 100px #007bff;
+}
+
+.scrollable-page {
+    height: 500px;
+    overflow-y: scroll;
+    /* Enable vertical scrolling */
+}
+
+.fixed-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- Create Modal --><div class="modal fade" id="create-user-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"  aria-labelledby="create-user-modal" aria-hidden="true">  <div class="modal-dialog">    <div class="modal-content">      <div class="modal-header bg-dark text-white">        <h1 class="modal-title fs-5" id="staticBackdropLabel">          NEW USER        </h1>        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"          (click)="showPassword = false;addForm.reset()"></button>      </div>      <form (ngSubmit)="createUser()" #addForm="ngForm">        <div class="modal-body bg-dark text-white">          <div class="form-floating mb-3">            <input type="text" class="form-control" id="nameAddInput" placeholder="name@example.com" name="nameAddInput"              #nameAddInput="ngModel" ngModel required>            <label for="nameAddInput" style="color: black;">              <i class="bi bi-person-badge-fill"></i>              Name            </label>            <div *ngIf="nameAddInput.invalid && (nameAddInput.dirty || nameAddInput.touched)" class="alert">              <span class="help-block" style="color: red" *ngIf="nameAddInput.errors?.[\'required\']">                Please enter with valid data              </span>            </div>          </div>          <div class="form-floating mb-3">            <input type="email" class="form-control" id="emailAddInput" placeholder="email" name="emailAddInput"              #emailAddInput="ngModel" ngModel required email>            <label for="emailAddInput" style="color: black;">              <i class="bi bi-envelope-at"></i>              Email            </label>            <div *ngIf="emailAddInput.invalid && (emailAddInput.dirty || emailAddInput.touched)" class="alert">              <span class="help-block" style="color: red"                *ngIf="emailAddInput.errors?.[\'required\'] || emailAddInput.errors?.[\'email\']">                Please enter with valid data              </span>            </div>          </div>          <div class="form-floating mb-3">            <input type="{{ showPassword ? \'text\' : \'password\' }}" class="form-control" id="passwordAddInput"              placeholder="******" name="passwordAddInput" [(ngModel)]="password_input" required              #passwordAddInput="ngModel">            <label for="passwordAddInput" style="color: black;">              <i class="bi bi-key"></i>              Password            </label>            <div *ngIf="passwordAddInput.invalid && (passwordAddInput.dirty || passwordAddInput.touched)" class="alert">              <span class="help-block" style="color: red" *ngIf="passwordAddInput.errors?.[\'required\']">                Please enter with valid data              </span>            </div>          </div>          <div class="form-floating mb-3">            <input type="{{ showPassword ? \'text\' : \'password\' }}" class="form-control" id="passwordConfirmAddInput"              placeholder="*******" name="passwordConfirmAddInput" [(ngModel)]="confirmPassword" required              #passwordConfirmAddInput="ngModel">            <label for="passwordConfirmAddInput" style="color: black;">              <i class="bi bi-key"></i>              Confirm Password            </label>            <span class="help-block alert" style="color: red"              *ngIf="passwordConfirmAddInput.invalid && (passwordConfirmAddInput.dirty || passwordConfirmAddInput.touched)">              Please enter valid data            </span>            <br>            <span class="help-block alert" style="color: red" *ngIf="password_input !== confirmPassword">              Passwords do not match            </span>          </div>          <div>            <label for="roleAddInput">              <i class="bi bi-boxes"></i>              Role            </label>            <select class="form-select" id="roleAddInput" style="color: black;" aria-label="Select a role"              aria-placeholder="Select a role..." name="roleAddInput" #roleAddInput="ngModel" ngModel required>              <option value="ADMIN">ADMIN</option>              <option value="SUPPORT">SUPPORT</option>              <option value="SUPPORT MANAGER">SUPPORT MANAGER</option>              <option value="SALES">SALES</option>              <option value="SALES MANAGER">SALES MANAGER</option>            </select>            <div *ngIf="roleAddInput.invalid && (roleAddInput.dirty || roleAddInput.touched)" class="alert">              <span class="help-block" style="color: red" *ngIf="roleAddInput.errors?.[\'required\']">                Please enter with valid data              </span>            </div>          </div>        </div>        <div class="modal-footer bg-dark text-white">          <button class="btn btn-light" type="button" (click)="changePwdVisibility()">            <i class="bi bi-eye" *ngIf="showPassword == true"></i>            <i class="bi bi-eye-slash" *ngIf="showPassword == false"></i>          </button>          <button type="submit" data-bs-dismiss="modal" class="btn btn-primary"            [disabled]="!addForm.valid || password_input !== confirmPassword">            <i class="bi bi-device-hdd"></i>            Save          </button>          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"            (click)="showPassword = false;addForm.reset()">            <i class="bi bi-x"></i>            Cancel          </button>        </div>      </form>    </div>  </div></div><!-- Update Modal --><div class="modal fade" id="update-user-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"  aria-labelledby="create-user-modal" aria-hidden="true">  <div class="modal-dialog">    <div class="modal-content">      <div class="modal-header bg-dark text-white">        <h1 class="modal-title fs-5" id="staticBackdropLabel">          UPDATE USER        </h1>        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"          (click)="showPassword = false;updateForm.reset()"></button>      </div>      <form (ngSubmit)="updateUser()" #updateForm="ngForm">        <div class="modal-body bg-dark text-white">          <div class="form-floating mb-3">            <input type="text" class="form-control" id="updateNameInput" placeholder="name@example.com"              name="updateNameInput" #updateNameInput="ngModel" [(ngModel)]="loadedName" required>            <label for="updateNameInput" style="color: black;">              <i class="bi bi-person-badge-fill"></i>              Name            </label>            <div *ngIf="updateNameInput.invalid && (updateNameInput.dirty || updateNameInput.touched)" class="alert">              <span class="help-block" style="color: red" *ngIf="updateNameInput.errors?.[\'required\']">                Please enter with valid data              </span>            </div>          </div>          <div class="form-floating mb-3">            <input type="email" class="form-control" id="updateEmailInput" placeholder="Password"              name="updateEmailInput" #updateEmailInput="ngModel" [(ngModel)]="loadedEmail" required email>            <label for="updateEmailInput" style="color: black;">              <i class="bi bi-envelope-at"></i>              Email            </label>            <div *ngIf="updateEmailInput.invalid && (updateEmailInput.dirty || updateEmailInput.touched)" class="alert">              <span class="help-block" style="color: red"                *ngIf="updateEmailInput.errors?.[\'required\'] || updateEmailInput.errors?.[\'email\']">                Please enter with valid data              </span>            </div>          </div>          <div class="form-floating mb-3">            <input type="{{ showPassword ? \'text\' : \'password\' }}" class="form-control" id="updatePasswordInput"              placeholder="name@example.com" name="password" [(ngModel)]="password_input" #password="ngModel">            <label for="updatePasswordInput" style="color: black;">              <i class="bi bi-key"></i>              Password            </label>          </div>          <div class="form-floating mb-3">            <input type="{{ showPassword ? \'text\' : \'password\' }}" class="form-control" id="updatePasswordConfirmInput"              placeholder="name@example.com" name="confirmPassword" [(ngModel)]="confirmPassword">            <label for="updatePasswordConfirmInput" style="color: black;">              <i class="bi bi-key"></i>              Confirm Password            </label>            <span class="help-block alert" style="color: red" *ngIf="password_input !== confirmPassword">              Passwords do not match            </span>          </div>          <div>            <label for="updateRoleInput">              <i class="bi bi-boxes"></i>              Role            </label>            <select class="form-select" id="updateRoleInput" style="color: black;" aria-label="Select a role"              aria-placeholder="Select a role..." [(ngModel)]="loadedRole" name="updateRoleInput"              #updateRoleInput="ngModel" ngModel required>              <option value="ADMIN">ADMIN</option>              <option value="SUPPORT">SUPPORT</option>              <option value="SUPPORT MANAGER">SUPPORT MANAGER</option>              <option value="SALES">SALES</option>              <option value="SALES MANAGER">SALES MANAGER</option>            </select>            <div *ngIf="updateRoleInput.invalid && (updateRoleInput.dirty || updateRoleInput.touched)" class="alert">              <span class="help-block" style="color: red" *ngIf="updateRoleInput.errors?.[\'required\']">                Please enter with valid data              </span>            </div>          </div>        </div>        <div class="modal-footer bg-dark text-white">          <button type="button" class="btn btn-primary" type="submit" [disabled]="!updateForm.valid"            data-bs-dismiss="modal">            <i class="bi bi-person-fill-gear"></i>            Update          </button>          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"            (click)="showPassword = false;updateForm.reset()">            <i class="bi bi-x"></i>            Cancel          </button>        </div>      </form>    </div>  </div></div><!-- Delete Modal --><div class="modal fade" id="delete-user-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"  aria-labelledby="change-password-modal" aria-hidden="true">  <div class="modal-dialog">    <div class="modal-content">      <div class="modal-header bg-dark text-white">        <h1 class="modal-title fs-5" id="staticBackdropLabel">          DELETE USER        </h1>        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"          (click)="idForActions = null"></button>      </div>      <div class="modal-body bg-dark text-white">        <h5>Warning!!!After click on delete action can\'t be undone</h5>      </div>      <div class="modal-footer bg-dark text-white">        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteUser()">          <i class="bi bi-person-fill-x"></i>          Delete        </button>        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="idForActions = null">          <i class="bi bi-x"></i>          Cancel        </button>      </div>    </div>  </div></div><div class="container">  <!-- Content Header -->  <nav class="navbar">    <div class="container-fluid">      <a class="navbar-brand">        <h3 class="text-white pt-3 ms-1">          USER LIST        </h3>      </a>    </div>  </nav>  <hr class="text-white">  <app-spinner *ngIf="isLoading"></app-spinner>  <div *ngIf="!isLoading">    <!-- Alerts -->    <div class="alert alert-success" *ngIf="successMsg != null" role="alert">      <i class="bi bi-check-circle"></i>      {{successMsg}}    </div>    <div class="alert alert-danger" *ngIf="errorMsg !=null" role="alert">      <i class="bi bi-exclamation-circle"></i>      {{errorMsg}}    </div>    <!-- Filter -->    <div class="d-flex flex-wrap justify-content-between mb-2">      <button class="btn btn-outline-warning mb-2" data-bs-target="#create-user-modal" data-bs-toggle="modal">        <i class="bi bi-person-plus-fill"></i>        Add User      </button>      <div class="d-flex flex-wrap align-items-center" style="margin-left: 0;">        <button class="btn btn-dark dropdown-toggle me-1" style="background-color: black;" type="button"          data-bs-toggle="dropdown" aria-expanded="false">          <i class="bi bi-filter"></i>        </button>        <ul class="dropdown-menu" style="background-color: black;">          <li>            <a class="dropdown-item text-white" type="button">              <div class="form-check">                <input class="form-check-input" value="name" [(ngModel)]="searchType" (click)="dataForSearch = \'\'"                  type="radio" name="SearchByName" id="SearchByName">                <label class="form-check-label custom-text" for="SearchByName" (click)="dataForSearch = \'\'">                  <i class="bi bi-person-badge-fill"></i>                  Name                </label>              </div>            </a>          </li>          <li>            <hr class="dropdown-divider">          </li>          <li>            <a class="dropdown-item text-white" type="button">              <div class="form-check">                <input class="form-check-input" value="email" [(ngModel)]="searchType" (click)="dataForSearch = \'\'"                  type="radio" name="SearchByEmail" id="SearchByEmail">                <label class="form-check-label custom-text" (click)="dataForSearch = \'\'" for="SearchByEmail">                  <i class="bi bi-envelope-at"></i>                  Email                </label>              </div>            </a>          </li>          <li>            <hr class="dropdown-divider">          </li>          <li>            <a class="dropdown-item text-white" type="button">              <div class="form-check">                <input class="form-check-input" value="role" [(ngModel)]="searchType" (click)="dataForSearch = \'ADMIN\'"                  type="radio" name="SearchByRole" id="SearchByRole">                <label class="form-check-label custom-text" for="SearchByRole" (click)="dataForSearch = \'ADMIN\'">                  <i class="bi bi-boxes"></i>                  Role                </label>              </div>            </a>          </li>        </ul>        <div class="flex-grow-1 flex-shrink-1 me-1" *ngIf="searchType == \'role\'">          <select class="form-select" aria-label="Default select example" aria-placeholder="Select a role..."            [(ngModel)]="dataForSearch">            <option value="ADMIN">ADMIN</option>            <option value="SUPPORT">SUPPORT</option>            <option value="SUPPORT MANAGER">SUPPORT MANAGER</option>            <option value="SALES">SALES</option>            <option value="SALES MANAGER">SALES MANAGER</option>          </select>        </div>        <div class="flex-grow-1 flex-shrink-1 me-1" *ngIf="searchType !== \'role\'">          <input class="form-control" type="search" [(ngModel)]="dataForSearch" placeholder="Type here..."            aria-label="Search">        </div>        <button class="btn btn-outline-warning" (click)="searchUserByFilter()">          <i class="bi bi-search"></i>        </button>      </div>    </div>    <!-- Content -->    <h3 class="text-white ms-5 empty-title" *ngIf="loadedData == null">No data found...</h3>    <div class="scrollable-page" *ngIf="loadedData != null">      <table class="table table-dark table-striped table-hover text-center">        <thead class="fixed-header">          <tr>            <th scope="col">Name</th>            <th scope="col">Email</th>            <th scope="col">Role</th>            <th scope="col">Update</th>            <th scope="col">Delete</th>          </tr>        </thead>        <tbody>          <tr *ngFor="let user of loadedData">            <th scope="row"> {{user.name}} </th>            <td> {{user.email}} </td>            <td> {{user.role}} </td>            <td>              <button class="btn btn-outline-info mb-2" data-bs-target="#update-user-modal" data-bs-toggle="modal"                (click)="selectUserById(user.user_id); idForActions = user.user_id">                <i class="bi bi-person-fill-gear"></i>              </button>            </td>            <td>              <button class="btn btn-outline-danger mb-2" data-bs-target="#delete-user-modal" data-bs-toggle="modal"                (click)="idForActions = user.user_id">                <i class="bi bi-person-fill-x"></i>              </button>            </td>          </tr>        </tbody>      </table>    </div>  </div>  <br></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ClockComponent', 'selector': 'app-clock'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SendTokenComponent', 'selector': 'app-send-token'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'ValidateTokenComponent', 'selector': 'app-validate-token'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'UsersComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'UsersComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

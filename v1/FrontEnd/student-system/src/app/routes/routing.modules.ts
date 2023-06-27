@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 /**
  * The routing configuration for the application.
@@ -7,26 +8,61 @@ import { Routes, RouterModule } from '@angular/router';
 const appRoutes: Routes = [
   { 
     /**
-     * The default route that redirects to the app page.
+     * The default app route that redirects to the app page.
      */
     path: '', 
-    redirectTo: '/', 
-    pathMatch: 'full' 
+    redirectTo: 'app',
+    pathMatch: 'full'
+  },
+  { 
+    /**
+     * The default route that redirects to the app page.
+     */
+    path: 'app', 
+    component: AppComponent
   },
   {
     /**
-     * The lazy-loaded module for the Students page.
+     * The lazy-loaded module for the Login page.
      */
     path: '',
-    loadChildren: () => import('../auth/login/login.module').then((m) => m.LoginModule),
+    loadChildren: () => import('../Pages/auth/login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    /**
+     * The lazy-loaded module for the send token page.
+     */
+    path: '',
+    loadChildren: () => import('../Pages/auth/send-token/send-token.module').then((m) => m.SendTokenModule),
+  },
+  {
+    /**
+     * The lazy-loaded module for the validate tken page.
+     */
+    path: '',
+    loadChildren: () => import('../Pages/auth/validate-token/validate-token.module').then((m) => m.ValidateTokenModule),
+  },
+  {
+    /**
+     * The lazy-loaded module for the Admin page.
+     */
+    path: '',
+    loadChildren: () => import('../Pages/admin/admin.module').then((m) => m.AdminModule),
+  },
+  {
+    /**
+     * The lazy-loaded module for the not found page.
+     */
+    path: '',
+    loadChildren: () => import('../Pages/not-found/not-found.module').then((m) => m.NotFoundModule),
   },
   { 
     /**
      * The fallback route that redirects to the Not Found page.
      */
     path: '**', 
-    redirectTo: '/404' 
-  },
+    redirectTo: '404' 
+  }
 ];
 
 /**
