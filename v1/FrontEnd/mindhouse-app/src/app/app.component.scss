@@ -1,0 +1,50 @@
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -100;
+  overflow: hidden;
+  pointer-events: none;
+  background-color: #0c192c;
+}
+
+.bubbles {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  span {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin: 0 4px;
+    border-radius: 50%;
+    background-color: #23d997;
+    box-shadow: 0 0 0 10px #23d99744, 0 0 50px #23d997, 0 0 100px #23d997;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(120s / var(--i));
+  }
+  span:nth-child(even) {
+    background-color: #00ffbf;
+    box-shadow: 0 0 0 10px #00ffbf44, 0 0 50px #00ffbf, 0 0 100px #00ffbf;
+  }
+  span:nth-child(odd) {
+    background-color: #ff3131;
+    box-shadow: 0 0 0 10px #ff313144, 0 0 50px #ff3131, 0 0 100px #ff3131;
+  }
+  
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(120vh) scale(0);
+  }
+
+  100% {
+    transform: translateY(-40vh) scale(1);
+  }
+}

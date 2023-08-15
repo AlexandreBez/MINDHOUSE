@@ -1,0 +1,149 @@
+<nav class="navbar fixed-top" [ngClass]="isDarkMode ? 'dark-theme bg-dark' : 'light-theme bg-light'">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-list"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+            </svg>
+
+        </button>
+        <div [ngClass]="isDarkMode ? 'offcanvas offcanvas-start bg-dark' : 'offcanvas offcanvas-start bg-light'"
+            tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                    <app-clock></app-clock>
+                </h5>
+                <button class="btn close-btn" data-bs-dismiss="offcanvas" aria-label="Close">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-start flex-grow-1 pe-2">
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" (click)="change_theme()" type="checkbox"  [checked]="isDarkMode" role="switch" id="flexSwitchCheckDefault">
+                                <i class="bi bi-moon-fill" style="color: #004AAD;" *ngIf="isDarkMode"></i>
+                                <i class="bi bi-brightness-alt-high-fill" style="color: #FF914D;" *ngIf="!isDarkMode"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="Home" routerLinkActive="nav-link-active">
+                            <i class="bi bi-house">
+                                HOME
+                            </i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="Users" routerLinkActive="nav-link-active">
+                            <i class="bi bi-people-fill">
+                                USERS
+                            </i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-hdd-stack">
+                                WORKSPACES
+                            </i>
+                        </a>
+                        <ul [ngClass]="isDarkMode ? 'bg-dark dropdown-menu' : 'bg-light dropdown-menu'">
+                            <li>
+                                <a class="dropdown-item" routerLink="#" routerLinkActive="nav-link-active">
+                                    <i class="bi bi-graph-up-arrow">
+                                        BUSINESS WORKSPACE
+                                    </i>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" routerLink="#" routerLinkActive="nav-link-active">
+                                    <i class="bi bi-shop-window">
+                                        SALES WORKSPACE
+                                    </i>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" routerLink="#" routerLinkActive="nav-link-active">
+                                    <i class="bi bi-headset">
+                                        SUPPORT WORKSPACE
+                                    </i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-tools">
+                                TOOLS
+                            </i>
+                        </a>
+                        <ul [ngClass]="isDarkMode ? 'bg-dark dropdown-menu' : 'bg-light dropdown-menu'">
+                            <li>
+                                <a class="dropdown-item" href="http://localhost:8082" target="_blank">
+                                    <i class="bi bi-globe"></i>
+                                    EUREKA
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="http://localhost:15672" target="_blank">
+                                    <i class="bi bi-arrow-left-right"></i>
+                                    RABBITMQ
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="http://localhost:5601" target="_blank">
+                                    <i class="bi bi-database-fill-gear"></i>
+                                    KIBANA
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <hr>
+
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="onLogout()" type="button">
+                            <i class="bi bi-door-closed">
+                                LOG OUT
+                            </i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-auto">
+                <h2 class="mt-4 menu-title" style="padding-top: 5%;">ADMIN WORKSPACE</h2>
+            </div>
+            <div class="col-auto">
+                <img src="/assets/images/logo-icon.png" alt="logo" width="120" height="120">
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+<div class="content-container mt-3">
+    <div class="router-content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

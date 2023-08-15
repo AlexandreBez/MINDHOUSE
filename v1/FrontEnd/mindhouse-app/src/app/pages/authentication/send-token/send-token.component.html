@@ -1,0 +1,50 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div id="login-area">
+    <div class="grid align-item-center" id="login-form-area">
+        <div class="row">
+            <div class="col col-md col-sm">
+
+                <form class="container">
+
+                    <div *ngIf="errorMessage != null" class="alert alert-dark text-center text-white" role="alert">
+                        <i class="bi bi-exclamation-triangle" style="color: red;"></i>
+                        {{errorMessage}}
+                    </div>
+
+                    <div *ngIf="successMessage != null" class="alert alert-dark text-center text-white" role="alert">
+                        <i class="bi bi-check-circle-fill" style="color: green;"></i>
+                        {{successMessage}}
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <img src="/assets/images/logo1.png" alt="logo" class="mb-4" id="login-form-img">
+                    </div>
+
+                    <div class="form-floating mb-5 ms-5 me-5 mt-3">
+                        <input 
+                            type="email" 
+                            class="form-control"
+                            id="username-input" 
+                            placeholder="name@example.com"
+                            name="username"
+                            [(ngModel)]="username"
+                        >
+                        <label for="username-input">
+                            <i class="bi bi-person-circle"></i>
+                            Username
+                        </label>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button [disabled]="username == null || specialCharRegex.test(username) == false" (click)="sendToken()" class="btn btn-dark">
+                            <i class="bi bi-envelope-fill"></i>
+                            Send Token
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>

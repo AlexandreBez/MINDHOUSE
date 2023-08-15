@@ -25,20 +25,36 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import reactor.core.publisher.Mono;
 
+/**
+ * The Class AuthorizationHeaderFilter.
+ */
 @Component
 public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<AuthorizationHeaderFilter.Config> {
 
+	/** The env. */
 	@Autowired
 	Environment env;
 
+	/**
+	 * Instantiates a new authorization header filter.
+	 */
 	public AuthorizationHeaderFilter() {
 		super(Config.class);
 	}
 
+	/**
+	 * The Class Config.
+	 */
 	public static class Config {
 		// Put configuration properties here
 	}
 
+	/**
+	 * Apply.
+	 *
+	 * @param config the config
+	 * @return the gateway filter
+	 */
 	@Override
 	public GatewayFilter apply(Config config) {
 		return (exchange, chain) -> {
@@ -60,6 +76,14 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
 		};
 	}
 
+	/**
+	 * On error.
+	 *
+	 * @param exchange the exchange
+	 * @param err the err
+	 * @param httpStatus the http status
+	 * @return the mono
+	 */
 	private Mono<Void> onError(ServerWebExchange exchange, String err, HttpStatus httpStatus) {
 		ServerHttpResponse response = exchange.getResponse();
 		response.setStatusCode(httpStatus);
@@ -67,6 +91,12 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
 		return response.setComplete();
 	}
 
+	/**
+	 * Checks if is jwt valid.
+	 *
+	 * @param jwt the jwt
+	 * @return true, if is jwt valid
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private boolean isJwtValid(String jwt) {
 		boolean returnValue = true;

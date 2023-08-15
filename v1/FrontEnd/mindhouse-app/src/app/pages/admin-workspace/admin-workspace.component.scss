@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  font-family: "DM Sans";
+}
+
+.container-fluid {
+  .navbar-toggler {
+    border: none;
+    margin-left: 2%;
+  }
+  .offcanvas {
+    width: 40%;
+  }
+}
+
+.nav-link-active {
+  color: #ff3131;
+  .bi {
+    color: #ff3131;
+  }
+}
+
+.nav-link-active {
+    color: #ff3131;
+    .bi {
+      color: #ff3131;
+    }
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 120px; /* Adjust this value to match your navbar's height */
+  min-height: calc(120vh - 60px); /* Subtract navbar height from viewport height */
+}
+
+.router-content {
+  flex-grow: 1;
+  padding: 40px; /* Optional padding for the content area */
+  overflow-y: auto; /* Add scroll if content overflows */
+}
+
+.close-btn {
+  color: #ff3131;
+}
+
+.dark-theme {
+  .menu-title {
+    color: #fff;
+  }
+  .bi-list {
+    color: #fff;
+  }
+  .offcanvas {
+    width: 20%;
+    color: white;
+    .dropdown-menu,
+    .dropdown-divider {
+      border: 1px solid white;
+    }
+  }
+  .nav-link {
+    color: white;
+  }
+  .dropdown-item {
+    color: white;
+  }
+  .dropdown-item:hover {
+    background-color: grey;
+  }
+
+  /* Style for checked switch input */
+  .form-check-input[type="checkbox"]:checked {
+    background-color: #004AAD; /* Background color for the checked state */
+  }
+}
+
+.light-theme {
+  .bi-list {
+    color: #ff3131;
+  }
+  .offcanvas {
+    width: 20%;
+    color: black;
+    .dropdown-menu {
+      border: 1px solid black;
+    }
+  }
+  .nav-link {
+    color: black;
+  }
+  .dropdown-item {
+    color: black;
+  }
+  /* Style for checked switch input */
+  .form-check-input[type="checkbox"]:not(:checked) {
+    background-color: #FF914D;
+  }
+}

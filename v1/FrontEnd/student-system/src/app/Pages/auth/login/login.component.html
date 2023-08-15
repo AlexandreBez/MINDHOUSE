@@ -12,8 +12,18 @@
         <form (ngSubmit)="onLogin()" #loginForm="ngForm">
 
             <div class="form-floating mb-2">
-                <input type="email" maxlength="50" class="form-control" id="username" placeholder="username" ngModel
-                    #username="ngModel" name="username" email required />
+                <input 
+                    type="email" 
+                    maxlength="50" 
+                    class="form-control" 
+                    id="username" 
+                    placeholder="username"
+                    ngModel 
+                    #username="ngModel" 
+                    name="username" 
+                    email 
+                    required
+                />
                 <label for="username">
                     <i class="bi bi-person"></i>
                     Username

@@ -1,0 +1,2 @@
+JKS has 90 days of expiration
+keytool -genkeypair -alias mindhouse -keyalg RSA -keystore C:\Users\adm\Desktop\Repositorys\MINDHOUSE\v1\Servers IO\JKS\MINDHOUSE.jks -keypass 1q2w3e4r -storepass 1q2w3e4r

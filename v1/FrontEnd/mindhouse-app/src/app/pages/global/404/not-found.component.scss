@@ -1,0 +1,53 @@
+.body-div{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(30deg, #4db4e4, #b923ff);
+    height: 100vh;
+}
+
+.container{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    right: 5%;
+    bottom: 10%;
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    background: url("/assets/images/404.png"), #151729;
+    box-shadow: 0 15px 30px rgba(0,0,0,.5);
+}
+
+.container .content{
+    text-align: center;
+}
+
+.container .content h2{
+    font-size: 18vw;
+    color: #fff;
+    line-height: 1em;
+}
+
+.container .content h4{
+    position: relative;
+    font-size: 1.5em;
+    color: #111;
+    background: #fff;
+    font-weight: 300;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.container .content p{
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.container .content a{
+    color: #fff;
+    text-decoration: none;
+}

@@ -2,25 +2,26 @@ package com.emailServer.objects;
 
 public class FileShareHelper {
 
-	private String email;
+	private String[] emails;
 	private String fileName;
 	private String filePath;
-	
-	public FileShareHelper() {}
-	
-	public FileShareHelper(String email,String fileName, String filePath) {
+
+	public FileShareHelper() {
+	}
+
+	public FileShareHelper(String[] emails, String fileName, String filePath) {
 		super();
-		this.email = email;
+		this.emails = emails;
 		this.fileName = fileName;
 		this.filePath = filePath;
 	}
 
-	public String getEmail() {
-		return email;
+	public String[] getEmails() {
+		return emails;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmails(String[] emails) {
+		this.emails = emails;
 	}
 
 	public String getFileName() {
@@ -38,5 +39,4 @@ public class FileShareHelper {
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
 	}
-	
 }

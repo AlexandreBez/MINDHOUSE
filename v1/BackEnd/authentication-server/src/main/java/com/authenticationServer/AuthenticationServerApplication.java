@@ -9,7 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * The main class for the Authentication Server application.
- * @author Lucas Alexandre
+ * @author Lucas Alexandre Bez Piancoski
  * @version 1.0.0
  */
 @SpringBootApplication
@@ -25,15 +25,11 @@ public class AuthenticationServerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AuthenticationServerApplication.class, args);
 	}
-
-    /**
-     * Creates a BCryptPasswordEncoder bean.
-     *
-     * @return The BCryptPasswordEncoder bean.
-     */
+	
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder()
 	{
 		return new BCryptPasswordEncoder();
 	}
+
 }
