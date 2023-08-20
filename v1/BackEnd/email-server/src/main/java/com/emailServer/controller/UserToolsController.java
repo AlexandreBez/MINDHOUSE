@@ -11,7 +11,7 @@ import com.emailServer.objects.CustomResponse;
 import com.emailServer.service.UserToolsService;
 
 @RestController
-@RequestMapping("UserTools/")
+@RequestMapping("UserTools/v1/")
 public class UserToolsController {
 
 	@Autowired
@@ -21,5 +21,11 @@ public class UserToolsController {
 	public ResponseEntity<CustomResponse> changeTempPassword(@PathVariable("email") String email,@PathVariable("token") String token){
 		return userToolsService.sendEmailWithToken(email, token);
 	}
+	
+	@GetMapping("SendTempPassword/{email}/{password}")
+	public ResponseEntity<CustomResponse> sendTempPassword(@PathVariable("email") String email, @PathVariable("password") String password){
+		return userToolsService.sendTempPassword(email, password);
+	}
+
 	
 }

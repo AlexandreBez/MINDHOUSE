@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TokenFactory {
 
-	private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*";
 
     public String generateToken() {
         StringBuilder sb = new StringBuilder(6);

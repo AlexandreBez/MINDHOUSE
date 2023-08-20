@@ -19,7 +19,7 @@ export class AdminWorkspaceComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.router.navigate(['/admin-workspace/Home']);
+    this.router.navigate(['/admin-workspace/Users']);
   }
 
   change_theme() {
@@ -37,4 +37,5 @@ export class AdminWorkspaceComponent implements OnInit{
     localStorage.setItem("theme", this.theme);
     this.router.navigate(['login']);
   }
+  
 }

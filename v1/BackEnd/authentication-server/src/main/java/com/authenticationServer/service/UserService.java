@@ -22,6 +22,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.authenticationServer.factory.TempPasswordFactory;
 import com.authenticationServer.factory.TokenFactory;
 import com.authenticationServer.feignClients.EmailServer_UserToolsClient;
 import com.authenticationServer.model.UserJPA;
@@ -49,6 +50,9 @@ public class UserService implements UserDetailsServiceImplementation {
 	@Autowired
 	TokenFactory tokenFactory;
 
+	@Autowired
+	TempPasswordFactory tempPasswordFactory;
+	
 	@Autowired
 	EmailServer_UserToolsClient emailServer_UserToolsClient;
 
@@ -292,5 +296,50 @@ public class UserService implements UserDetailsServiceImplementation {
 			return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	@Transactional
+	public ResponseEntity<CustomResponse> saveUser(Users users) {
+
+		CustomResponse response = new CustomResponse();
+		try {
+			
+			if (users == null) {
+				response.setMessage("Data sent is empty...Server can't finish request");
+				response.setStatusCode(400);
+				response.setTimestamp(new Date().toString());
+				return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+			}
+			
+			List<Users> checkUserExist = userRepository.findByEmail(users.getEmail());
+			if(!checkUserExist.isEmpty()) {
+				response.setMessage("User already exist...");
+				response.setStatusCode(400);
+				response.setTimestamp(new Date().toString());
+				return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+			}
+
+			String tempPassword = tempPasswordFactory.generateTempPassword();
+			response = emailServer_UserToolsClient.sendTempPassword(users.getEmail(), tempPassword).getBody();
+			
+			if(response.getStatusCode() != 200) {
+				return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+			
+			users.setPassword(bCryptPasswordEncoder.encode(tempPassword));
+			users.setCreated_on(LocalDateTime.now());
+			userRepository.save(users);
+			
+			response.setMessage("User created with success...");
+			response.setStatusCode(200);
+			response.setTimestamp(new Date().toString());
+			return new ResponseEntity<>(response, HttpStatus.OK);
+		} catch (Exception e) {
+			response.setMessage(e.getMessage());
+			response.setStatusCode(500);
+			response.setTimestamp(new Date().toString());
+			return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
 
 }

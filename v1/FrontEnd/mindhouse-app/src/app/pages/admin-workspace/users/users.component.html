@@ -1,68 +1,114 @@
 <!-- Create User -->
-<div class="modal fade" id="sendToEmailModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
-    aria-labelledby="sendToEmailModal" aria-hidden="true">
+<div class="modal fade" id="createUserModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+    aria-labelledby="createUserModal" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <form class="text-dark modal-content" (ngSubmit)="createNewUser()" #createUserForm="ngForm">
+
             <div [ngClass]="isDarkMode ? 'bg-white modal-header' : 'text-white bg-dark modal-header'">
-                <h1 class="modal-title fs-5" id="sendToEmailModal">Create new user</h1>
-                <button type="button" [disabled]="waitingActionResponse"
+                <h1 class="modal-title fs-5">Create new user</h1>
+                <button type="reset" (click)="createUserForm.reset" [disabled]="waitingActionResponse"
                     class="btn close-btn" data-bs-dismiss="modal" aria-label="Close">
                     <i class="bi bi-x-lg"></i>
                 </button>
             </div>
+
             <div *ngIf="waitingActionResponse" class="spinner-border text-danger container-fluid" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
+
             <div *ngIf="!waitingActionResponse"
                 [ngClass]="isDarkMode ? 'text-white bg-dark modal-body' : 'text-dark bg-white modal-body'">
-                <div *ngIf="errorEmailMessage != null" class="text-center text-dark alert alert-dark" role="alert">
+
+                <div *ngIf="errorModalMessage != null" class="text-center text-dark alert alert-dark" role="alert">
                     <i class="bi bi-exclamation-triangle" style="color: #C30618;"></i>
-                    {{errorEmailMessage}}
+                    {{errorModalMessage}}
                 </div>
-                <div *ngIf="successEmailMessage != null" class="text-center text-dark alert alert-dark" role="alert">
+                <div *ngIf="successModalMessage != null" class="text-center text-dark alert alert-dark" role="alert">
                     <i class="bi bi-check-circle-fill" style="color: #00BF63;"></i>
-                    {{successEmailMessage}}
+                    {{successModalMessage}}
+                </div>
+
+                <div class="input-group has-validation mb-2">
+                    <div class="form-floating"
+                        [ngClass]="nameData.invalid && nameData.errors?.['required'] && (nameData.dirty || nameData.touched) ? 'is-invalid' : ''">
+                        <input type="text" class="form-control"
+                            [ngClass]="nameData.invalid && nameData.errors?.['required'] && (nameData.dirty || nameData.touched) ? 'is-invalid' : ''"
+                            name="nameData" #nameData="ngModel" id="nameDataInput" placeholder="Name" required ngModel>
+                        <label for="nameDataInput">
+                            <i class="bi bi-person-badge-fill"></i>
+                            Name
+                        </label>
+                    </div>
+
+                    <div class="invalid-feedback"
+                        *ngIf="nameData.invalid && nameData.errors?.['required'] && (nameData.dirty || nameData.touched)">
+                        Please enter with valid data
+                    </div>
+                </div>
+
+                <div class="input-group has-validation mb-2">
+                    <div class="form-floating"
+                        [ngClass]="emailData.invalid && emailData.errors?.['required'] && (emailData.dirty || emailData.touched) ? 'is-invalid' : ''">
+                        <input type="text" class="form-control"
+                            [ngClass]="emailData.invalid && emailData.errors?.['required'] && (emailData.dirty || emailData.touched) ? 'is-invalid' : ''"
+                            name="emailData" #emailData="ngModel" id="emailDataInput" placeholder="Name" required ngModel email>
+                        <label for="emailDataInput">
+                            <i class="bi bi-envelope-fill"></i>
+                            Email
+                        </label>
+                    </div>
+
+                    <div class="invalid-feedback"
+                        *ngIf="emailData.invalid && emailData.errors?.['required'] && (emailData.dirty || emailData.touched)">
+                        Please enter with valid data
+                    </div>
+                </div>
+
+                <div class="form-floating mb-2">
+                    <select class="form-select" id="roleData" aria-label="Select a role"
+                        aria-placeholder="Select a role..." name="roleData" #roleData="ngModel" ngModel required>
+                        <option value="ADMIN">ADMIN</option>
+                        <option value="SUPPORT">SUPPORT</option>
+                        <option value="SUPPORT MANAGER">SUPPORT MANAGER</option>
+                        <option value="SALES">SALES</option>
+                        <option value="SALES MANAGER">SALES MANAGER</option>
+                    </select>
+                    <label for="roleData">
+                        <i class="bi bi-briefcase-fill"></i>
+                        Role
+                    </label>
                 </div>
 
             </div>
             <div [ngClass]="isDarkMode ? 'bg-white modal-footer' : 'text-white bg-dark modal-footer'">
-                <button type="button" [disabled]="waitingActionResponse" (click)="selectedEmails = []"
-                    class="btn btn-secondary" data-bs-dismiss="modal">
+                <button type="reset" [disabled]="waitingActionResponse" (click)="createUserForm.reset" class="btn btn-secondary"
+                    data-bs-dismiss="modal">
                     <i class="bi bi-x"></i>
                     Cancel
                 </button>
-                <button [disabled]="waitingActionResponse" [disabled]="selectedEmails.length <= 0"
-                    class="btn btn-success" (click)="sendExcelUserReportForEmails()">
-                    <i class="bi bi-reply-fill"></i>
-                    Send Report
+                <button type="submit" [disabled]="waitingActionResponse || !createUserForm.valid" class="btn btn-success">
+                    <i class="bi bi-person-add"></i>
+                    Save user
                 </button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
-<div class="container text-center user-content">
+<div class="container text-center main-area">
 
     <div class="row">
         <div class="col-12 mt-3 text-white">
             <h2>User list</h2>
             <hr>
-            <div *ngIf="errorMessage != null" class="text-center text-dark alert alert-dark" role="alert">
-                <i class="bi bi-exclamation-triangle" style="color: #C30618;"></i>
-                {{errorMessage}}
-            </div>
-            <div *ngIf="successMessage != null" class="text-center text-dark alert alert-dark" role="alert">
-                <i class="bi bi-check-circle-fill" style="color: #00BF63;"></i>
-                {{successMessage}}
-            </div>
         </div>
         <div class="row mb-2">
-            <div class="col-4">
-                <button class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#sendToEmailModal">
+            <div class="col-4 main-btn-area">
+                <button class="btn me-2 btn-dark" data-bs-toggle="modal" data-bs-target="#createUserModal">
                     <i class="bi bi-person-add"></i>
                     Create user
                 </button>
-                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#sendToEmailModal">
+                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#sendToEmailModal">
                     <i class="bi bi-file-earmark-spreadsheet"></i>
                     Upload Users
                 </button>
@@ -70,7 +116,8 @@
 
             <div class="col">
                 <div class="d-flex flex-wrap align-items-center">
-                    <button class="btn dropdown-toggle" style="background-color: #FF3131;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn dropdown-toggle" style="background-color: #FF3131;" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-funnel"></i>
                     </button>
 
@@ -147,52 +194,53 @@
             </div>
         </div>
 
-        <table class="table table-dark table-sm mt-2">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">
-                        <i class="bi bi-person-fill"></i>
-                        NAME
-                    </th>
-                    <th scope="col">
-                        <i class="bi bi-envelope-fill"></i>
-                        EMAIL
-                    </th>
-                    <th scope="col">
-                        <i class="bi bi-briefcase-fill"></i>
-                        ROLE
-                    </th>
-                    <th scope="col">
-                        <i class="bi bi-person-fill-gear"></i>
-                        UPDATE
-                    </th>
-                    <th scope="col">
-                        <i class="bi bi-trash"></i>
-                        DELETE
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Test Jhon</td>
-                    <td>test@test.com</td>
-                    <td>ADMIN</td>
-                    <td>
-                        <button type="button" class="btn btn-primary">
+        <div class="col">
+            <table class="table table-hover table-sm mt-2">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <i class="bi bi-person-fill"></i>
+                            NAME
+                        </th>
+                        <th scope="col">
+                            <i class="bi bi-envelope-fill"></i>
+                            EMAIL
+                        </th>
+                        <th scope="col">
+                            <i class="bi bi-briefcase-fill"></i>
+                            ROLE
+                        </th>
+                        <th scope="col">
                             <i class="bi bi-person-fill-gear"></i>
-                        </button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-danger">
+                            UPDATE
+                        </th>
+                        <th scope="col">
                             <i class="bi bi-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                            DELETE
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="table-dark">
+                    <tr>
+                        <td>Test Jhon</td>
+                        <td>test@test.com</td>
+                        <td>ADMIN</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-primary">
+                                <i class="bi bi-person-fill-gear"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-outline-danger">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        <h2 *ngIf="chartData.length == 0" class="mt-3 text-white">Sorry, and error accoured while the data was
-            loading...</h2>
     </div>
+
     <br>
 </div>

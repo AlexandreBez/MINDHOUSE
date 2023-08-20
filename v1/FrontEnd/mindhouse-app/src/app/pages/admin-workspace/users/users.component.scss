@@ -3,17 +3,18 @@
 * {
   font-family: "DM Sans";
 }
-
 .close-btn{
   color: #ff3131;
 }
 
-.list-group-item:hover{
-  background-color: #ff3131;
-  color: white;
+.main-btn-area .bi{
+  color: #ff3131;
 }
 
-.user-content{
+.main-area{
   background-color: rgba(128, 128, 128, 0.650);
   border-radius: 10px;
+  .table thead .bi{
+    color: #ff3131;
+  }
 }
