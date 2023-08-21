@@ -7,6 +7,7 @@ import { Token } from '../../global/guards/Token.guard';
 import { Role } from '../../global/guards/Role.guard';
 import { UsersService } from './api/users.service';
 import { FormsModule } from '@angular/forms';
+import { SpinnerModule } from '../../global/loader/spinner.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     RouterModule.forChild([
       { path: 'Users', component: UsersComponent, canActivate: [Token, Role]}
     ]),
-    FormsModule
+    FormsModule,
+    SpinnerModule
   ],
   providers: [
     UsersService

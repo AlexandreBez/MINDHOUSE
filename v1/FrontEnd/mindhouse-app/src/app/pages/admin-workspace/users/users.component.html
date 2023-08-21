@@ -2,7 +2,7 @@
 <div class="modal fade" id="createUserModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
     aria-labelledby="createUserModal" aria-hidden="true">
     <div class="modal-dialog">
-        <form class="text-dark modal-content" (ngSubmit)="createNewUser()" #createUserForm="ngForm">
+        <form class="modal-content text-dark" (ngSubmit)="createNewUser()" #createUserForm="ngForm">
 
             <div [ngClass]="isDarkMode ? 'bg-white modal-header' : 'text-white bg-dark modal-header'">
                 <h1 class="modal-title fs-5">Create new user</h1>
@@ -16,8 +16,7 @@
                 <span class="visually-hidden">Loading...</span>
             </div>
 
-            <div *ngIf="!waitingActionResponse"
-                [ngClass]="isDarkMode ? 'text-white bg-dark modal-body' : 'text-dark bg-white modal-body'">
+            <div *ngIf="!waitingActionResponse" [ngClass]="isDarkMode ? 'bg-dark modal-body' : 'bg-white modal-body'">
 
                 <div *ngIf="errorModalMessage != null" class="text-center text-dark alert alert-dark" role="alert">
                     <i class="bi bi-exclamation-triangle" style="color: #C30618;"></i>
@@ -51,7 +50,8 @@
                         [ngClass]="emailData.invalid && emailData.errors?.['required'] && (emailData.dirty || emailData.touched) ? 'is-invalid' : ''">
                         <input type="text" class="form-control"
                             [ngClass]="emailData.invalid && emailData.errors?.['required'] && (emailData.dirty || emailData.touched) ? 'is-invalid' : ''"
-                            name="emailData" #emailData="ngModel" id="emailDataInput" placeholder="Name" required ngModel email>
+                            name="emailData" #emailData="ngModel" id="emailDataInput" placeholder="Name" required
+                            ngModel email>
                         <label for="emailDataInput">
                             <i class="bi bi-envelope-fill"></i>
                             Email
@@ -66,12 +66,14 @@
 
                 <div class="form-floating mb-2">
                     <select class="form-select" id="roleData" aria-label="Select a role"
-                        aria-placeholder="Select a role..." name="roleData" #roleData="ngModel" ngModel required>
+                        aria-placeholder="Select a role...." name="roleData" #roleData="ngModel" ngModel required>
                         <option value="ADMIN">ADMIN</option>
                         <option value="SUPPORT">SUPPORT</option>
                         <option value="SUPPORT MANAGER">SUPPORT MANAGER</option>
                         <option value="SALES">SALES</option>
                         <option value="SALES MANAGER">SALES MANAGER</option>
+                        <option value="SALES">BUSINESS</option>
+                        <option value="SALES MANAGER">BUSINESS MANAGER</option>
                     </select>
                     <label for="roleData">
                         <i class="bi bi-briefcase-fill"></i>
@@ -81,14 +83,165 @@
 
             </div>
             <div [ngClass]="isDarkMode ? 'bg-white modal-footer' : 'text-white bg-dark modal-footer'">
-                <button type="reset" [disabled]="waitingActionResponse" (click)="createUserForm.reset" class="btn btn-secondary"
-                    data-bs-dismiss="modal">
+                <button type="reset" [disabled]="waitingActionResponse" (click)="createUserForm.reset"
+                    class="btn btn-secondary" data-bs-dismiss="modal">
                     <i class="bi bi-x"></i>
                     Cancel
                 </button>
-                <button type="submit" [disabled]="waitingActionResponse || !createUserForm.valid" class="btn btn-success">
+                <button type="submit" [disabled]="waitingActionResponse || !createUserForm.valid"
+                    class="btn btn-success">
                     <i class="bi bi-person-add"></i>
                     Save user
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- delete User -->
+<div class="modal fade" id="deleteUserModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+    aria-labelledby="deleteUserModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content text-dark">
+
+            <div [ngClass]="isDarkMode ? 'bg-white modal-header' : 'text-white bg-dark modal-header'">
+                <h1 class="modal-title fs-5">Delete user</h1>
+                <button type="button" (click)="idForAction = null" [disabled]="waitingActionResponse"
+                    class="btn close-btn" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <div *ngIf="waitingActionResponse" class="spinner-border text-danger container-fluid" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+
+            <div *ngIf="!waitingActionResponse" [ngClass]="isDarkMode ? 'bg-dark modal-body' : 'bg-white modal-body'">
+
+                <div *ngIf="errorModalMessage != null" class="text-center text-dark alert alert-dark" role="alert">
+                    <i class="bi bi-exclamation-triangle" style="color: #C30618;"></i>
+                    {{errorModalMessage}}
+                </div>
+                <div *ngIf="successModalMessage != null" class="text-center text-dark alert alert-dark" role="alert">
+                    <i class="bi bi-check-circle-fill" style="color: #00BF63;"></i>
+                    {{successModalMessage}}
+                </div>
+                <div [ngClass]="isDarkMode ? 'text-white' : ''">
+                    <p>You really want to delete the user?</p>
+                    <p>After confirm action can't be canceled</p>
+                </div>
+            </div>
+
+            <div [ngClass]="isDarkMode ? 'bg-white modal-footer' : 'text-white bg-dark modal-footer'">
+                <button type="button" (click)="idForAction = null" [disabled]="waitingActionResponse"
+                    class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="bi bi-x" #closeButtonDeleteModal></i>
+                    Cancel
+                </button>
+                <button type="button" (click)="deleteUser(idForAction)" [disabled]="waitingActionResponse"
+                    class="btn btn-danger">
+                    <i class="bi bi-trash"></i>
+                    Delete user
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update User -->
+<div class="modal fade" id="updateUserModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+    aria-labelledby="updateUserModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <form class="modal-content text-dark" (ngSubmit)="updateUser()" #updateUserForm="ngForm">
+
+            <div [ngClass]="isDarkMode ? 'bg-white modal-header' : 'text-white bg-dark modal-header'">
+                <h1 class="modal-title fs-5">Update new user</h1>
+                <button type="reset" (click)="updateUserForm.reset" [disabled]="waitingActionResponse"
+                    class="btn close-btn" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <div *ngIf="waitingActionResponse" class="spinner-border text-danger container-fluid" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+
+            <div *ngIf="!waitingActionResponse" [ngClass]="isDarkMode ? 'bg-dark modal-body' : 'bg-white modal-body'">
+
+                <div *ngIf="errorModalMessage != null" class="text-center text-dark alert alert-dark" role="alert">
+                    <i class="bi bi-exclamation-triangle" style="color: #C30618;"></i>
+                    {{errorModalMessage}}
+                </div>
+                <div *ngIf="successModalMessage != null" class="text-center text-dark alert alert-dark" role="alert">
+                    <i class="bi bi-check-circle-fill" style="color: #00BF63;"></i>
+                    {{successModalMessage}}
+                </div>
+
+                <div class="input-group has-validation mb-2">
+                    <div class="form-floating"
+                        [ngClass]="updateNameData.invalid && updateNameData.errors?.['required'] && (updateNameData.dirty || updateNameData.touched) ? 'is-invalid' : ''">
+                        <input type="text" class="form-control"
+                            [ngClass]="updateNameData.invalid && updateNameData.errors?.['required'] && (updateNameData.dirty || updateNameData.touched) ? 'is-invalid' : ''"
+                            name="updateNameData" [(ngModel)]="userName" #updateNameData="ngModel"
+                            id="updateNameDataInput" placeholder="Name" required ngModel>
+                        <label for="updateNameDataInput">
+                            <i class="bi bi-person-badge-fill"></i>
+                            Name
+                        </label>
+                    </div>
+
+                    <div class="invalid-feedback"
+                        *ngIf="updateNameData.invalid && updateNameData.errors?.['required'] && (updateNameData.dirty || updateNameData.touched)">
+                        Please enter with valid data
+                    </div>
+                </div>
+
+                <div class="input-group has-validation mb-2">
+                    <div class="form-floating"
+                        [ngClass]="updateEmailData.invalid && updateEmailData.errors?.['required'] && (updateEmailData.dirty || updateEmailData.touched) ? 'is-invalid' : ''">
+                        <input type="text" class="form-control"
+                            [ngClass]="updateEmailData.invalid && updateEmailData.errors?.['required'] && (updateEmailData.dirty || updateEmailData.touched) ? 'is-invalid' : ''"
+                            name="updateEmailData" [(ngModel)]="userEmail" #updateEmailData="ngModel"
+                            id="updateEmailDataInput" placeholder="Name" required ngModel email>
+                        <label for="updateEmailDataInput">
+                            <i class="bi bi-envelope-fill"></i>
+                            Email
+                        </label>
+                    </div>
+
+                    <div class="invalid-feedback"
+                        *ngIf="updateEmailData.invalid && updateEmailData.errors?.['required'] && (updateEmailData.dirty || updateEmailData.touched)">
+                        Please enter with valid data
+                    </div>
+                </div>
+
+                <div class="form-floating mb-2">
+                    <select class="form-select" id="updateRoleData" aria-label="Select a role"
+                        aria-placeholder="Select a role...." [(ngModel)]="userRole" name="updateRoleData"
+                        #updateRoleData="ngModel" ngModel required>
+                        <option value="ADMIN">ADMIN</option>
+                        <option value="SUPPORT">SUPPORT</option>
+                        <option value="SUPPORT MANAGER">SUPPORT MANAGER</option>
+                        <option value="SALES">SALES</option>
+                        <option value="SALES MANAGER">SALES MANAGER</option>
+                    </select>
+                    <label for="updateRoleData">
+                        <i class="bi bi-briefcase-fill"></i>
+                        Role
+                    </label>
+                </div>
+
+            </div>
+            <div [ngClass]="isDarkMode ? 'bg-white modal-footer' : 'text-white bg-dark modal-footer'">
+                <button type="reset" [disabled]="waitingActionResponse" (click)="updateUserForm.reset"
+                    class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="bi bi-x" #closeButtonUpdateModal></i>
+                    Cancel
+                </button>
+                <button type="submit" [disabled]="waitingActionResponse || updateUserForm.invalid"
+                    class="btn btn-success">
+                    <i class="bi bi-person-fill-gear"></i>
+                    Update user
                 </button>
             </div>
         </form>
@@ -101,24 +254,20 @@
         <div class="col-12 mt-3 text-white">
             <h2>User list</h2>
             <hr>
-        </div>
-        <div class="row mb-2">
-            <div class="col-4 main-btn-area">
-                <button class="btn me-2 btn-dark" data-bs-toggle="modal" data-bs-target="#createUserModal">
-                    <i class="bi bi-person-add"></i>
-                    Create user
-                </button>
-                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#sendToEmailModal">
-                    <i class="bi bi-file-earmark-spreadsheet"></i>
-                    Upload Users
-                </button>
+            <div *ngIf="errorMessage != null" class="text-center text-dark alert alert-dark" role="alert">
+                <i class="bi bi-exclamation-triangle" style="color: #C30618;"></i>
+                {{errorMessage}}
             </div>
+        </div>
 
-            <div class="col">
+        <div class="row mb-2">
+
+            <div class="col mt-3">
                 <div class="d-flex flex-wrap align-items-center">
+
                     <button class="btn dropdown-toggle" style="background-color: #FF3131;" type="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-funnel"></i>
+                        <i class="bi bi-funnel text-white"></i>
                     </button>
 
                     <ul class="dropdown-menu">
@@ -126,9 +275,11 @@
                         <li>
                             <a class="dropdown-item" type="button">
                                 <div class="form-check">
-                                    <input class="form-check-input" value="name" type="radio" name="SearchByName"
+                                    <input [(ngModel)]="searchType" (click)="dataForSearch = ''"
+                                        class="form-check-input" value="name" type="radio" name="SearchByName"
                                         id="SearchByName">
-                                    <label class="form-check-label custom-text" for="SearchByName">
+                                    <label (click)="dataForSearch = ''" class="form-check-label custom-text"
+                                        for="SearchByName">
                                         <i class="bi bi-person-badge-fill"></i>
                                         Name
                                     </label>
@@ -143,9 +294,11 @@
                         <li>
                             <a class="dropdown-item" type="button">
                                 <div class="form-check">
-                                    <input class="form-check-input" value="email" type="radio" name="SearchByEmail"
+                                    <input [(ngModel)]="searchType" (click)="dataForSearch = ''"
+                                        class="form-check-input" value="email" type="radio" name="SearchByEmail"
                                         id="SearchByEmail">
-                                    <label class="form-check-label custom-text" for="SearchByEmail">
+                                    <label (click)="dataForSearch = ''" class="form-check-label custom-text"
+                                        for="SearchByEmail">
                                         <i class="bi bi-envelope-at"></i>
                                         Email
                                     </label>
@@ -160,9 +313,11 @@
                         <li>
                             <a class="dropdown-item" type="button">
                                 <div class="form-check">
-                                    <input class="form-check-input" value="role" type="radio" name="SearchByRole"
+                                    <input [(ngModel)]="searchType" (click)="dataForSearch = 'ADMIN'"
+                                        class="form-check-input" value="role" type="radio" name="SearchByRole"
                                         id="SearchByRole">
-                                    <label class="form-check-label custom-text" for="SearchByRole">
+                                    <label (click)="dataForSearch = 'ADMIN'" class="form-check-label custom-text"
+                                        for="SearchByRole">
                                         <i class="bi bi-boxes"></i>
                                         Role
                                     </label>
@@ -172,31 +327,45 @@
 
                     </ul>
 
-                    <div class="flex-grow-1 flex-shrink-1 me-1">
-                        <select class="form-select" aria-label="Default select example"
-                            aria-placeholder="Select a role...">
+                    <div class="flex-grow-3 flex-shrink-3" *ngIf="searchType == 'role'">
+                        <select style="width: 250px;" class="form-select" aria-label="Default select example"
+                            aria-placeholder="Select a role..." [(ngModel)]="dataForSearch">
                             <option value="ADMIN">ADMIN</option>
-                            <option value="SUPPORT">SUPPORT</option>
-                            <option value="SUPPORT MANAGER">SUPPORT MANAGER</option>
+                            <option value="SUPPORT">BUSINESS</option>
+                            <option value="SUPPORT MANAGER">BUSINESS MANAGER</option>
+                            <option value="SALES">SUPPORT</option>
+                            <option value="SALES MANAGER">SUPPORT MANAGER</option>
                             <option value="SALES">SALES</option>
                             <option value="SALES MANAGER">SALES MANAGER</option>
                         </select>
                     </div>
 
-                    <div class="flex-grow-1 flex-shrink-1 me-1">
-                        <input class="form-control" type="search" placeholder="Type here..." aria-label="Search">
+                    <div class="flex-grow-3 flex-shrink-3 ms-1 me-1" *ngIf="searchType !== 'role'">
+                        <input maxlength="100" [(ngModel)]="dataForSearch" class="form-control" style="width: 250px;"
+                            type="search" placeholder="Type here..." aria-label="Search">
                     </div>
 
-                    <button class="btn" style="background-color: #FF3131;">
+                    <button class="btn text-white" style="background-color: #FF3131;" (click)="searchUserByFilter()">
                         <i class="bi bi-search"></i>
                     </button>
                 </div>
             </div>
+
+            <div class="col-2 main-btn-area mt-3">
+                <button class="btn me-2 btn-dark" data-bs-toggle="modal" data-bs-target="#createUserModal">
+                    <i class="bi bi-person-add"></i>
+                    Create user
+                </button>
+            </div>
+
         </div>
 
-        <div class="col">
-            <table class="table table-hover table-sm mt-2">
-                <thead>
+
+        <app-spinner *ngIf="isLoading"></app-spinner>
+        <div class="col" *ngIf="!isLoading">
+            <h2 class="text-white" *ngIf="tableData.length <= 0">User not found...</h2>
+            <table class="table table-hover table-sm mt-2" *ngIf="tableData.length > 0">
+                <thead *ngIf="tableData.length > 0">
                     <tr>
                         <th scope="col">
                             <i class="bi bi-person-fill"></i>
@@ -221,17 +390,21 @@
                     </tr>
                 </thead>
                 <tbody class="table-dark">
-                    <tr>
-                        <td>Test Jhon</td>
-                        <td>test@test.com</td>
-                        <td>ADMIN</td>
+                    <tr *ngFor="let user of tableData">
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.role}}</td>
                         <td>
-                            <button type="button" class="btn btn-outline-primary">
+                            <button type="button" (click)="idForAction = user.user_id" (click)="userRole = user.role"
+                                (click)="userEmail = user.email" (click)="userName = user.name"
+                                class="btn btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#updateUserModal">
                                 <i class="bi bi-person-fill-gear"></i>
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-outline-danger">
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                                data-bs-target="#deleteUserModal" (click)="idForAction = user.user_id">
                                 <i class="bi bi-trash"></i>
                             </button>
                         </td>

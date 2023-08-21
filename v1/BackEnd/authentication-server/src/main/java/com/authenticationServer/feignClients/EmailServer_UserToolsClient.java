@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.authenticationServer.objects.CustomResponse;
 
-/**
- * The Interface EmailServerClient.
- */
 @Component
 @FeignClient(name="email-server", path="UserTools/v1/")
 public interface EmailServer_UserToolsClient {

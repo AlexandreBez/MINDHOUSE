@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { User } from './interface/User';
 import { CustomResponse } from 'src/app/pages/global/interfaces/CustomResponse';
+import { UsersTableData } from './interface/UserTableData';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +22,7 @@ export class UsersService {
 
   constructor(private http: HttpClient) {}
 
-  public createNewUSer(user: User): Observable<CustomResponse> {
+  public createNewUser(user: User): Observable<CustomResponse> {
     return this.http.post<CustomResponse>(
       this.gateway + 'saveUser',
       user,
@@ -31,4 +32,40 @@ export class UsersService {
     );
   }
   
+  public userTableData(): Observable<UsersTableData[]> {
+    return this.http.get<UsersTableData[]>(
+      this.gateway + 'getUsersTableData',
+      {
+        headers: this.authHeaders,
+      }
+    );
+  }
+
+  public filterSearch(type: string, data: string): Observable<UsersTableData[]> {
+    return this.http.get<UsersTableData[]>(
+      this.gateway + 'filterSearch/'+type+"/"+data,
+      {
+        headers: this.authHeaders,
+      }
+    );
+  }
+
+  public deleteUser(id: number): Observable<CustomResponse> {
+    return this.http.delete<CustomResponse>(
+      this.gateway + 'deleteUser/'+id,
+      {
+        headers: this.authHeaders,
+      }
+    );
+  }
+
+  public updateUser(user: User): Observable<CustomResponse> {
+    return this.http.put<CustomResponse>(
+      this.gateway + 'updateUser',
+      user,
+      {
+        headers: this.authHeaders,
+      }
+    );
+  }
 }

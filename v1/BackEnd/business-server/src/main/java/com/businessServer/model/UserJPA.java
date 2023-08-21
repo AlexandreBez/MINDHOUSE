@@ -22,4 +22,5 @@ public interface UserJPA extends JpaRepository<Users, Integer> {
 	@Query(value = "SELECT EMAIL FROM users WHERE STATUS = 'ACTIVE' ORDER BY EMAIL", nativeQuery = true)
 	Optional<String[]> getListOfEmails();
 
+	List<Users> findByEmail(String email);
 }

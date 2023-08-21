@@ -3,23 +3,25 @@ package com.authenticationServer.model;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.authenticationServer.model.entity.Users;
+import com.authenticationServer.objects.UserTableResponse;
 
-/**
- * Repository interface for performing CRUD operations on Users entities.
- * Extends JpaRepository interface.
- * Provides additional custom query methods.
- */
 public interface UserJPA extends JpaRepository<Users, Integer> {
     
-    /**
-     * Retrieves a list of Users by their email.
-     *
-     * @param email the email to search for
-     * @return the list of Users with the specified email
-     */
     List<Users> findByEmail(String email);
     
+    @Query("SELECT u.user_id,u.name,u.email,u.role FROM Users u ORDER BY u.name")
+    List<Object[]> getUsersTableData();
     
+    @Query("SELECT u.user_id,u.name,u.email,u.role FROM Users u WHERE u.name LIKE %:data% ORDER BY u.name")
+    List<Object[]> nameFilterSearch(@Param("data") String data);
+    
+    @Query("SELECT u.user_id,u.name,u.email,u.role FROM Users u WHERE u.email LIKE %:data% ORDER BY u.email")
+    List<Object[]> emailFilterSearch(@Param("data") String data);
+    
+    @Query("SELECT u.user_id,u.name,u.email,u.role FROM Users u WHERE u.role = :data ORDER BY u.role")
+    List<Object[]> roleFilterSearch(@Param("data") String data);
 }

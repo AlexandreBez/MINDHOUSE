@@ -10,7 +10,6 @@ import java.util.Optional;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,25 +23,22 @@ import org.springframework.stereotype.Service;
 
 import com.authenticationServer.factory.TempPasswordFactory;
 import com.authenticationServer.factory.TokenFactory;
+import com.authenticationServer.feignClients.BusinessServer_UserData;
 import com.authenticationServer.feignClients.EmailServer_UserToolsClient;
 import com.authenticationServer.model.UserJPA;
 import com.authenticationServer.model.entity.Users;
 import com.authenticationServer.objects.CustomResponse;
 import com.authenticationServer.objects.ResetPasswordRequest;
 import com.authenticationServer.objects.TempPasswordRequest;
+import com.authenticationServer.objects.UserTableResponse;
+import com.authenticationServer.objects.UsersBusinessServer;
 import com.authenticationServer.security.implementation.UserDetailsServiceImplementation;
 
-/**
- * The Class UserService.
- */
 @Service
 public class UserService implements UserDetailsServiceImplementation {
 
 	@Autowired
 	UserJPA userRepository;
-
-	@Autowired
-	RabbitTemplate rabbitTemplate;
 
 	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -52,9 +48,12 @@ public class UserService implements UserDetailsServiceImplementation {
 
 	@Autowired
 	TempPasswordFactory tempPasswordFactory;
-	
+
 	@Autowired
 	EmailServer_UserToolsClient emailServer_UserToolsClient;
+	
+	@Autowired
+	BusinessServer_UserData businessServer_UserData;
 
 	public Users findByEmail(String email) {
 		List<Users> user = userRepository.findByEmail(email);
@@ -237,8 +236,9 @@ public class UserService implements UserDetailsServiceImplementation {
 				response.setTimestamp(new Date().toString());
 				return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
 			}
-			
-			CustomResponse emailResponse = emailServer_UserToolsClient.changeTempPassword(email, user.get(0).getToken_reset_password()).getBody();
+
+			CustomResponse emailResponse = emailServer_UserToolsClient
+					.changeTempPassword(email, user.get(0).getToken_reset_password()).getBody();
 
 			if (emailResponse.getStatusCode() != 200) {
 				return new ResponseEntity<>(emailResponse, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -255,37 +255,212 @@ public class UserService implements UserDetailsServiceImplementation {
 			return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+
 	@Transactional
 	public ResponseEntity<CustomResponse> resetPassword(ResetPasswordRequest resetPasswordRequest) {
 
 		CustomResponse response = new CustomResponse();
 		try {
-			
-			if (resetPasswordRequest.getEmail().isEmpty() || resetPasswordRequest.getPassword().isEmpty() || resetPasswordRequest.getToken().isEmpty()) {
+
+			if (resetPasswordRequest.getEmail().isEmpty() || resetPasswordRequest.getPassword().isEmpty()
+					|| resetPasswordRequest.getToken().isEmpty()) {
 				response.setMessage("Data sent is empty...Server can't finish request");
 				response.setStatusCode(400);
 				response.setTimestamp(new Date().toString());
 				return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 			}
-					
+
 			List<Users> user = userRepository.findByEmail(resetPasswordRequest.getEmail());
-			
-			if(!resetPasswordRequest.getToken().equals(user.get(0).getToken_reset_password())) {
+
+			if (!resetPasswordRequest.getToken().equals(user.get(0).getToken_reset_password())) {
 				response.setMessage("Tokens are not equals...");
 				response.setStatusCode(400);
 				response.setTimestamp(new Date().toString());
 				return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 			}
-			
+
 			Users updatedInfo = user.get(0);
 			updatedInfo.setExpiration_time_reset_password(null);
 			updatedInfo.setToken_reset_password(null);
 			updatedInfo.setPassword(bCryptPasswordEncoder.encode(resetPasswordRequest.getPassword()));
 
 			userRepository.save(updatedInfo);
-			
+
 			response.setMessage("Password updated with success...");
+			response.setStatusCode(200);
+			response.setTimestamp(new Date().toString());
+			return new ResponseEntity<>(response, HttpStatus.OK);
+		} catch (Exception e) {
+			response.setMessage(e.getMessage());
+			response.setStatusCode(500);
+			response.setTimestamp(new Date().toString());
+			return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@Transactional
+	public ResponseEntity<CustomResponse> saveUser(Users users) {
+
+		CustomResponse response = new CustomResponse();
+		try {
+
+			if (users == null) {
+				response.setMessage("Data sent is empty...Server can't finish request");
+				response.setStatusCode(400);
+				response.setTimestamp(new Date().toString());
+				return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+			}
+
+			List<Users> checkUserExist = userRepository.findByEmail(users.getEmail());
+			if (!checkUserExist.isEmpty()) {
+				response.setMessage("User already exist...");
+				response.setStatusCode(400);
+				response.setTimestamp(new Date().toString());
+				return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+			}
+
+			UsersBusinessServer usersBusinessServer = new UsersBusinessServer();
+			usersBusinessServer.setName(users.getName());
+			usersBusinessServer.setEmail(users.getEmail());
+			usersBusinessServer.setRole(users.getRole());
+			usersBusinessServer.setStatus("ACTIVE");
+			usersBusinessServer.setCreated_on(LocalDateTime.now());
+			response = businessServer_UserData.modifyUserInformations(usersBusinessServer).getBody();
+			
+			if (response.getStatusCode() != 200) {
+				return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+			
+			String tempPassword = tempPasswordFactory.generateTempPassword();
+			response = emailServer_UserToolsClient.sendTempPassword(users.getEmail(), tempPassword).getBody();
+
+			if (response.getStatusCode() != 200) {
+				return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+
+			users.setPassword(bCryptPasswordEncoder.encode(tempPassword));
+			users.setCreated_on(LocalDateTime.now());
+			userRepository.save(users);
+
+			response.setMessage("User created with success...");
+			response.setStatusCode(200);
+			response.setTimestamp(new Date().toString());
+			return new ResponseEntity<>(response, HttpStatus.OK);
+		} catch (Exception e) {
+			response.setMessage(e.getMessage());
+			response.setStatusCode(500);
+			response.setTimestamp(new Date().toString());
+			return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@Transactional
+	public ResponseEntity<List<UserTableResponse>> getUsersTableData() {
+
+		try {
+			List<Object[]> checkUserExist = userRepository.getUsersTableData();
+
+			if (checkUserExist.isEmpty()) {
+				System.err.println("No data found...");
+				return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+			}
+
+			List<UserTableResponse> userTableResponse = new ArrayList<>();
+
+			for (Object[] result : checkUserExist) {
+
+				UserTableResponse user = new UserTableResponse();
+
+				user.setUser_id((Integer) result[0]);
+				user.setName((String) result[1]);
+				user.setEmail((String) result[2]);
+				user.setRole((String) result[3]);
+
+				userTableResponse.add(user);
+			}
+
+			return new ResponseEntity<>(userTableResponse, HttpStatus.OK);
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@Transactional
+	public ResponseEntity<List<UserTableResponse>> filterSearch(String type, String data) {
+
+		try {
+
+			if (type.isEmpty() || data.isEmpty()) {
+				System.err.println("Data sent is empty...");
+				return new ResponseEntity<>(null, HttpStatus.BAD_GATEWAY);
+			}
+
+			List<Object[]> checkUserExist;
+
+			switch (type) {
+			case "name":
+				checkUserExist = userRepository.nameFilterSearch(data);
+				break;
+			case "email":
+				checkUserExist = userRepository.emailFilterSearch(data);
+				break;
+			case "role":
+				checkUserExist = userRepository.roleFilterSearch(data);
+				break;
+			default:
+				return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+
+			List<UserTableResponse> userTableResponse = new ArrayList<>();
+
+			for (Object[] result : checkUserExist) {
+
+				UserTableResponse user = new UserTableResponse();
+
+				user.setUser_id((Integer) result[0]);
+				user.setName((String) result[1]);
+				user.setEmail((String) result[2]);
+				user.setRole((String) result[3]);
+
+				userTableResponse.add(user);
+			}
+
+			return new ResponseEntity<>(userTableResponse, HttpStatus.OK);
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+
+	@Transactional
+	public ResponseEntity<CustomResponse> deleteUser(Integer id) {
+		CustomResponse response = new CustomResponse();
+		try {
+			
+			Optional<Users> checkUserExist = userRepository.findById(id);
+			
+			if (checkUserExist.isEmpty()) {
+				response.setMessage("User don't exist..");
+				response.setStatusCode(400);
+				response.setTimestamp(new Date().toString());
+				return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+			}
+			
+			UsersBusinessServer usersBusinessServer = new UsersBusinessServer();
+			usersBusinessServer.setEmail(checkUserExist.get().getEmail());
+			usersBusinessServer.setStatus("DISABLED");
+			usersBusinessServer.setUpdated_on(LocalDateTime.now());
+			response = businessServer_UserData.modifyUserInformations(usersBusinessServer).getBody();
+			
+			if (response.getStatusCode() != 200) {
+				return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+			
+			userRepository.deleteById(id);
+			
+			response.setMessage("User deleted with success...");
 			response.setStatusCode(200);
 			response.setTimestamp(new Date().toString());
 			return new ResponseEntity<>(response, HttpStatus.OK);
@@ -298,38 +473,39 @@ public class UserService implements UserDetailsServiceImplementation {
 	}
 	
 	@Transactional
-	public ResponseEntity<CustomResponse> saveUser(Users users) {
-
+	public ResponseEntity<CustomResponse> updateUser(Users user) {
 		CustomResponse response = new CustomResponse();
 		try {
 			
-			if (users == null) {
-				response.setMessage("Data sent is empty...Server can't finish request");
+			Optional<Users> checkUserExist = userRepository.findById(user.getUser_id());
+			
+			if (checkUserExist.isEmpty()) {
+				response.setMessage("User don't exist..");
 				response.setStatusCode(400);
 				response.setTimestamp(new Date().toString());
 				return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 			}
 			
-			List<Users> checkUserExist = userRepository.findByEmail(users.getEmail());
-			if(!checkUserExist.isEmpty()) {
-				response.setMessage("User already exist...");
-				response.setStatusCode(400);
-				response.setTimestamp(new Date().toString());
-				return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
-			}
-
-			String tempPassword = tempPasswordFactory.generateTempPassword();
-			response = emailServer_UserToolsClient.sendTempPassword(users.getEmail(), tempPassword).getBody();
+			Users usersForUpdate = checkUserExist.get();
 			
-			if(response.getStatusCode() != 200) {
+			UsersBusinessServer usersBusinessServer = new UsersBusinessServer();
+			usersBusinessServer.setName(usersForUpdate.getName());
+			usersBusinessServer.setEmail(usersForUpdate.getEmail());
+			usersBusinessServer.setRole(usersForUpdate.getRole());
+			usersBusinessServer.setUpdated_on(LocalDateTime.now());
+			response = businessServer_UserData.modifyUserInformations(usersBusinessServer).getBody();
+			
+			if (response.getStatusCode() != 200) {
 				return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 			
-			users.setPassword(bCryptPasswordEncoder.encode(tempPassword));
-			users.setCreated_on(LocalDateTime.now());
-			userRepository.save(users);
+			usersForUpdate.setName(user.getName());
+			usersForUpdate.setEmail(user.getEmail());
+			usersForUpdate.setRole(user.getRole());
 			
-			response.setMessage("User created with success...");
+			userRepository.save(usersForUpdate);
+			
+			response.setMessage("User updated with success...");
 			response.setStatusCode(200);
 			response.setTimestamp(new Date().toString());
 			return new ResponseEntity<>(response, HttpStatus.OK);
