@@ -37,10 +37,14 @@ export class UsersComponent implements OnInit{
   @ViewChild('updateUserForm') updateUserFormData: NgForm;
   @ViewChild('closeButtonUpdateModal') closeButtonUpdate!: ElementRef;
 
+  get_auth_data: any = localStorage.getItem('AUTH_COOKIE');
+  decripted_data: any = atob(this.get_auth_data);
+  parsed_data: any = JSON.parse(this.decripted_data);
+  parsed_data_user_id = this.parsed_data.id
+
   constructor(
     private usersService: UsersService,
     private renderer: Renderer2,
-    private http: HttpClient
   ) {
     this.getTheme();
   }
@@ -75,6 +79,7 @@ export class UsersComponent implements OnInit{
         console.info(data);
         setTimeout(() => {
           this.successModalMessage = null;
+          this.getUsersTableData();
         }, 3500);
       },
       error => {
@@ -132,24 +137,30 @@ export class UsersComponent implements OnInit{
   deleteUser(id: number){
     this.waitingActionResponse = true;
     this.errorModalMessage = null;
-    this.usersService.deleteUser(id)
-    .subscribe(
-      data => {
-        console.info(data);
-        this.waitingActionResponse = false;
-        this.successModalMessage = data.message;
-        setTimeout(() => {
-          this.getUsersTableData();
-          this.successModalMessage = null;
-          this.renderer.selectRootElement(this.closeButtonDelete.nativeElement).click();
-        }, 2000);
-      },
-      error => {
-        console.warn(error);
-        this.waitingActionResponse = false;
-        this.errorModalMessage = "Oops... something went wrong";
-      }
-    )
+
+    if (this.parsed_data_user_id == id) {
+      this.waitingActionResponse = false;
+      this.errorModalMessage = "You can't delete your own user while logged in...";
+    }else{
+      this.usersService.deleteUser(id)
+      .subscribe(
+        data => {
+          console.info(data);
+          this.waitingActionResponse = false;
+          this.successModalMessage = data.message;
+          setTimeout(() => {
+            this.getUsersTableData();
+            this.successModalMessage = null;
+            this.renderer.selectRootElement(this.closeButtonDelete.nativeElement).click();
+          }, 2000);
+        },
+        error => {
+          console.warn(error);
+          this.waitingActionResponse = false;
+          this.errorModalMessage = "Oops... something went wrong";
+        }
+      )
+    }
   }
 
   updateUser(){

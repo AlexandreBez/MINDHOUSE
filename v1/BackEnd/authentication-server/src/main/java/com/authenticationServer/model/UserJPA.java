@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.authenticationServer.model.entity.Users;
-import com.authenticationServer.objects.UserTableResponse;
 
 public interface UserJPA extends JpaRepository<Users, Integer> {
     
@@ -24,4 +23,5 @@ public interface UserJPA extends JpaRepository<Users, Integer> {
     
     @Query("SELECT u.user_id,u.name,u.email,u.role FROM Users u WHERE u.role = :data ORDER BY u.role")
     List<Object[]> roleFilterSearch(@Param("data") String data);
+   
 }

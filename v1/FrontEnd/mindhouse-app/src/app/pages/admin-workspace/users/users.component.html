@@ -280,7 +280,7 @@
                                         id="SearchByName">
                                     <label (click)="dataForSearch = ''" class="form-check-label custom-text"
                                         for="SearchByName">
-                                        <i class="bi bi-person-badge-fill"></i>
+                                        <i class="bi bi-person-badge-fill" style="color: #ff3131"></i>
                                         Name
                                     </label>
                                 </div>
@@ -299,7 +299,7 @@
                                         id="SearchByEmail">
                                     <label (click)="dataForSearch = ''" class="form-check-label custom-text"
                                         for="SearchByEmail">
-                                        <i class="bi bi-envelope-at"></i>
+                                        <i class="bi bi-envelope-at" style="color: #ff3131"></i>
                                         Email
                                     </label>
                                 </div>
@@ -318,7 +318,7 @@
                                         id="SearchByRole">
                                     <label (click)="dataForSearch = 'ADMIN'" class="form-check-label custom-text"
                                         for="SearchByRole">
-                                        <i class="bi bi-boxes"></i>
+                                        <i class="bi bi-boxes" style="color: #ff3131"></i>
                                         Role
                                     </label>
                                 </div>
@@ -327,7 +327,7 @@
 
                     </ul>
 
-                    <div class="flex-grow-3 flex-shrink-3" *ngIf="searchType == 'role'">
+                    <div class="flex-grow-3 flex-shrink-3 ms-1 me-1" *ngIf="searchType == 'role'">
                         <select style="width: 250px;" class="form-select" aria-label="Default select example"
                             aria-placeholder="Select a role..." [(ngModel)]="dataForSearch">
                             <option value="ADMIN">ADMIN</option>
@@ -359,7 +359,6 @@
             </div>
 
         </div>
-
 
         <app-spinner *ngIf="isLoading"></app-spinner>
         <div class="col" *ngIf="!isLoading">
@@ -403,7 +402,7 @@
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                            <button type="button" [disabled]="parsed_data_user_id == user.user_id" class="btn btn-outline-danger" data-bs-toggle="modal"
                                 data-bs-target="#deleteUserModal" (click)="idForAction = user.user_id">
                                 <i class="bi bi-trash"></i>
                             </button>

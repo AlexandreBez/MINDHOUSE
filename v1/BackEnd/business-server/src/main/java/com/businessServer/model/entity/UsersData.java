@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="USERS")
-public class Users {
+public class UsersData {
 
 	@Id
 	@Column(name="USER_ID")
@@ -36,9 +36,9 @@ public class Users {
 	@Column(name="UPDATED_ON", nullable = true)
 	private LocalDateTime updated_on;
 	
-	public Users() {}
+	public UsersData() {}
 
-	public Users(Integer user_id, String name, String email, String role, LocalDateTime created_on, String status,
+	public UsersData(Integer user_id, String name, String email, String role, LocalDateTime created_on, String status,
 			LocalDateTime updated_on) {
 		super();
 		this.user_id = user_id;
@@ -46,6 +46,13 @@ public class Users {
 		this.email = email;
 		this.role = role;
 		this.created_on = created_on;
+		this.status = status;
+		this.updated_on = updated_on;
+	}
+	
+	public UsersData(String email,String status,LocalDateTime updated_on) {
+		super();
+		this.email = email;
 		this.status = status;
 		this.updated_on = updated_on;
 	}

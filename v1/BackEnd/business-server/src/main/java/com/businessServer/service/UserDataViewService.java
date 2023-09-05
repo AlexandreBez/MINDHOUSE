@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
 
 import com.businessServer.feignClients.EmailServer_DataView;
 import com.businessServer.model.UserJPA;
-import com.businessServer.model.entity.Users;
+import com.businessServer.model.entity.UsersData;
 import com.businessServer.objects.AmountOfRolesGraphicData;
 import com.businessServer.objects.CustomResponse;
 import com.businessServer.objects.FileShareHelper;
@@ -98,7 +98,7 @@ public class UserDataViewService {
 
 		try {
 			
-			List<Users> result = userJPA.findAll();
+			List<UsersData> result = userJPA.findAll();
 
 			if (result.isEmpty()) {
 				return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -127,7 +127,7 @@ public class UserDataViewService {
 		CustomResponse response = new CustomResponse();
 		try {
 			
-			List<Users> result = userJPA.findAll();
+			List<UsersData> result = userJPA.findAll();
 
 			if (result.isEmpty()) {
 				response.setMessage("There is no data to generate a report");

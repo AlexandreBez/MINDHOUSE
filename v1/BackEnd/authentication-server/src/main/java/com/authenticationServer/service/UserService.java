@@ -31,7 +31,7 @@ import com.authenticationServer.objects.CustomResponse;
 import com.authenticationServer.objects.ResetPasswordRequest;
 import com.authenticationServer.objects.TempPasswordRequest;
 import com.authenticationServer.objects.UserTableResponse;
-import com.authenticationServer.objects.UsersBusinessServer;
+import com.authenticationServer.objects.UsersData;
 import com.authenticationServer.security.implementation.UserDetailsServiceImplementation;
 
 @Service
@@ -319,13 +319,13 @@ public class UserService implements UserDetailsServiceImplementation {
 				return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 			}
 
-			UsersBusinessServer usersBusinessServer = new UsersBusinessServer();
-			usersBusinessServer.setName(users.getName());
-			usersBusinessServer.setEmail(users.getEmail());
-			usersBusinessServer.setRole(users.getRole());
-			usersBusinessServer.setStatus("ACTIVE");
-			usersBusinessServer.setCreated_on(LocalDateTime.now());
-			response = businessServer_UserData.modifyUserInformations(usersBusinessServer).getBody();
+			UsersData userData = new UsersData();
+			userData.setName(users.getName());
+			userData.setEmail(users.getEmail());
+			userData.setRole(users.getRole());
+			userData.setStatus("ENABLED");
+			userData.setCreated_on(LocalDateTime.now());
+			response = businessServer_UserData.saveUser(userData).getBody();
 			
 			if (response.getStatusCode() != 200) {
 				return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -448,11 +448,11 @@ public class UserService implements UserDetailsServiceImplementation {
 				return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 			}
 			
-			UsersBusinessServer usersBusinessServer = new UsersBusinessServer();
-			usersBusinessServer.setEmail(checkUserExist.get().getEmail());
-			usersBusinessServer.setStatus("DISABLED");
-			usersBusinessServer.setUpdated_on(LocalDateTime.now());
-			response = businessServer_UserData.modifyUserInformations(usersBusinessServer).getBody();
+			UsersData userData = new UsersData();
+			userData.setEmail(checkUserExist.get().getEmail());
+			userData.setStatus("DISABLED");
+			userData.setUpdated_on(LocalDateTime.now());
+			response = businessServer_UserData.dissableUser(userData).getBody();
 			
 			if (response.getStatusCode() != 200) {
 				return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -488,12 +488,12 @@ public class UserService implements UserDetailsServiceImplementation {
 			
 			Users usersForUpdate = checkUserExist.get();
 			
-			UsersBusinessServer usersBusinessServer = new UsersBusinessServer();
-			usersBusinessServer.setName(usersForUpdate.getName());
-			usersBusinessServer.setEmail(usersForUpdate.getEmail());
-			usersBusinessServer.setRole(usersForUpdate.getRole());
-			usersBusinessServer.setUpdated_on(LocalDateTime.now());
-			response = businessServer_UserData.modifyUserInformations(usersBusinessServer).getBody();
+			UsersData userData = new UsersData();
+			userData.setName(user.getName());
+			userData.setEmail(user.getEmail());
+			userData.setRole(user.getRole());
+			userData.setUpdated_on(LocalDateTime.now());
+			response = businessServer_UserData.updateUser(userData).getBody();
 			
 			if (response.getStatusCode() != 200) {
 				return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);

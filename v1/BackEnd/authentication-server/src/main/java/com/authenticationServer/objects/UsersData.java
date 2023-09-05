@@ -2,7 +2,7 @@ package com.authenticationServer.objects;
 
 import java.time.LocalDateTime;
 
-public class UsersBusinessServer {
+public class UsersData {
 
 	private Integer user_id;
 	private String name;
@@ -12,9 +12,9 @@ public class UsersBusinessServer {
 	private String status;
 	private LocalDateTime updated_on;
 	
-	public UsersBusinessServer() {}
-
-	public UsersBusinessServer(Integer user_id, String name, String email, String role, LocalDateTime created_on, String status,
+	public UsersData() {}
+	
+	public UsersData(Integer user_id, String name, String email, String role, LocalDateTime created_on, String status,
 			LocalDateTime updated_on) {
 		super();
 		this.user_id = user_id;
@@ -22,6 +22,13 @@ public class UsersBusinessServer {
 		this.email = email;
 		this.role = role;
 		this.created_on = created_on;
+		this.status = status;
+		this.updated_on = updated_on;
+	}
+
+	public UsersData(String email,String status,LocalDateTime updated_on) {
+		super();
+		this.email = email;
 		this.status = status;
 		this.updated_on = updated_on;
 	}

@@ -18,7 +18,7 @@ import com.businessServer.objects.CustomResponse;
 import com.businessServer.service.UserDataViewService;
 
 @RestController
-@RequestMapping("/DataView/v1/")
+@RequestMapping("DataView/v1/")
 public class DataViewController {
 
 	@Autowired

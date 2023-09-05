@@ -14,12 +14,12 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Service;
 
-import com.businessServer.model.entity.Users;
+import com.businessServer.model.entity.UsersData;
 
 @Service
 public class UserExcelReport {
 
-	public Path createUserExcelWorkbook(List<Users> users) throws IOException {
+	public Path createUserExcelWorkbook(List<UsersData> usersData) throws IOException {
 
 		Workbook workbook = new XSSFWorkbook();
 		Sheet sheet = workbook.createSheet("User report");
@@ -38,9 +38,9 @@ public class UserExcelReport {
 		Cell headerCell6 = headerRow.createCell(5);
 		headerCell6.setCellValue("UPDATED_ON");
 
-		for (int i = 0; i < users.size(); i++) {
+		for (int i = 0; i < usersData.size(); i++) {
 			Row dataRow = sheet.createRow(i + 1);
-			Users userReportData = users.get(i);
+			UsersData userReportData = usersData.get(i);
 
 			Cell dataCell1 = dataRow.createCell(0);
 			dataCell1.setCellValue(userReportData.getName());
@@ -69,7 +69,7 @@ public class UserExcelReport {
 		return tempFile;
 	}
 	
-	public Path createUserExcelWorkbookAndSave(List<Users> users) throws IOException {
+	public Path createUserExcelWorkbookAndSave(List<UsersData> usersData) throws IOException {
 
 		Workbook workbook = new XSSFWorkbook();
 		Sheet sheet = workbook.createSheet("User report");
@@ -88,9 +88,9 @@ public class UserExcelReport {
 		Cell headerCell6 = headerRow.createCell(5);
 		headerCell6.setCellValue("UPDATED_ON");
 
-		for (int i = 0; i < users.size(); i++) {
+		for (int i = 0; i < usersData.size(); i++) {
 			Row dataRow = sheet.createRow(i + 1);
-			Users userReportData = users.get(i);
+			UsersData userReportData = usersData.get(i);
 
 			Cell dataCell1 = dataRow.createCell(0);
 			dataCell1.setCellValue(userReportData.getName());
