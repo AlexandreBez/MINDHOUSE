@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import com.authenticationServer.objects.CustomResponse;
 
@@ -13,7 +12,7 @@ import com.authenticationServer.objects.CustomResponse;
 @FeignClient(name="email-server", path="UserTools/v1/")
 public interface EmailServer_UserToolsClient {
 
-	@PostMapping("SendTokenByEmail/{email}/{token}")
+	@GetMapping("SendTokenByEmail/{email}/{token}")
 	public ResponseEntity<CustomResponse> changeTempPassword(@PathVariable("email") String email,@PathVariable("token") String token);
 
 	@GetMapping("SendTempPassword/{email}/{password}")
